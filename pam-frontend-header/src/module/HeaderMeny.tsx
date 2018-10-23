@@ -10,7 +10,7 @@ export enum TabId {
   VAAR_SIDE = 'VAAR_SIDE',
   KANDIDATSOK = 'KANDIDATSOK',
   KANDIDATLISTER = 'KANDIDATLISTER',
-  STILLINGSREGISTRERING = 'STILLINGSREGISTRERING'
+  STILLINGSANNONSER = 'STILLINGSANNONSER'
 }
 
 interface Tab {
@@ -36,8 +36,8 @@ const tabs : Array<Tab> = [
         href: '/pam-kandidatsok/lister'
     },
     {
-        id: TabId.STILLINGSREGISTRERING,
-        tittel: 'Stillingsregistrering',
+        id: TabId.STILLINGSANNONSER,
+        tittel: 'Stillingsannonser',
         href: '/stillingsregistrering/vilkaar'
     }
 ];

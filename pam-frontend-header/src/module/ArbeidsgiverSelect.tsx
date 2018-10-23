@@ -30,6 +30,7 @@ class ArbeidsgiverSelect extends React.Component<ArbeidsgiverSelectProps> {
                 onChange={this.onArbeidsgiverChange}
                 value={valgtArbeidsgiverId}
                 bredde="m"
+                aria-label="Velg arbeidsgiver"
             >
                 <option value="0">Velg arbeidsgiver</option>
                 {arbeidsgivere && arbeidsgivere.map((arbeidsgiver) => (
