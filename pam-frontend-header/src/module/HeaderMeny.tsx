@@ -28,12 +28,12 @@ const tabs : Array<Tab> = [
   {
         id: TabId.KANDIDATSOK,
         tittel: 'Kandidatsøk',
-        href: '/pam-kandidatsok'
+        href: '/kandidater'
     },
     {
         id: TabId.KANDIDATLISTER,
         tittel: 'Kandidatlister',
-        href: '/pam-kandidatsok/lister'
+        href: '/kandidater/lister'
     },
     {
         id: TabId.STILLINGSANNONSER,
