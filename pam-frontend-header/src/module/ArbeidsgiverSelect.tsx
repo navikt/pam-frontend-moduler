@@ -12,10 +12,8 @@ interface ArbeidsgiverSelectProps {
 class ArbeidsgiverSelect extends React.Component<ArbeidsgiverSelectProps> {
     onArbeidsgiverChange = (e: ChangeEvent<HTMLSelectElement>) => {
         if (e.target.value !== '0') {
-            sessionStorage.setItem('orgnr', e.target.value);
             this.props.onArbeidsgiverSelect(e.target.value);
         } else {
-            sessionStorage.removeItem('orgnr');
             this.props.onArbeidsgiverSelect();
         }
     };
