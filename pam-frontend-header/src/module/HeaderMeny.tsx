@@ -55,10 +55,6 @@ interface HeaderMenyProps {
 }
 
 export const HeaderMeny = ({ onLoggUt, onArbeidsgiverSelect, arbeidsgivere, valgtArbeidsgiverId, activeTabID } : HeaderMenyProps ) => {
-    const onLoggUtClick = () => {
-        sessionStorage.removeItem('orgnr');
-        onLoggUt();
-    };
     return (
         <div className="HeaderMeny">
             <div className="topp">
@@ -80,7 +76,7 @@ export const HeaderMeny = ({ onLoggUt, onArbeidsgiverSelect, arbeidsgivere, valg
                         ))}
                 </div>
                 <div>
-                    <Knapp onClick={onLoggUtClick} id="logg-ut" className="knapp knapp--mini knapp--loggut">
+                    <Knapp onClick={onLoggUt} id="logg-ut" className="knapp knapp--mini knapp--loggut">
                         Logg ut
                     </Knapp>
                 </div>
