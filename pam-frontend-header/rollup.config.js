@@ -33,7 +33,8 @@ export default {
     url(),
     resolve(),
     typescript({
-      rollupCommonJSResolveHack: true
+      rollupCommonJSResolveHack: true,
+      clean: true
     }),
     commonjs(),
     less({
