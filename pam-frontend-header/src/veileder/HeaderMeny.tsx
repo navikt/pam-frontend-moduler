@@ -6,7 +6,8 @@ export enum VeilederTabId {
     STILLINGSSOK = 'STILLINGSSOK',
     MINE_STILLINGER = 'MINE_STILLINGER',
     KANDIDATLISTER = 'KANDIDATLISTER',
-    KANDIDATSOK = 'KANDIDATSOK'
+    KANDIDATSOK = 'KANDIDATSOK',
+    REKRUTTERINGSBISTAND_INGEN_TAB = 'REKRUTTERINGSBISTAND_INGEN_TAB'
 }
 
 interface Tab {
@@ -23,7 +24,7 @@ enum App {
 }
 
 function getApp(tabId : VeilederTabId) : App {
-    if(tabId === VeilederTabId.MINE_STILLINGER || tabId === VeilederTabId.STILLINGSSOK) {
+    if (tabId === VeilederTabId.MINE_STILLINGER || tabId === VeilederTabId.STILLINGSSOK || tabId === VeilederTabId.REKRUTTERINGSBISTAND_INGEN_TAB) {
         return App.REKRUTTERINGSBISTAND;
     } else if (tabId === VeilederTabId.KANDIDATLISTER || tabId === VeilederTabId.KANDIDATSOK) {
         return App.KANDIDATSOK
@@ -73,7 +74,10 @@ export const VeilederHeaderMeny = ({ activeTabID, innloggetBruker }: VeilederHea
                         <i className="logo_icon"/>
                     </div>
                     <div className="logotekst">
-                        <a href="/">Rekrutteringsbistand</a>
+                        {getApp(activeTabID) === App.REKRUTTERINGSBISTAND
+                            ? <Link to="/">Rekrutteringsbistand</Link>
+                            : <a href="/">Rekrutteringsbistand</a>
+                        }
                     </div>
                 </div>
                 <div>
