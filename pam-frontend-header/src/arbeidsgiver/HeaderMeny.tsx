@@ -6,7 +6,7 @@ import ArbeidsgiverSelect from './ArbeidsgiverSelect';
 import { Arbeidsgiver } from './PropTypes';
 import './HeaderMeny.less';
 
-export enum TabId {
+export enum ArbeidsgiverTabId {
   VAAR_SIDE = 'VAAR_SIDE',
   KANDIDATSOK = 'KANDIDATSOK',
   KANDIDATLISTER = 'KANDIDATLISTER',
@@ -14,47 +14,47 @@ export enum TabId {
 }
 
 interface Tab {
-  id: TabId;
+  id: ArbeidsgiverTabId;
   tittel: string;
   href: string;
 }
 
 const tabs : Array<Tab> = [
     {
-        id: TabId.VAAR_SIDE,
+        id: ArbeidsgiverTabId.VAAR_SIDE,
         tittel: 'Vår side',
         href: '/stillingsregistrering'
     },
   {
-        id: TabId.KANDIDATSOK,
+        id: ArbeidsgiverTabId.KANDIDATSOK,
         tittel: 'Kandidatsøk',
         href: '/kandidater'
     },
     {
-        id: TabId.KANDIDATLISTER,
+        id: ArbeidsgiverTabId.KANDIDATLISTER,
         tittel: 'Kandidatlister',
         href: '/kandidater/lister'
     },
     {
-        id: TabId.STILLINGSANNONSER,
+        id: ArbeidsgiverTabId.STILLINGSANNONSER,
         tittel: 'Stillingsannonser',
         href: '/stillingsregistrering/vilkaar'
     }
 ];
 
-const tabErIPamKandidatsok = (tabId: TabId) => (
-    tabId === TabId.KANDIDATSOK || tabId === TabId.KANDIDATLISTER
+const tabErIPamKandidatsok = (tabId: ArbeidsgiverTabId) => (
+    tabId === ArbeidsgiverTabId.KANDIDATSOK || tabId === ArbeidsgiverTabId.KANDIDATLISTER
 );
 
-interface HeaderMenyProps {
+interface ArbeidsgiverHeaderMenyProps {
   onLoggUt: () => void;
   onArbeidsgiverSelect: (orgNummer?: string) => void;
   arbeidsgivere: Array<Arbeidsgiver>;
   valgtArbeidsgiverId?: string;
-  activeTabID: TabId;
+  activeTabID: ArbeidsgiverTabId;
 }
 
-export const HeaderMeny = ({ onLoggUt, onArbeidsgiverSelect, arbeidsgivere, valgtArbeidsgiverId, activeTabID } : HeaderMenyProps ) => {
+export const ArbeidsgiverHeaderMeny = ({ onLoggUt, onArbeidsgiverSelect, arbeidsgivere, valgtArbeidsgiverId, activeTabID } : ArbeidsgiverHeaderMenyProps ) => {
     return (
         <div className="HeaderMeny">
             <div className="topp">
