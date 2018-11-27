@@ -1,0 +1,122 @@
+@import "../../node_modules/nav-frontend-core/less/_variabler";
+
+.HeaderMeny {
+  background-color: white;
+  color: #4a4a4a;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  .innlogging {
+    display: flex;
+    align-items: center;
+
+    > :not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+
+  .topp {
+    min-height: 6.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    > :first-child {
+      flex: 1;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+      a {
+        color: #4a4a4a;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .meny--navn {
+    text-decoration: none;
+    margin-right: 0.5rem;
+    border: 1px solid transparent;
+    display: flex;
+
+    .meny--tannhjul {
+      background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3C!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch --%3E %3Ctitle%3Ecog%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg id='stillingsannonse' stroke='none' stroke-width='1.5' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E %3Cg id='Stillingssok_mobil_treff-Copy' transform='translate(-248.000000, -214.000000)' stroke='%230067C5'%3E %3Cg id='cog' transform='translate(248.000000, 214.000000)'%3E %3Cpath d='M20.254,13.5 L23.5,13.5 L23.5,10.5 L20.253,10.5 C20.044,9.633 19.702,8.319 19.25,7.578 L21.546,5.283 L18.717,2.454 L16.42,4.75 C15.68,4.299 14.367,3.957 13.5,3.748 L13.5,0.5 L10.5,0.5 L10.5,3.748 C9.633,3.957 8.319,4.299 7.579,4.75 L5.282,2.454 L2.453,5.283 L4.75,7.579 C4.298,8.319 3.956,9.633 3.746,10.5 L0.5,10.5 L0.5,13.5 L3.746,13.5 C3.956,14.367 4.298,15.682 4.75,16.421 L2.453,18.718 L5.282,21.546 L7.578,19.248 C8.319,19.702 9.633,20.044 10.5,20.254 L10.5,23.5 L13.5,23.5 L13.5,20.254 C14.367,20.044 15.681,19.702 16.42,19.25 L18.718,21.546 L21.546,18.718 L19.25,16.421 C19.702,15.682 20.044,14.367 20.254,13.5 Z' id='Path'%3E%3C/path%3E %3Ccircle id='Oval' cx='12' cy='12' r='4.5'%3E%3C/circle%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      vertical-align: bottom;
+      margin: 0.1rem 0 0 1rem;
+    }
+
+    &:hover {
+      .meny--tannhjul {
+        background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3C!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch --%3E %3Ctitle%3Ecog%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg id='stillingsannonse' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E %3Cg id='Stillingssok_mobil_treff-Copy' transform='translate(-274.000000, -199.000000)' fill='%230067C5' fill-rule='nonzero'%3E %3Cg id='cog' transform='translate(274.000000, 199.000000)'%3E %3Cpath d='M23.5,10 L20.646,10 C20.446,9.21 20.192,8.333 19.868,7.668 L21.9,5.636 C21.995,5.542 22.047,5.414 22.047,5.282 C22.047,5.15 21.994,5.022 21.9,4.928 L19.07,2.102 C18.875,1.906 18.558,1.906 18.363,2.102 L16.331,4.133 C15.666,3.809 14.789,3.555 14,3.356 L14,0.5 C14,0.224 13.776,0 13.5,0 L10.5,0 C10.225,0 10,0.224 10,0.5 L10,3.356 C9.211,3.555 8.334,3.809 7.669,4.133 L5.637,2.102 C5.441,1.906 5.125,1.906 4.93,2.102 L2.101,4.929 C1.906,5.123 1.906,5.441 2.101,5.636 L4.134,7.669 C3.811,8.331 3.556,9.209 3.355,10 L0.5,10 C0.225,10 0,10.224 0,10.5 L0,13.5 C0,13.776 0.225,14 0.5,14 L3.355,14 C3.555,14.791 3.81,15.668 4.133,16.331 L2.1,18.364 C2.006,18.458 1.954,18.585 1.954,18.718 C1.954,18.851 2.007,18.978 2.1,19.072 L4.93,21.9 C5.118,22.088 5.45,22.088 5.637,21.9 L7.669,19.868 C8.332,20.19 9.209,20.445 10,20.646 L10,23.5 C10,23.776 10.225,24 10.5,24 L13.5,24 C13.776,24 14,23.776 14,23.5 L14,20.646 C14.791,20.445 15.668,20.19 16.331,19.868 L18.365,21.9 C18.56,22.095 18.877,22.095 19.072,21.9 L21.899,19.072 C22.095,18.877 22.095,18.56 21.899,18.365 L19.867,16.332 C20.19,15.669 20.445,14.792 20.645,14.001 L23.5,14.001 C23.776,14.001 24,13.777 24,13.501 L24,10.501 C24,10.224 23.776,10 23.5,10 Z M12,16 C9.795,16 8,14.205 8,12 C8,9.795 9.795,8 12,8 C14.206,8 16,9.795 16,12 C16,14.205 14.206,16 12,16 Z' id='Shape'%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+      }
+    }
+
+    &:active {
+      .meny--tannhjul {
+        background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3C!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch --%3E %3Ctitle%3Ecog%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg id='stillingsannonse' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E %3Cg id='Stillingssok_mobil_treff-Copy' transform='translate(-274.000000, -199.000000)' fill='%230067C5' fill-rule='nonzero'%3E %3Cg id='cog' transform='translate(274.000000, 199.000000)'%3E %3Cpath d='M23.5,10 L20.646,10 C20.446,9.21 20.192,8.333 19.868,7.668 L21.9,5.636 C21.995,5.542 22.047,5.414 22.047,5.282 C22.047,5.15 21.994,5.022 21.9,4.928 L19.07,2.102 C18.875,1.906 18.558,1.906 18.363,2.102 L16.331,4.133 C15.666,3.809 14.789,3.555 14,3.356 L14,0.5 C14,0.224 13.776,0 13.5,0 L10.5,0 C10.225,0 10,0.224 10,0.5 L10,3.356 C9.211,3.555 8.334,3.809 7.669,4.133 L5.637,2.102 C5.441,1.906 5.125,1.906 4.93,2.102 L2.101,4.929 C1.906,5.123 1.906,5.441 2.101,5.636 L4.134,7.669 C3.811,8.331 3.556,9.209 3.355,10 L0.5,10 C0.225,10 0,10.224 0,10.5 L0,13.5 C0,13.776 0.225,14 0.5,14 L3.355,14 C3.555,14.791 3.81,15.668 4.133,16.331 L2.1,18.364 C2.006,18.458 1.954,18.585 1.954,18.718 C1.954,18.851 2.007,18.978 2.1,19.072 L4.93,21.9 C5.118,22.088 5.45,22.088 5.637,21.9 L7.669,19.868 C8.332,20.19 9.209,20.445 10,20.646 L10,23.5 C10,23.776 10.225,24 10.5,24 L13.5,24 C13.776,24 14,23.776 14,23.5 L14,20.646 C14.791,20.445 15.668,20.19 16.331,19.868 L18.365,21.9 C18.56,22.095 18.877,22.095 19.072,21.9 L21.899,19.072 C22.095,18.877 22.095,18.56 21.899,18.365 L19.867,16.332 C20.19,15.669 20.445,14.792 20.645,14.001 L23.5,14.001 C23.776,14.001 24,13.777 24,13.501 L24,10.501 C24,10.224 23.776,10 23.5,10 Z M12,16 C9.795,16 8,14.205 8,12 C8,9.795 9.795,8 12,8 C14.206,8 16,9.795 16,12 C16,14.205 14.206,16 12,16 Z' id='Shape'%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+      }
+    }
+
+    .meny--navn__text {
+      border-bottom: 1px solid @navGra40;
+    }
+
+    .meny--navn__text:hover {
+      border-bottom: 1px solid @navBla;
+    }
+  }
+
+  .meny {
+    border-top: 1px solid #979797;
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .meny {
+      display: inline-flex;
+      flex-flow: column;
+    }
+  }
+
+  .meny--lenke {
+    margin-left: 36px;
+    margin-right: 36px;
+    font-size: 16px;
+    padding: 8px 2px;
+    color: #78706a;
+  }
+
+  .meny--lenke-inner {
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid transparent;
+  }
+
+  .meny--lenke:hover .meny--lenke-inner {
+    border-bottom: 2px solid rgba(120, 112, 106, 0.6);
+  }
+
+  .meny--lenke-active .meny--lenke-inner {
+    border-bottom: 2px solid #005b82;
+    color: #3e3832;
+  }
+
+  .meny--lenke-active:hover .meny--lenke-inner {
+    border-bottom: 2px solid #005b82;
+    color: #3e3832;
+  }
+}
