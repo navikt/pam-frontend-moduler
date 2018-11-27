@@ -16,6 +16,21 @@ interface Tab {
     href: string;
 }
 
+enum App {
+    REKRUTTERINGSBISTAND = 'REKRUTTERINGSBISTAND',
+    KANDIDATSOK = 'KANDIDATSOK',
+    UKJENT = 'UKJENT'
+}
+
+function getApp(tabId : VeilederTabId) : App {
+    if(tabId === VeilederTabId.MINE_STILLINGER || tabId === VeilederTabId.STILLINGSSOK) {
+        return App.REKRUTTERINGSBISTAND;
+    } else if (tabId === VeilederTabId.KANDIDATLISTER || tabId === VeilederTabId.KANDIDATSOK) {
+        return App.KANDIDATSOK
+    }
+    return App.UKJENT;
+}
+
 const tabs: Array<Tab> = [
     {
         id: VeilederTabId.STILLINGSSOK,
@@ -36,8 +51,7 @@ const tabs: Array<Tab> = [
 ];
 
 const internLenkeSkalBrukes = (tab: Tab, activeTabId: VeilederTabId) => (
-    tab.id === VeilederTabId.KANDIDATSOK
-    && (activeTabId === VeilederTabId.KANDIDATSOK || activeTabId === VeilederTabId.KANDIDATLISTER)
+    getApp(tab.id) === getApp(activeTabId)
 );
 
 const tabErAktiv = (tab: Tab, activeTabId: VeilederTabId) => (
