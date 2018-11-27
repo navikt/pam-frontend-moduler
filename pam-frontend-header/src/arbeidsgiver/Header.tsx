@@ -6,7 +6,7 @@ interface HeaderProps {
   onLoggUt: () => void;
 }
 
-export const Header = ({ onLoggUt } : HeaderProps ) => (
+export const ArbeidsgiverHeader = ({ onLoggUt } : HeaderProps ) => (
   <div className="HeaderMeny">
     <div className="topp">
       <div className="logo">

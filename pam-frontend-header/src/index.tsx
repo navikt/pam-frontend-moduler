@@ -1,5 +1,6 @@
-import { HeaderMeny, TabId } from './module/HeaderMeny';
-import { Header } from './module/Header';
-import { VelgArbeidsgiver } from './module/VelgArbeidsgiver';
+import { ArbeidsgiverHeaderMeny, ArbeidsgiverTabId } from './arbeidsgiver/HeaderMeny';
+import { ArbeidsgiverHeader } from './arbeidsgiver/Header';
+import { VelgArbeidsgiver } from './arbeidsgiver/VelgArbeidsgiver';
+import { VeilederHeaderMeny, VeilederTabId } from './veileder/HeaderMeny';
 
-export { Header, HeaderMeny, TabId, VelgArbeidsgiver }
+export { ArbeidsgiverHeader, ArbeidsgiverHeaderMeny, ArbeidsgiverTabId, VelgArbeidsgiver, VeilederHeaderMeny, VeilederTabId }

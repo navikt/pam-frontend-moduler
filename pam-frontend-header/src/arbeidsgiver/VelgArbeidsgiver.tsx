@@ -4,7 +4,7 @@ import { Panel } from 'nav-frontend-paneler';
 import { Innholdstittel, Normaltekst, Element } from 'nav-frontend-typografi';
 import Ikon from 'nav-frontend-ikoner-assets';
 import ArbeidsgiverSelect from './ArbeidsgiverSelect';
-import { Header } from './Header';
+import { ArbeidsgiverHeader } from './Header';
 import { Arbeidsgiver } from './PropTypes';
 
 import './VelgArbeidsgiver.less';
@@ -20,7 +20,7 @@ interface VelgArbeidsgiverProps {
 
 export const VelgArbeidsgiver = ({ arbeidsgivere, valgtArbeidsgiverId, onArbeidsgiverSelect, onLoggUt } : VelgArbeidsgiverProps) => (
     <div>
-        <Header onLoggUt={onLoggUt} />
+        <ArbeidsgiverHeader onLoggUt={onLoggUt} />
         <Container className="container-arbeidsgiver">
             <Panel className="panel--arbeidsgiver">
                 <Row className="text-center blokk-xxs">
