@@ -133,13 +133,13 @@ export class PersonbrukerHeaderMeny extends React.Component<PersonbrukerHeaderMe
                             tab.href === "/" ? (
                                 <div className="meny--lenke-wrapper" key={tab.id}>
                                     <NavLink isActive={StillingssokTabActive} to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke">
-                                        <Normaltekst className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></Normaltekst>
+                                        <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                     </NavLink>
                                 </div>
                             ) : (
                                 <div className="meny--lenke-wrapper" key={tab.id}>
                                     <NavLink to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke">
-                                        <Normaltekst className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></Normaltekst>
+                                        <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                     </NavLink>
                                 </div>
                             )
