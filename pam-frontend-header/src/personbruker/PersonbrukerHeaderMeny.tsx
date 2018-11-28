@@ -68,6 +68,12 @@ export class PersonbrukerHeaderMeny extends React.Component<PersonbrukerHeaderMe
         });
     };
 
+    hideMenu = () => {
+        this.setState({
+            showMobileMenu: false
+        });
+    };
+
     render() {
         const { onLoggUt, onLoggInn, isAuthenticated, personbruker } = this.props;
         const { showMobileMenu } = this.state;
@@ -150,20 +156,20 @@ export class PersonbrukerHeaderMeny extends React.Component<PersonbrukerHeaderMe
                         {tabs.map((tab) => (
                             tab.href === "/" ? (
                                 <div className="mobilmeny--lenke-wrapper" key={tab.id}>
-                                    <NavLink isActive={StillingssokTabActive} to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                    <NavLink onClick={this.hideMenu} isActive={StillingssokTabActive} to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
                                         <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                                     </NavLink>
                                 </div>
                             ) : (
                                 <div className="mobilmeny--lenke-wrapper" key={tab.id}>
-                                    <NavLink to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                    <NavLink onClick={this.hideMenu} to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
                                         <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                                     </NavLink>
                                 </div>
                             )
                         ))}
                         <div className="mobilmeny--lenke-wrapper">
-                            <NavLink to="/pam-stillingsok/innstillinger" activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                            <NavLink onClick={this.hideMenu} to="/pam-stillingsok/innstillinger" activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
                                 <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                             </NavLink>
                         </div>
