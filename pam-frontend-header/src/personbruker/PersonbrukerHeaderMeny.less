@@ -86,16 +86,12 @@
     }
   }
 
-  @media (max-width: 460px) {
-    .meny {
-      display: inline-flex;
-      flex-flow: column;
+    .meny--lenke-wrapper {
+        margin-left: 36px;
+        margin-right: 36px;
     }
-  }
 
   .meny--lenke {
-    margin-left: 36px;
-    margin-right: 36px;
     font-size: 16px;
     padding: 8px 2px;
     color: #78706a;
@@ -119,4 +115,106 @@
     border-bottom: 2px solid #005b82;
     color: #3e3832;
   }
+
+    .meny--lenke-innstillinger {
+        display: none;
+    }
+
+    .meny--chevron {
+        display: none;
+    }
+
+    .mobilinnlogging {
+        display: none;
+    }
+
+    .mobilmeny {
+        display: none;
+    }
+
+    @media (max-width: @screen-sm-min) {
+        .meny {
+            display: none;
+        }
+
+        .innlogging {
+            display: none;
+        }
+
+        .mobilmeny {
+            border-top: 1px solid #979797;
+            min-height: 4rem;
+            display: block;
+            align-items: center;
+            justify-content: center;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .mobilmeny--toggle {
+            display: flex;
+        }
+
+        .mobilmeny--toggle-text {
+            margin: auto;
+        }
+
+        .mobilmeny--apne {
+            background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='24px' height='22px' viewBox='0 0 24 22' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3Ctitle%3EHamburgermeny%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3E %3Cg id='Global-mobilmeny' transform='translate(-282.000000, -18.000000)' stroke='%233E3832'%3E %3Cg id='Hamburgermeny' transform='translate(284.000000, 19.000000)'%3E %3Cg id='Group'%3E %3Cpath d='M0,10 L20,10' id='Line' stroke-width='3' fill-rule='nonzero'%3E%3C/path%3E %3Cpath d='M0,19.3333333 L20,19.3333333' id='Line' stroke-width='3' fill-rule='nonzero'%3E%3C/path%3E %3Cpath d='M0,0.666666667 L20,0.666666667' id='Line' stroke-width='3' fill-rule='nonzero'%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            vertical-align: bottom;
+            margin-left: 1rem;
+        }
+
+        .mobilmeny--lukk {
+            background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='23px' height='25px' viewBox='0 0 23 25' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3Ctitle%3EKnapp / Exit%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3E %3Cg id='Global-mobilmeny---åpnet-personbruker' transform='translate(-283.000000, -16.000000)' stroke='%233E3832'%3E %3Cg id='Knapp-/-Exit' transform='translate(285.000000, 19.000000)'%3E %3Cg id='Group'%3E %3Cpath d='M1.25,3.55271368e-15 L18.6355357,19.1627238' id='Line-3' stroke-width='3' fill-rule='nonzero'%3E%3C/path%3E %3Cpath d='M0.670482144,0.598835118 L19.2150535,18.5638887' id='Line-3' stroke-width='3' fill-rule='nonzero' transform='translate(9.942768, 9.581362) rotate(90.000000) translate(-9.942768, -9.581362) '%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            vertical-align: bottom;
+            margin-left: 1rem;
+        }
+
+        .mobilmeny--lenke {
+            font-size: 16px;
+            padding: 8px 2px;
+            color: #3e3832;
+        }
+
+        .mobilinnlogging {
+            display: block;
+        }
+
+        .mobilmeny--lenke-inner {
+            display: flex;
+            padding-bottom: 0;
+        }
+
+        .mobilmeny--lenke-active {
+            color: #005b82;
+        }
+
+        .mobilmeny--lenke-wrapper {
+            margin-left: 0;
+            margin-right: 0;
+            border-bottom: 1px solid #d8d8d8;
+        }
+
+        .mobilmeny--chevron {
+            display: block;
+            margin: auto 0 auto auto;
+        }
+
+        .mobilmeny--loggut-wrapper {
+            display: flex;
+        }
+
+        .mobilmeny--loggut {
+            margin: 1.25rem auto;
+        }
+    }
 }
