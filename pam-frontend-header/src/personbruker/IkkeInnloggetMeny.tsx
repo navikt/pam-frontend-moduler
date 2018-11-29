@@ -14,11 +14,6 @@ export const IkkeInnloggetMeny = ({ onLoggInn } : IkkeInnloggetToppProps ) => {
             <Knapp onClick={onLoggInn} id="logg-inn" className="knapp knapp--mini">
                 Logg inn
             </Knapp>
-            <div className="mobilinnlogging">
-                <Knapp onClick={onLoggInn} id="logg-inn" className="knapp knapp--mini">
-                    Logg inn
-                </Knapp>
-            </div>
         </div>
     );
 };
