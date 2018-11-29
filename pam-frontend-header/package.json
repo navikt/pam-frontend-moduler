@@ -1,6 +1,6 @@
 {
   "name": "pam-frontend-header",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Header for PAMs frontend-applikasjoner",
   "author": "akselw",
   "license": "MIT",
@@ -26,6 +26,8 @@
     "ajv": "^6.5.4",
     "classnames": "^2.2.6",
     "lodash.throttle": "^4.1.1",
+    "nav-frontend-chevron": "^1.0.6",
+    "nav-frontend-chevron-style": "^0.3.4",
     "nav-frontend-core": "^4.0.5",
     "nav-frontend-grid": "^1.0.17",
     "nav-frontend-grid-style": "^0.2.17",
@@ -56,6 +58,8 @@
     "cross-env": "^5.1.4",
     "gh-pages": "^1.2.0",
     "lodash.throttle": "^4.1.1",
+    "nav-frontend-chevron": "^1.0.6",
+    "nav-frontend-chevron-style": "^0.3.4",
     "nav-frontend-core": "^4.0.5",
     "nav-frontend-grid": "^1.0.17",
     "nav-frontend-grid-style": "^0.2.17",
@@ -69,7 +73,7 @@
     "nav-frontend-skjema-style": "^1.0.20",
     "nav-frontend-typografi": "^2.0.6",
     "nav-frontend-typografi-style": "^1.0.10",
-    "react": "^16.4.1",
+    "react": "^16.6.3",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "^2.16.0",
@@ -86,5 +90,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  }
 }
