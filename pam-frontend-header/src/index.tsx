@@ -5,6 +5,14 @@ import { VeilederHeaderMeny, VeilederTabId } from './veileder/HeaderMeny';
 import { PersonbrukerHeaderMeny } from "./personbruker/PersonbrukerHeaderMeny";
 import { PersonbrukerHeader } from './personbruker/PersonbrukerHeader';
 
-export { ArbeidsgiverHeader, ArbeidsgiverHeaderMeny, ArbeidsgiverTabId, VelgArbeidsgiver, VeilederHeaderMeny,
-    VeilederTabId, PersonbrukerHeaderMeny, PersonbrukerHeader }
+export {
+    ArbeidsgiverHeader,
+    ArbeidsgiverHeaderMeny,
+    ArbeidsgiverTabId,
+    VelgArbeidsgiver,
+    VeilederHeaderMeny,
+    VeilederTabId,
+    PersonbrukerHeaderMeny,
+    PersonbrukerHeader
+}
 
