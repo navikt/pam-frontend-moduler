@@ -78,7 +78,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
             <div>
                 <div className="topp">
                     <div className="logo">
-                        <a href="/">Arbeidsplassen</a>
+                        <a className="lenke" href="/">Arbeidsplassen</a>
                     </div>
                     <div className="innlogging">
                         <div>
@@ -113,13 +113,13 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                     {tabs.map((tab) => (
                         tab.href === "/" ? (
                             <div className="meny--lenke-wrapper" key={tab.id}>
-                                <NavLink isActive={stillingssokTabActive} to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke">
+                                <NavLink isActive={stillingssokTabActive} to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke lenke">
                                     <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                 </NavLink>
                             </div>
                         ) : (
                             <div className="meny--lenke-wrapper" key={tab.id}>
-                                <NavLink to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke">
+                                <NavLink to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke lenke">
                                     <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                 </NavLink>
                             </div>
