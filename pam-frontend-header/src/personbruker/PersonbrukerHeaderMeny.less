@@ -6,8 +6,11 @@
   font-family: "Source Sans Pro", Arial, sans-serif;
   padding-left: 2rem;
   padding-right: 2rem;
-  display: flex;
-  flex-direction: column;
+
+  .Innloggetmeny {
+    display: flex;
+    flex-direction: column;
+  }
 
   .innlogging {
     display: flex;
@@ -19,9 +22,10 @@
   }
 
   .topp {
+    min-height: 6.25rem;
     display: flex;
     flex-wrap: wrap;
-    padding: 2.2rem 0;
+    align-items: center;
 
     > :first-child {
       flex: 1;
@@ -76,9 +80,10 @@
 
   .meny {
     border-top: 1px solid #979797;
+    min-height: 4rem;
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 1.4rem 0;
 
     a {
       text-decoration: none;

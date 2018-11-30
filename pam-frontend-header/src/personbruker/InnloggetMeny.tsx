@@ -75,7 +75,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
         const { personbruker, onLoggUt } = this.props;
         const { showMobileMenu } = this.state;
         return (
-            <div>
+            <div className="Innloggetmeny">
                 <div className="topp">
                     <div className="logo">
                         <a className="lenke" href="/">Arbeidsplassen</a>
