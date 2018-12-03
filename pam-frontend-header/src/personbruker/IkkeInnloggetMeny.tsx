@@ -8,7 +8,7 @@ interface IkkeInnloggetToppProps {
 export const IkkeInnloggetMeny = ({ onLoggInn } : IkkeInnloggetToppProps ) => (
     <div className="topp">
         <div className="logo">
-            <a className="lenke" href="/">Arbeidsplassen</a>
+            Arbeidsplassen
         </div>
         <Knapp onClick={onLoggInn} id="logg-inn" className="knapp knapp--mini">
             Logg inn
