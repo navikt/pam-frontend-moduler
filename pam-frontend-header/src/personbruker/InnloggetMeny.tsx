@@ -114,13 +114,13 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         tab.href === "/" ? (
                             <div className="meny--lenke-wrapper" key={tab.id}>
                                 <NavLink isActive={stillingssokTabActive} to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke lenke">
-                                    <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
+                                    <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                 </NavLink>
                             </div>
                         ) : (
                             <div className="meny--lenke-wrapper" key={tab.id}>
                                 <NavLink to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke lenke">
-                                    <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
+                                    <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                 </NavLink>
                             </div>
                         )
