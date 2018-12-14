@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Knapp } from "nav-frontend-knapper";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { Normaltekst } from "nav-frontend-typografi";
 import NavFrontendChevron from "nav-frontend-chevron";
 
@@ -83,10 +83,10 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                     <div className="innlogging">
                         <div>
                             {personbruker && personbruker.navn && (
-                                <Link to="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal">
-                                    <span className="meny--navn__text">{personbruker.navn}</span>
+                                <NavLink to="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal" activeClassName="meny--navn-active">
+                                    <span className="meny--navn__text" tabIndex={-1}>{personbruker.navn}</span>
                                     <div className="meny--tannhjul" />
-                                </Link>
+                                </NavLink>
                             )}
                         </div>
                         <div>
