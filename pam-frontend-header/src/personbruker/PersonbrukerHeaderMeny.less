@@ -48,6 +48,11 @@
     border: 1px solid transparent;
     display: flex;
 
+    .meny--navn-inner {
+      display:flex;
+      justify-content:center;
+    }
+
     .meny--tannhjul {
       background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3C!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch --%3E %3Ctitle%3Ecog%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg id='stillingsannonse' stroke='none' stroke-width='1.5' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E %3Cg id='Stillingssok_mobil_treff-Copy' transform='translate(-248.000000, -214.000000)' stroke='%230067C5'%3E %3Cg id='cog' transform='translate(248.000000, 214.000000)'%3E %3Cpath d='M20.254,13.5 L23.5,13.5 L23.5,10.5 L20.253,10.5 C20.044,9.633 19.702,8.319 19.25,7.578 L21.546,5.283 L18.717,2.454 L16.42,4.75 C15.68,4.299 14.367,3.957 13.5,3.748 L13.5,0.5 L10.5,0.5 L10.5,3.748 C9.633,3.957 8.319,4.299 7.579,4.75 L5.282,2.454 L2.453,5.283 L4.75,7.579 C4.298,8.319 3.956,9.633 3.746,10.5 L0.5,10.5 L0.5,13.5 L3.746,13.5 C3.956,14.367 4.298,15.682 4.75,16.421 L2.453,18.718 L5.282,21.546 L7.578,19.248 C8.319,19.702 9.633,20.044 10.5,20.254 L10.5,23.5 L13.5,23.5 L13.5,20.254 C14.367,20.044 15.681,19.702 16.42,19.25 L18.718,21.546 L21.546,18.718 L19.25,16.421 C19.702,15.682 20.044,14.367 20.254,13.5 Z' id='Path'%3E%3C/path%3E %3Ccircle id='Oval' cx='12' cy='12' r='4.5'%3E%3C/circle%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
       width: 24px;
@@ -104,7 +109,7 @@
   .meny--lenke,
   .meny--lenke-inner,
   .meny--navn,
-  .meny--navn__text {
+  .meny--navn-inner {
       &:focus {
           outline: none;
           background-color: transparent;
@@ -112,7 +117,7 @@
   }
 
   .meny--lenke:focus .meny--lenke-inner,
-  .meny--navn:focus .meny--navn__text {
+  .meny--navn:focus .meny--navn-inner {
     background-color: @orangeFocus; /* keyboard-only focus styles */
   }
 

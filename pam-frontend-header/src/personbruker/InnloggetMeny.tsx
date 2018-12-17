@@ -84,8 +84,10 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         <div>
                             {personbruker && personbruker.navn && (
                                 <NavLink to="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal" activeClassName="meny--navn-active">
-                                    <span className="meny--navn__text" tabIndex={-1}>{personbruker.navn}</span>
-                                    <div className="meny--tannhjul" />
+                                    <div className="meny--navn-inner" tabIndex={-1}>
+                                        <span className="meny--navn__text">{personbruker.navn}</span>
+                                        <span className="meny--tannhjul"/>
+                                    </div>
                                 </NavLink>
                             )}
                         </div>
