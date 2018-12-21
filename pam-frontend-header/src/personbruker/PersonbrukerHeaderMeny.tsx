@@ -3,6 +3,7 @@ import { Personbruker } from './PropTypes';
 import './PersonbrukerHeaderMeny.less';
 import { IkkeInnloggetMeny } from "./IkkeInnloggetMeny";
 import { InnloggetMeny } from "./InnloggetMeny";
+import { PersonbrukerApplikasjon } from '..';
 
 
 interface PersonbrukerHeaderMenyProps {
@@ -10,13 +11,14 @@ interface PersonbrukerHeaderMenyProps {
   onLoggInn: () => void;
   personbruker: Personbruker;
   erInnlogget: boolean;
+  applikasjon: PersonbrukerApplikasjon
 }
 
 
-export const PersonbrukerHeaderMeny = ({ onLoggUt, erInnlogget, personbruker, onLoggInn } : PersonbrukerHeaderMenyProps) => (
+export const PersonbrukerHeaderMeny = ({ onLoggUt, erInnlogget, personbruker, onLoggInn, applikasjon } : PersonbrukerHeaderMenyProps) => (
     <div className="HeaderMeny">
         {erInnlogget ? (
-            <InnloggetMeny onLoggUt={onLoggUt} personbruker={personbruker} />
+            <InnloggetMeny onLoggUt={onLoggUt} personbruker={personbruker} applikasjon={applikasjon} />
         ) : (
             <IkkeInnloggetMeny onLoggInn={onLoggInn} />
         )}

@@ -4,39 +4,49 @@ import { Link, NavLink } from "react-router-dom";
 import { Normaltekst } from "nav-frontend-typografi";
 import NavFrontendChevron from "nav-frontend-chevron";
 
-export enum PersonbrukerTabId {
+export enum PersonbrukerApplikasjon {
     STILLINGSSOK = 'STILLINGSSOK',
-    FAVORITTER = 'FAVORITTER',
-    LAGREDESOK = 'LAGREDESOK'
+    CV = 'CV'
 }
 
-interface PersonbrukerTab {
-    id: PersonbrukerTabId;
+export interface PersonbrukerTab {
     tittel: string;
     href: string;
+    app: PersonbrukerApplikasjon
 }
 
 const tabs : Array<PersonbrukerTab> = [
     {
-        id: PersonbrukerTabId.STILLINGSSOK,
+        tittel: 'Min side',
+        href: '/cv',
+        app: PersonbrukerApplikasjon.CV
+    },
+    {
         tittel: 'Stillingssøk',
-        href: '/'
+        href: '/stillinger',
+        app: PersonbrukerApplikasjon.STILLINGSSOK
     },
     {
-        id: PersonbrukerTabId.FAVORITTER,
         tittel: 'Favoritter',
-        href: '/pam-stillingsok/favoritter'
+        href: '/stillinger/favoritter',
+        app: PersonbrukerApplikasjon.STILLINGSSOK
     },
     {
-        id: PersonbrukerTabId.LAGREDESOK,
         tittel: 'Lagrede søk',
-        href: '/pam-stillingsok/lagrede-sok'
+        href: '/stillinger/lagrede-sok',
+        app: PersonbrukerApplikasjon.STILLINGSSOK
+    },
+    {
+        tittel: 'CV',
+        href: '/cv/cv',
+        app: PersonbrukerApplikasjon.CV
     }
 ];
 
 interface InnloggetToppProps {
     onLoggUt: () => void;
     personbruker: { navn: string }
+    applikasjon: PersonbrukerApplikasjon
 }
 
 interface StateProps {
@@ -72,7 +82,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
 
 
     render() {
-        const { personbruker, onLoggUt } = this.props;
+        const { personbruker, onLoggUt, applikasjon } = this.props;
         const { showMobileMenu } = this.state;
         return (
             <div className="Innloggetmeny">
@@ -83,7 +93,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                     <div className="innlogging">
                         <div>
                             {personbruker && personbruker.navn && (
-                                <Link to="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal">
+                                <Link to="/stillinger/innstillinger" className="meny--navn lenke typo-normal">
                                     <span className="meny--navn__text">{personbruker.navn}</span>
                                     <div className="meny--tannhjul" />
                                 </Link>
@@ -111,17 +121,25 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                 </div>
                 <div className="meny">
                     {tabs.map((tab) => (
-                        tab.href === "/" ? (
-                            <div className="meny--lenke-wrapper" key={tab.id}>
-                                <NavLink isActive={stillingssokTabActive} to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke lenke">
-                                    <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
-                                </NavLink>
-                            </div>
+                        applikasjon === tab.app ? (
+                            tab.href === '/stillinger' ? (
+                                <div className="meny--lenke-wrapper" key={tab.href}>
+                                    <NavLink to={tab.href} isActive={stillingssokTabActive} activeClassName="meny--lenke-active" className="meny--lenke lenke">
+                                        <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
+                                    </NavLink>
+                                </div>
+                            ) : (
+                                <div className="meny--lenke-wrapper" key={tab.href}>
+                                    <NavLink to={tab.href} exact={tab.href === '/cv'} activeClassName="meny--lenke-active" className="meny--lenke lenke">
+                                        <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
+                                    </NavLink>
+                                </div>
+                            )
                         ) : (
-                            <div className="meny--lenke-wrapper" key={tab.id}>
-                                <NavLink to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke lenke">
+                            <div className="meny--lenke-wrapper" key={tab.href}>
+                                <a href={tab.href} className="meny--lenke lenke">
                                     <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
-                                </NavLink>
+                                </a>
                             </div>
                         )
                     ))}
@@ -135,17 +153,25 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                     <div className="mobilmeny">
                         <div className="mobilmeny--separator" />
                         {tabs.map((tab) => (
-                            tab.href === "/" ? (
-                                <div className="mobilmeny--lenke-wrapper" key={tab.id}>
-                                    <NavLink onClick={this.hideMenu} isActive={stillingssokTabActive} to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
-                                        <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
-                                    </NavLink>
-                                </div>
+                            applikasjon === tab.app ? (
+                                tab.href === '/stillinger' ? (
+                                    <div className="mobilmeny--lenke-wrapper" key={tab.href}>
+                                        <NavLink onClick={this.hideMenu} isActive={stillingssokTabActive} to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                            <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
+                                        </NavLink>
+                                    </div>
+                                ) : (
+                                    <div className="mobilmeny--lenke-wrapper" key={tab.href}>
+                                        <NavLink onClick={this.hideMenu} to={tab.href} exact={tab.href === '/cv'} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                            <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
+                                        </NavLink>
+                                    </div>
+                                )
                             ) : (
-                                <div className="mobilmeny--lenke-wrapper" key={tab.id}>
-                                    <NavLink onClick={this.hideMenu} to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                <div className="mobilmeny--lenke-wrapper" key={tab.href}>
+                                    <a onClick={this.hideMenu} href={tab.href} className="mobilmeny--lenke">
                                         <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
-                                    </NavLink>
+                                    </a>
                                 </div>
                             )
                         ))}
