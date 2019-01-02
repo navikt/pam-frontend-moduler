@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Knapp } from "nav-frontend-knapper";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { Normaltekst } from "nav-frontend-typografi";
 import NavFrontendChevron from "nav-frontend-chevron";
 
@@ -83,10 +83,12 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                     <div className="innlogging">
                         <div>
                             {personbruker && personbruker.navn && (
-                                <Link to="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal">
-                                    <span className="meny--navn__text">{personbruker.navn}</span>
-                                    <div className="meny--tannhjul" />
-                                </Link>
+                                <NavLink to="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal" activeClassName="meny--navn-active">
+                                    <div className="meny--navn-inner" tabIndex={-1}>
+                                        <span className="meny--navn__text">{personbruker.navn}</span>
+                                        <span className="meny--tannhjul"/>
+                                    </div>
+                                </NavLink>
                             )}
                         </div>
                         <div>
@@ -114,13 +116,13 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         tab.href === "/" ? (
                             <div className="meny--lenke-wrapper" key={tab.id}>
                                 <NavLink isActive={stillingssokTabActive} to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke lenke">
-                                    <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
+                                    <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                 </NavLink>
                             </div>
                         ) : (
                             <div className="meny--lenke-wrapper" key={tab.id}>
                                 <NavLink to={tab.href} activeClassName="meny--lenke-active" className="meny--lenke lenke">
-                                    <span className="meny--lenke-inner">{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
+                                    <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                 </NavLink>
                             </div>
                         )
