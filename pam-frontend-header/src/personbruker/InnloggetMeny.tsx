@@ -93,12 +93,23 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                     <div className="innlogging">
                         <div>
                             {personbruker && personbruker.navn && (
-                                <NavLink to="/stillinger/innstillinger" className="meny--navn lenke typo-normal" activeClassName="meny--navn-active">
-                                    <div className="meny--navn-inner" tabIndex={-1}>
-                                        <span className="meny--navn__text">{personbruker.navn}</span>
-                                        <span className="meny--tannhjul"/>
-                                    </div>
-                                </NavLink>
+                                <div>
+                                    {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
+                                        <NavLink to="/stillinger/innstillinger" className="meny--navn lenke typo-normal" activeClassName="meny--navn-active">
+                                            <div className="meny--navn-inner" tabIndex={-1}>
+                                                <span className="meny--navn__text">{personbruker.navn}</span>
+                                                <span className="meny--tannhjul"/>
+                                            </div>
+                                        </NavLink>
+                                    ) : (
+                                        <a href="/stillinger/innstillinger" className="meny--navn lenke typo-normal">
+                                            <div className="meny--navn-inner" tabIndex={-1}>
+                                                <span className="meny--navn__text">{personbruker.navn}</span>
+                                                <span className="meny--tannhjul"/>
+                                            </div>
+                                        </a>
+                                    )}
+                                </div>
                             )}
                         </div>
                         <div>
@@ -178,9 +189,15 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                             )
                         ))}
                         <div className="mobilmeny--lenke-wrapper">
-                            <NavLink onClick={this.hideMenu} to="/pam-stillingsok/innstillinger" activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
-                                <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
-                            </NavLink>
+                            {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
+                                <NavLink onClick={this.hideMenu} to="/stillinger/innstillinger" activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                    <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
+                                </NavLink>
+                            ) : (
+                                <a onClick={this.hideMenu} href="/stillinger/innstillinger" className="mobilmeny--lenke">
+                                    <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
+                                </a>
+                            )}
                         </div>
                         <div className="mobilmeny--loggut-wrapper">
                             <Knapp onClick={onLoggUt} id="logg-ut" className="knapp knapp--mini mobilmeny--loggut">
