@@ -6,7 +6,8 @@ import NavFrontendChevron from "nav-frontend-chevron";
 
 export enum PersonbrukerApplikasjon {
     STILLINGSSOK = 'STILLINGSSOK',
-    CV = 'CV'
+    CV = 'CV',
+    JOBBPROFIL = 'JOBBPROFIL'
 }
 
 export interface PersonbrukerTab {
@@ -40,7 +41,13 @@ const tabs : Array<PersonbrukerTab> = [
         tittel: 'CV',
         href: '/cv/cv',
         app: PersonbrukerApplikasjon.CV
+    },
+    {
+        tittel: 'Jobbprofil',
+        href: '/jobbprofil',
+        app: PersonbrukerApplikasjon.JOBBPROFIL
     }
+
 ];
 
 interface InnloggetToppProps {
