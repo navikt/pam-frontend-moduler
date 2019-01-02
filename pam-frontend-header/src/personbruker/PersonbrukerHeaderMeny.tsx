@@ -16,10 +16,10 @@ interface PersonbrukerHeaderMenyProps {
 }
 
 
-export const PersonbrukerHeaderMeny = ({ onLoggUt, erInnlogget, personbruker, onLoggInn, applikasjon, visAlleMenyPunkter } : PersonbrukerHeaderMenyProps) => (
+export const PersonbrukerHeaderMeny = ({ onLoggUt, erInnlogget, personbruker, onLoggInn, applikasjon, visAlleMenyPunkter = false } : PersonbrukerHeaderMenyProps) => (
     <div className="HeaderMeny">
         {erInnlogget ? (
-            <InnloggetMeny onLoggUt={onLoggUt} personbruker={personbruker} applikasjon={applikasjon} visAlleMenyPunkter={visAlleMenyPunkter || false} />
+            <InnloggetMeny onLoggUt={onLoggUt} personbruker={personbruker} applikasjon={applikasjon} visAlleMenyPunkter={visAlleMenyPunkter} />
         ) : (
             <IkkeInnloggetMeny onLoggInn={onLoggInn} />
         )}
