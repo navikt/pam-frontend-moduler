@@ -194,7 +194,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         <div className="mobilmeny--separator" />
                         {tabs.map((tab) => (
                             applikasjon === tab.app ? (
-                                tab.href === '/pam-stillingsok' ? (
+                                tab.href === '/' ? (
                                     <div className="mobilmeny--lenke-wrapper" key={tab.href}>
                                         <NavLink onClick={this.hideMenu} isActive={stillingssokTabActive} to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
                                             <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
