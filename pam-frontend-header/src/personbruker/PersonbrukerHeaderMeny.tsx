@@ -11,14 +11,15 @@ interface PersonbrukerHeaderMenyProps {
   onLoggInn: () => void;
   personbruker: Personbruker;
   erInnlogget: boolean;
-  applikasjon: PersonbrukerApplikasjon
+  applikasjon: PersonbrukerApplikasjon;
+  visAlleMenyPunkter?: boolean;
 }
 
 
-export const PersonbrukerHeaderMeny = ({ onLoggUt, erInnlogget, personbruker, onLoggInn, applikasjon } : PersonbrukerHeaderMenyProps) => (
+export const PersonbrukerHeaderMeny = ({ onLoggUt, erInnlogget, personbruker, onLoggInn, applikasjon, visAlleMenyPunkter } : PersonbrukerHeaderMenyProps) => (
     <div className="HeaderMeny">
         {erInnlogget ? (
-            <InnloggetMeny onLoggUt={onLoggUt} personbruker={personbruker} applikasjon={applikasjon} />
+            <InnloggetMeny onLoggUt={onLoggUt} personbruker={personbruker} applikasjon={applikasjon} visAlleMenyPunkter={visAlleMenyPunkter || false} />
         ) : (
             <IkkeInnloggetMeny onLoggInn={onLoggInn} />
         )}

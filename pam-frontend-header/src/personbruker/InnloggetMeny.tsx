@@ -16,7 +16,7 @@ export interface PersonbrukerTab {
     app: PersonbrukerApplikasjon
 }
 
-const tabs : Array<PersonbrukerTab> = [
+const allTabs : Array<PersonbrukerTab> = [
     {
         tittel: 'Min side',
         href: '/cv',
@@ -24,17 +24,17 @@ const tabs : Array<PersonbrukerTab> = [
     },
     {
         tittel: 'Stillingssøk',
-        href: '/stillinger',
+        href: '/',
         app: PersonbrukerApplikasjon.STILLINGSSOK
     },
     {
         tittel: 'Favoritter',
-        href: '/stillinger/favoritter',
+        href: '/pam-stillingsok/favoritter',
         app: PersonbrukerApplikasjon.STILLINGSSOK
     },
     {
         tittel: 'Lagrede søk',
-        href: '/stillinger/lagrede-sok',
+        href: '/pam-stillingsok/lagrede-sok',
         app: PersonbrukerApplikasjon.STILLINGSSOK
     },
     {
@@ -50,10 +50,29 @@ const tabs : Array<PersonbrukerTab> = [
 
 ];
 
+const stillingssokTabs : Array<PersonbrukerTab> = [
+    {
+        tittel: 'Stillingssøk',
+        href: '/',
+        app: PersonbrukerApplikasjon.STILLINGSSOK
+    },
+    {
+        tittel: 'Favoritter',
+        href: '/pam-stillingsok/favoritter',
+        app: PersonbrukerApplikasjon.STILLINGSSOK
+    },
+    {
+        tittel: 'Lagrede søk',
+        href: '/pam-stillingsok/lagrede-sok',
+        app: PersonbrukerApplikasjon.STILLINGSSOK
+    }
+];
+
 interface InnloggetToppProps {
     onLoggUt: () => void;
-    personbruker: { navn: string }
-    applikasjon: PersonbrukerApplikasjon
+    personbruker: { navn: string };
+    applikasjon: PersonbrukerApplikasjon;
+    visAlleMenyPunkter: boolean;
 }
 
 interface StateProps {
@@ -64,7 +83,7 @@ const stillingssokTabActive = (match : any, location : any) => {
     if (!match) {
         return false;
     }
-    return location.pathname === "/stillinger" || location.pathname.match(/\/stillinger\/stilling*/);
+    return location.pathname === "/" || location.pathname.match(/\/pam-stillingsok\/stilling*/);
 };
 
 export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProps> {
@@ -89,8 +108,9 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
 
 
     render() {
-        const { personbruker, onLoggUt, applikasjon } = this.props;
+        const { personbruker, onLoggUt, applikasjon, visAlleMenyPunkter } = this.props;
         const { showMobileMenu } = this.state;
+        const tabs = visAlleMenyPunkter ? allTabs : stillingssokTabs;
         return (
             <div className="Innloggetmeny">
                 <div className="topp">
@@ -102,14 +122,14 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                             {personbruker && personbruker.navn && (
                                 <div>
                                     {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
-                                        <NavLink to="/stillinger/innstillinger" className="meny--navn lenke typo-normal" activeClassName="meny--navn-active">
+                                        <NavLink to="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal" activeClassName="meny--navn-active">
                                             <div className="meny--navn-inner" tabIndex={-1}>
                                                 <span className="meny--navn__text">{personbruker.navn}</span>
                                                 <span className="meny--tannhjul"/>
                                             </div>
                                         </NavLink>
                                     ) : (
-                                        <a href="/stillinger/innstillinger" className="meny--navn lenke typo-normal">
+                                        <a href="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal">
                                             <div className="meny--navn-inner" tabIndex={-1}>
                                                 <span className="meny--navn__text">{personbruker.navn}</span>
                                                 <span className="meny--tannhjul"/>
@@ -142,7 +162,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                 <div className="meny">
                     {tabs.map((tab) => (
                         applikasjon === tab.app ? (
-                            tab.href === '/stillinger' ? (
+                            tab.href === '/pam-stillingsok' ? (
                                 <div className="meny--lenke-wrapper" key={tab.href}>
                                     <NavLink to={tab.href} isActive={stillingssokTabActive} activeClassName="meny--lenke-active" className="meny--lenke lenke">
                                         <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
@@ -164,7 +184,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         )
                     ))}
                     <div className="meny--lenke-wrapper">
-                        <NavLink to="/stillinger/innstillinger" activeClassName="meny--lenke-active" className="meny--lenke meny--lenke-innstillinger">
+                        <NavLink to="/pam-stillingsok/innstillinger" activeClassName="meny--lenke-active" className="meny--lenke meny--lenke-innstillinger">
                             <Normaltekst className="meny--lenke-inner">Innstillinger<NavFrontendChevron className="meny--chevron" /></Normaltekst>
                         </NavLink>
                     </div>
@@ -174,7 +194,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         <div className="mobilmeny--separator" />
                         {tabs.map((tab) => (
                             applikasjon === tab.app ? (
-                                tab.href === '/stillinger' ? (
+                                tab.href === '/pam-stillingsok' ? (
                                     <div className="mobilmeny--lenke-wrapper" key={tab.href}>
                                         <NavLink onClick={this.hideMenu} isActive={stillingssokTabActive} to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
                                             <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
@@ -197,11 +217,11 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         ))}
                         <div className="mobilmeny--lenke-wrapper">
                             {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
-                                <NavLink onClick={this.hideMenu} to="/stillinger/innstillinger" activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                <NavLink onClick={this.hideMenu} to="/pam-stillingsok/innstillinger" activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
                                     <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                                 </NavLink>
                             ) : (
-                                <a onClick={this.hideMenu} href="/stillinger/innstillinger" className="mobilmeny--lenke">
+                                <a onClick={this.hideMenu} href="/pam-stillingsok/innstillinger" className="mobilmeny--lenke">
                                     <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                                 </a>
                             )}
