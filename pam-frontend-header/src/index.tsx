@@ -4,6 +4,7 @@ import { VelgArbeidsgiver } from './arbeidsgiver/VelgArbeidsgiver';
 import { VeilederHeaderMeny, VeilederTabId } from './veileder/HeaderMeny';
 import { PersonbrukerHeaderMeny } from "./personbruker/PersonbrukerHeaderMeny";
 import { PersonbrukerHeader } from './personbruker/PersonbrukerHeader';
+import { PersonbrukerApplikasjon } from './personbruker/InnloggetMeny';
 
 export {
     ArbeidsgiverHeader,
@@ -13,6 +14,7 @@ export {
     VeilederHeaderMeny,
     VeilederTabId,
     PersonbrukerHeaderMeny,
-    PersonbrukerHeader
+    PersonbrukerHeader,
+    PersonbrukerApplikasjon
 }
 
