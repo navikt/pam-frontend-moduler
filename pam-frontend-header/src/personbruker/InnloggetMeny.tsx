@@ -162,7 +162,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                 <div className="meny">
                     {tabs.map((tab) => (
                         applikasjon === tab.app ? (
-                            tab.href === '/pam-stillingsok' ? (
+                            tab.href === '/' ? (
                                 <div className="meny--lenke-wrapper" key={tab.href}>
                                     <NavLink to={tab.href} isActive={stillingssokTabActive} activeClassName="meny--lenke-active" className="meny--lenke lenke">
                                         <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
