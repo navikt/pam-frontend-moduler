@@ -22,21 +22,23 @@ const allTabs : Array<PersonbrukerTab> = [
         href: '/cv',
         app: PersonbrukerApplikasjon.CV
     },
-    {
-        tittel: 'Stillingssøk',
-        href: '/',
-        app: PersonbrukerApplikasjon.STILLINGSSOK
-    },
-    {
-        tittel: 'Favoritter',
-        href: '/pam-stillingsok/favoritter',
-        app: PersonbrukerApplikasjon.STILLINGSSOK
-    },
-    {
-        tittel: 'Lagrede søk',
-        href: '/pam-stillingsok/lagrede-sok',
-        app: PersonbrukerApplikasjon.STILLINGSSOK
-    },
+    // TODO: Kommentere inn igjen url'er til stillingssøket når det har blitt flyttet til arbeidsplassen
+    //
+    // {
+    //     tittel: 'Stillingssøk',
+    //     href: '/',
+    //     app: PersonbrukerApplikasjon.STILLINGSSOK
+    // },
+    // {
+    //     tittel: 'Favoritter',
+    //     href: '/pam-stillingsok/favoritter',
+    //     app: PersonbrukerApplikasjon.STILLINGSSOK
+    // },
+    // {
+    //     tittel: 'Lagrede søk',
+    //     href: '/pam-stillingsok/lagrede-sok',
+    //     app: PersonbrukerApplikasjon.STILLINGSSOK
+    // },
     {
         tittel: 'CV',
         href: '/cv/cv',
@@ -50,6 +52,7 @@ const allTabs : Array<PersonbrukerTab> = [
 
 ];
 
+// TODO: Fjerne stillingssokTabs når stillingsøket er flyttet til arbeidsplassen
 const stillingssokTabs : Array<PersonbrukerTab> = [
     {
         tittel: 'Stillingssøk',
@@ -72,6 +75,7 @@ interface InnloggetToppProps {
     onLoggUt: () => void;
     personbruker: { navn: string };
     applikasjon: PersonbrukerApplikasjon;
+    // TODO: Denne trenger ikke lengre når stillingssøket er flyttet til arbeidsplassen
     visAlleMenyPunkter: boolean;
 }
 
