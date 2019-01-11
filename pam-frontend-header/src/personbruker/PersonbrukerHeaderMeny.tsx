@@ -9,17 +9,37 @@ import { PersonbrukerApplikasjon } from '..';
 interface PersonbrukerHeaderMenyProps {
   onLoggUt: () => void;
   onLoggInn: () => void;
+  validerNavigasjon?: ValiderNavigasjonProps;
   personbruker: Personbruker;
   erInnlogget: boolean;
   applikasjon: PersonbrukerApplikasjon;
   visAlleMenyPunkter?: boolean;
 }
 
+export interface ValiderNavigasjonProps {
+  valider: () => boolean;
+  callback: (url: string) => void;
+}
 
-export const PersonbrukerHeaderMeny = ({ onLoggUt, erInnlogget, personbruker, onLoggInn, applikasjon, visAlleMenyPunkter = false } : PersonbrukerHeaderMenyProps) => (
+
+export const PersonbrukerHeaderMeny = ({
+    onLoggUt,
+    erInnlogget,
+    personbruker,
+    onLoggInn,
+    applikasjon,
+    validerNavigasjon,
+    visAlleMenyPunkter = false
+} : PersonbrukerHeaderMenyProps) => (
     <div className="HeaderMeny">
         {erInnlogget ? (
-            <InnloggetMeny onLoggUt={onLoggUt} personbruker={personbruker} applikasjon={applikasjon} visAlleMenyPunkter={visAlleMenyPunkter} />
+            <InnloggetMeny
+                onLoggUt={onLoggUt}
+                personbruker={personbruker}
+                applikasjon={applikasjon}
+                validerNavigasjon={validerNavigasjon}
+                visAlleMenyPunkter={visAlleMenyPunkter}
+            />
         ) : (
             <IkkeInnloggetMeny onLoggInn={onLoggInn} />
         )}
