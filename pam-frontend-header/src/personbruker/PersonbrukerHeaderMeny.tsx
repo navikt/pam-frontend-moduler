@@ -17,8 +17,8 @@ interface PersonbrukerHeaderMenyProps {
 }
 
 export interface ValiderNavigasjonProps {
-  valider: () => boolean;
-  callback: (url: string) => void;
+  redirectTillates: () => boolean;
+  redirectForhindretCallback: (url: string) => void;
 }
 
 

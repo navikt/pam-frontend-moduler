@@ -113,16 +113,16 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
     };
 
     onNavigationClick = (url: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
-        if (this.props.validerNavigasjon && !this.props.validerNavigasjon.valider()) {
+        if (this.props.validerNavigasjon && !this.props.validerNavigasjon.redirectTillates()) {
             e.preventDefault();
-            this.props.validerNavigasjon.callback(url);
+            this.props.validerNavigasjon.redirectForhindretCallback(url);
         }
     }
 
     onNavigationMobileClick = (url: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
-        if (this.props.validerNavigasjon && !this.props.validerNavigasjon.valider()) {
+        if (this.props.validerNavigasjon && !this.props.validerNavigasjon.redirectTillates()) {
             e.preventDefault();
-            this.props.validerNavigasjon.callback(url);
+            this.props.validerNavigasjon.redirectForhindretCallback(url);
         }
         this.hideMenu();
     }
