@@ -119,7 +119,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
         }
     }
 
-    onNavigationMobileClick = (url: string) => (e: any) => {
+    onNavigationMobileClick = (url: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (this.props.validerNavigasjon && !this.props.validerNavigasjon.valider()) {
             e.preventDefault();
             this.props.validerNavigasjon.callback(url);
@@ -128,7 +128,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
     }
 
     render() {
-        const { personbruker, applikasjon, onLoggUt, visAlleMenyPunkter } = this.props;
+        const { personbruker, onLoggUt, applikasjon, visAlleMenyPunkter } = this.props;
         const { showMobileMenu } = this.state;
         const tabs = visAlleMenyPunkter ? allTabs : stillingssokTabs;
         return (
