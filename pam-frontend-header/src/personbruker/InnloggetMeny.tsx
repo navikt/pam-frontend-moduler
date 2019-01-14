@@ -3,6 +3,7 @@ import { Knapp } from "nav-frontend-knapper";
 import {  NavLink } from "react-router-dom";
 import { Normaltekst } from "nav-frontend-typografi";
 import NavFrontendChevron from "nav-frontend-chevron";
+import { ValiderNavigasjonProps } from './PersonbrukerHeaderMeny';
 
 export enum PersonbrukerApplikasjon {
     STILLINGSSOK = 'STILLINGSSOK',
@@ -13,7 +14,7 @@ export enum PersonbrukerApplikasjon {
 export interface PersonbrukerTab {
     tittel: string;
     href: string;
-    app: PersonbrukerApplikasjon
+    app: PersonbrukerApplikasjon;
 }
 
 const allTabs : Array<PersonbrukerTab> = [
@@ -73,6 +74,7 @@ const stillingssokTabs : Array<PersonbrukerTab> = [
 
 interface InnloggetToppProps {
     onLoggUt: () => void;
+    validerNavigasjon?: ValiderNavigasjonProps;
     personbruker: { navn: string };
     applikasjon: PersonbrukerApplikasjon;
     // TODO: Denne trenger ikke lengre når stillingssøket er flyttet til arbeidsplassen
@@ -110,6 +112,20 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
         });
     };
 
+    onNavigationClick = (url: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (this.props.validerNavigasjon && !this.props.validerNavigasjon.valider()) {
+            e.preventDefault();
+            this.props.validerNavigasjon.callback(url);
+        }
+    }
+
+    onNavigationMobileClick = (url: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (this.props.validerNavigasjon && !this.props.validerNavigasjon.valider()) {
+            e.preventDefault();
+            this.props.validerNavigasjon.callback(url);
+        }
+        this.hideMenu();
+    }
 
     render() {
         const { personbruker, onLoggUt, applikasjon, visAlleMenyPunkter } = this.props;
@@ -126,14 +142,23 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                             {personbruker && personbruker.navn && (
                                 <div>
                                     {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
-                                        <NavLink to="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal" activeClassName="meny--navn-active">
+                                        <NavLink
+                                            to="/pam-stillingsok/innstillinger"
+                                            onClick={this.onNavigationClick("/pam-stillingsok/innstillinger")}
+                                            className="meny--navn lenke typo-normal"
+                                            activeClassName="meny--navn-active"
+                                        >
                                             <div className="meny--navn-inner" tabIndex={-1}>
                                                 <span className="meny--navn__text">{personbruker.navn}</span>
                                                 <span className="meny--tannhjul"/>
                                             </div>
                                         </NavLink>
                                     ) : (
-                                        <a href="/pam-stillingsok/innstillinger" className="meny--navn lenke typo-normal">
+                                        <a
+                                            href="/pam-stillingsok/innstillinger"
+                                            onClick={this.onNavigationClick("/pam-stillingsok/innstillinger")}
+                                            className="meny--navn lenke typo-normal"
+                                        >
                                             <div className="meny--navn-inner" tabIndex={-1}>
                                                 <span className="meny--navn__text">{personbruker.navn}</span>
                                                 <span className="meny--tannhjul"/>
@@ -168,30 +193,41 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         applikasjon === tab.app ? (
                             tab.href === '/' ? (
                                 <div className="meny--lenke-wrapper" key={tab.href}>
-                                    <NavLink to={tab.href} isActive={stillingssokTabActive} activeClassName="meny--lenke-active" className="meny--lenke lenke">
+                                    <NavLink
+                                        to={tab.href}
+                                        onClick={this.onNavigationClick(tab.href)}
+                                        isActive={stillingssokTabActive}
+                                        activeClassName="meny--lenke-active"
+                                        className="meny--lenke lenke"
+                                    >
                                         <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                     </NavLink>
                                 </div>
                             ) : (
                                 <div className="meny--lenke-wrapper" key={tab.href}>
-                                    <NavLink to={tab.href} exact={tab.href === '/cv'} activeClassName="meny--lenke-active" className="meny--lenke lenke">
+                                    <NavLink
+                                        to={tab.href}
+                                        onClick={this.onNavigationClick(tab.href)}
+                                        exact={tab.href === '/cv'}
+                                        activeClassName="meny--lenke-active"
+                                        className="meny--lenke lenke"
+                                    >
                                         <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                     </NavLink>
                                 </div>
                             )
                         ) : (
                             <div className="meny--lenke-wrapper" key={tab.href}>
-                                <a href={tab.href} className="meny--lenke lenke">
+                                <a
+                                    href={tab.href}
+                                    onClick={this.onNavigationClick(tab.href)}
+                                    className="meny--lenke lenke"
+                                >
                                     <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
                                 </a>
                             </div>
                         )
                     ))}
-                    <div className="meny--lenke-wrapper">
-                        <NavLink to="/pam-stillingsok/innstillinger" activeClassName="meny--lenke-active" className="meny--lenke meny--lenke-innstillinger">
-                            <Normaltekst className="meny--lenke-inner">Innstillinger<NavFrontendChevron className="meny--chevron" /></Normaltekst>
-                        </NavLink>
-                    </div>
                 </div>
                 {showMobileMenu && (
                     <div className="mobilmeny">
@@ -200,20 +236,36 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                             applikasjon === tab.app ? (
                                 tab.href === '/' ? (
                                     <div className="mobilmeny--lenke-wrapper" key={tab.href}>
-                                        <NavLink onClick={this.hideMenu} isActive={stillingssokTabActive} to={tab.href} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                        <NavLink
+                                            onClick={this.onNavigationMobileClick(tab.href)}
+                                            isActive={stillingssokTabActive}
+                                            to={tab.href}
+                                            activeClassName="mobilmeny--lenke-active"
+                                            className="mobilmeny--lenke"
+                                        >
                                             <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                                         </NavLink>
                                     </div>
                                 ) : (
                                     <div className="mobilmeny--lenke-wrapper" key={tab.href}>
-                                        <NavLink onClick={this.hideMenu} to={tab.href} exact={tab.href === '/cv'} activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                        <NavLink
+                                            onClick={this.onNavigationMobileClick(tab.href)}
+                                            to={tab.href}
+                                            exact={tab.href === '/cv'}
+                                            activeClassName="mobilmeny--lenke-active"
+                                            className="mobilmeny--lenke"
+                                        >
                                             <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                                         </NavLink>
                                     </div>
                                 )
                             ) : (
                                 <div className="mobilmeny--lenke-wrapper" key={tab.href}>
-                                    <a onClick={this.hideMenu} href={tab.href} className="mobilmeny--lenke">
+                                    <a
+                                        onClick={this.onNavigationMobileClick(tab.href)}
+                                        href={tab.href}
+                                        className="mobilmeny--lenke"
+                                    >
                                         <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                                     </a>
                                 </div>
@@ -221,11 +273,20 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         ))}
                         <div className="mobilmeny--lenke-wrapper">
                             {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
-                                <NavLink onClick={this.hideMenu} to="/pam-stillingsok/innstillinger" activeClassName="mobilmeny--lenke-active" className="mobilmeny--lenke">
+                                <NavLink
+                                    onClick={this.onNavigationMobileClick("/pam-stillingsok/innstillinger")}
+                                    to="/pam-stillingsok/innstillinger"
+                                    activeClassName="mobilmeny--lenke-active"
+                                    className="mobilmeny--lenke"
+                                >
                                     <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                                 </NavLink>
                             ) : (
-                                <a onClick={this.hideMenu} href="/pam-stillingsok/innstillinger" className="mobilmeny--lenke">
+                                <a
+                                    onClick={this.onNavigationMobileClick("/pam-stillingsok/innstillinger")}
+                                    href="/pam-stillingsok/innstillinger"
+                                    className="mobilmeny--lenke"
+                                >
                                     <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
                                 </a>
                             )}
