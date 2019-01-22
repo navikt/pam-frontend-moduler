@@ -23,21 +23,21 @@ const allTabs : Array<PersonbrukerTab> = [
         href: '/cv',
         app: PersonbrukerApplikasjon.CV
     },
-    // TODO: Kommentere inn igjen url'er til stillingssøket når det har blitt flyttet til arbeidsplassen
+    // TODO: Kommentere inn igjen url'er til stillingssøket når Cv skal lanseres
     //
     // {
     //     tittel: 'Stillingssøk',
-    //     href: '/',
+    //     href: '/stillinger',
     //     app: PersonbrukerApplikasjon.STILLINGSSOK
     // },
     // {
     //     tittel: 'Favoritter',
-    //     href: '/pam-stillingsok/favoritter',
+    //     href: '/stillinger/favoritter',
     //     app: PersonbrukerApplikasjon.STILLINGSSOK
     // },
     // {
     //     tittel: 'Lagrede søk',
-    //     href: '/pam-stillingsok/lagrede-sok',
+    //     href: '/stillinger/lagrede-sok',
     //     app: PersonbrukerApplikasjon.STILLINGSSOK
     // },
     {
@@ -53,21 +53,21 @@ const allTabs : Array<PersonbrukerTab> = [
 
 ];
 
-// TODO: Fjerne stillingssokTabs når stillingsøket er flyttet til arbeidsplassen
+// TODO: Fjerne stillingssokTabs når Cv skal lanseres
 const stillingssokTabs : Array<PersonbrukerTab> = [
     {
         tittel: 'Stillingssøk',
-        href: '/',
+        href: '/stillinger',
         app: PersonbrukerApplikasjon.STILLINGSSOK
     },
     {
         tittel: 'Favoritter',
-        href: '/pam-stillingsok/favoritter',
+        href: '/stillinger/favoritter',
         app: PersonbrukerApplikasjon.STILLINGSSOK
     },
     {
         tittel: 'Lagrede søk',
-        href: '/pam-stillingsok/lagrede-sok',
+        href: '/stillinger/lagrede-sok',
         app: PersonbrukerApplikasjon.STILLINGSSOK
     }
 ];
@@ -77,7 +77,7 @@ interface InnloggetToppProps {
     validerNavigasjon?: ValiderNavigasjonProps;
     personbruker: { navn: string };
     applikasjon: PersonbrukerApplikasjon;
-    // TODO: Denne trenger ikke lengre når stillingssøket er flyttet til arbeidsplassen
+    // TODO: Denne trenger ikke lengre når stillingssøket er flyttet til arbeidsplassen og CV skal lanseres
     visAlleMenyPunkter: boolean;
 }
 
@@ -89,7 +89,7 @@ const stillingssokTabActive = (match : any, location : any) => {
     if (!match) {
         return false;
     }
-    return location.pathname === "/" || location.pathname.match(/\/pam-stillingsok\/stilling*/);
+    return location.pathname === "/stillinger" || location.pathname.match(/\/stillinger\/stilling*/);
 };
 
 export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProps> {
@@ -143,8 +143,8 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                 <div>
                                     {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
                                         <NavLink
-                                            to="/pam-stillingsok/innstillinger"
-                                            onClick={this.onNavigationClick("/pam-stillingsok/innstillinger")}
+                                            to="/stillinger/innstillinger"
+                                            onClick={this.onNavigationClick("/stillinger/innstillinger")}
                                             className="meny--navn lenke typo-normal"
                                             activeClassName="meny--navn-active"
                                         >
@@ -155,8 +155,8 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                         </NavLink>
                                     ) : (
                                         <a
-                                            href="/pam-stillingsok/innstillinger"
-                                            onClick={this.onNavigationClick("/pam-stillingsok/innstillinger")}
+                                            href="/stillinger/innstillinger"
+                                            onClick={this.onNavigationClick("/stillinger/innstillinger")}
                                             className="meny--navn lenke typo-normal"
                                         >
                                             <div className="meny--navn-inner" tabIndex={-1}>
@@ -191,7 +191,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                 <div className="meny">
                     {tabs.map((tab) => (
                         applikasjon === tab.app ? (
-                            tab.href === '/' ? (
+                            tab.href === '/stillinger' ? (
                                 <div className="meny--lenke-wrapper" key={tab.href}>
                                     <NavLink
                                         to={tab.href}
@@ -234,7 +234,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         <div className="mobilmeny--separator" />
                         {tabs.map((tab) => (
                             applikasjon === tab.app ? (
-                                tab.href === '/' ? (
+                                tab.href === '/stillinger' ? (
                                     <div className="mobilmeny--lenke-wrapper" key={tab.href}>
                                         <NavLink
                                             onClick={this.onNavigationMobileClick(tab.href)}
@@ -274,8 +274,8 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         <div className="mobilmeny--lenke-wrapper">
                             {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
                                 <NavLink
-                                    onClick={this.onNavigationMobileClick("/pam-stillingsok/innstillinger")}
-                                    to="/pam-stillingsok/innstillinger"
+                                    onClick={this.onNavigationMobileClick("/stillinger/innstillinger")}
+                                    to="/stillinger/innstillinger"
                                     activeClassName="mobilmeny--lenke-active"
                                     className="mobilmeny--lenke"
                                 >
@@ -283,8 +283,8 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                 </NavLink>
                             ) : (
                                 <a
-                                    onClick={this.onNavigationMobileClick("/pam-stillingsok/innstillinger")}
-                                    href="/pam-stillingsok/innstillinger"
+                                    onClick={this.onNavigationMobileClick("/stillinger/innstillinger")}
+                                    href="/stillinger/innstillinger"
                                     className="mobilmeny--lenke"
                                 >
                                     <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
