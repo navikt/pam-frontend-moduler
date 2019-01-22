@@ -4,6 +4,17 @@
 
 [![NPM](https://img.shields.io/npm/v/pam-frontend-header.svg)](https://www.npmjs.com/package/pam-frontend-header)
 
+## Start
+For å starte applikasjonen første gang må du legge til en mappe /dist.
+Fra /pam-frontend-header i terminalen:
+
+```bash
+mkdir dist
+```
+```bash
+npm start
+```
+
 ## Install
 
 ```bash
