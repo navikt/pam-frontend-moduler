@@ -142,6 +142,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                             {personbruker && personbruker.navn && (
                                 <div>
                                     {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
+                                        // TODO: Endre NavLink to="/stillinger/innstillinger" til a href="/cv/innstillinger" når CV lanseres
                                         <NavLink
                                             to="/stillinger/innstillinger"
                                             onClick={this.onNavigationClick("/stillinger/innstillinger")}
@@ -153,17 +154,29 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                                 <span className="meny--tannhjul"/>
                                             </div>
                                         </NavLink>
-                                    ) : (
-                                        <a
-                                            href="/stillinger/innstillinger"
-                                            onClick={this.onNavigationClick("/stillinger/innstillinger")}
-                                            className="meny--navn lenke typo-normal"
-                                        >
-                                            <div className="meny--navn-inner" tabIndex={-1}>
-                                                <span className="meny--navn__text">{personbruker.navn}</span>
-                                                <span className="meny--tannhjul"/>
-                                            </div>
-                                        </a>
+                                    ) : (applikasjon === PersonbrukerApplikasjon.CV ? (
+                                            <NavLink
+                                                to='/cv/innstillinger'
+                                                onClick={this.onNavigationClick('/cv/innstillinger')}
+                                                className="meny--navn lenke typo-normal"
+                                            >
+                                                <div className="meny--navn-inner" tabIndex={-1}>
+                                                    <span className="meny--navn__text">{personbruker.navn}</span>
+                                                    <span className="meny--tannhjul"/>
+                                                </div>
+                                            </NavLink>
+                                        ) : (
+                                            <a
+                                                href="/cv/innstillinger"
+                                                onClick={this.onNavigationClick('/stillinger/innstillinger')}
+                                                className="meny--navn lenke typo-normal"
+                                            >
+                                                <div className="meny--navn-inner" tabIndex={-1}>
+                                                    <span className="meny--navn__text">{personbruker.navn}</span>
+                                                    <span className="meny--tannhjul"/>
+                                                </div>
+                                            </a>
+                                        )
                                     )}
                                 </div>
                             )}
