@@ -45,7 +45,7 @@
   .meny--navn {
     text-decoration: none;
     margin-right: 0.5rem;
-    border: 1px solid transparent;
+    border: none;
     display: flex;
 
     .meny--navn-inner {
@@ -66,6 +66,9 @@
       .meny--tannhjul {
         background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3C!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch --%3E %3Ctitle%3Ecog%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg id='stillingsannonse' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E %3Cg id='Stillingssok_mobil_treff-Copy' transform='translate(-274.000000, -199.000000)' fill='%230067C5' fill-rule='nonzero'%3E %3Cg id='cog' transform='translate(274.000000, 199.000000)'%3E %3Cpath d='M23.5,10 L20.646,10 C20.446,9.21 20.192,8.333 19.868,7.668 L21.9,5.636 C21.995,5.542 22.047,5.414 22.047,5.282 C22.047,5.15 21.994,5.022 21.9,4.928 L19.07,2.102 C18.875,1.906 18.558,1.906 18.363,2.102 L16.331,4.133 C15.666,3.809 14.789,3.555 14,3.356 L14,0.5 C14,0.224 13.776,0 13.5,0 L10.5,0 C10.225,0 10,0.224 10,0.5 L10,3.356 C9.211,3.555 8.334,3.809 7.669,4.133 L5.637,2.102 C5.441,1.906 5.125,1.906 4.93,2.102 L2.101,4.929 C1.906,5.123 1.906,5.441 2.101,5.636 L4.134,7.669 C3.811,8.331 3.556,9.209 3.355,10 L0.5,10 C0.225,10 0,10.224 0,10.5 L0,13.5 C0,13.776 0.225,14 0.5,14 L3.355,14 C3.555,14.791 3.81,15.668 4.133,16.331 L2.1,18.364 C2.006,18.458 1.954,18.585 1.954,18.718 C1.954,18.851 2.007,18.978 2.1,19.072 L4.93,21.9 C5.118,22.088 5.45,22.088 5.637,21.9 L7.669,19.868 C8.332,20.19 9.209,20.445 10,20.646 L10,23.5 C10,23.776 10.225,24 10.5,24 L13.5,24 C13.776,24 14,23.776 14,23.5 L14,20.646 C14.791,20.445 15.668,20.19 16.331,19.868 L18.365,21.9 C18.56,22.095 18.877,22.095 19.072,21.9 L21.899,19.072 C22.095,18.877 22.095,18.56 21.899,18.365 L19.867,16.332 C20.19,15.669 20.445,14.792 20.645,14.001 L23.5,14.001 C23.776,14.001 24,13.777 24,13.501 L24,10.501 C24,10.224 23.776,10 23.5,10 Z M12,16 C9.795,16 8,14.205 8,12 C8,9.795 9.795,8 12,8 C14.206,8 16,9.795 16,12 C16,14.205 14.206,16 12,16 Z' id='Shape'%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
       }
+        .meny--navn__text {
+            border-bottom-color: #0067C5;
+        }
     }
 
     &:active {
@@ -74,12 +77,18 @@
       }
     }
 
+      &.lenke {
+          &:hover {
+              border-bottom: none;
+          }
+      }
+
     .meny--navn__text {
       border-bottom: 1px solid @navGra40;
     }
 
     .meny--navn__text:hover {
-      border-bottom: 1px solid @navBla;
+      border-bottom-color: @navBla;
     }
   }
 

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Knapp } from "nav-frontend-knapper";
-import {  NavLink } from "react-router-dom";
-import { Normaltekst } from "nav-frontend-typografi";
-import NavFrontendChevron from "nav-frontend-chevron";
+import { Knapp } from 'nav-frontend-knapper';
+import { NavLink } from 'react-router-dom';
+import { Normaltekst } from 'nav-frontend-typografi';
+import NavFrontendChevron from 'nav-frontend-chevron';
 import { ValiderNavigasjonProps } from './PersonbrukerHeaderMeny';
 
 export enum PersonbrukerApplikasjon {
@@ -17,7 +17,7 @@ export interface PersonbrukerTab {
     app: PersonbrukerApplikasjon;
 }
 
-const allTabs : Array<PersonbrukerTab> = [
+const allTabs: Array<PersonbrukerTab> = [
     {
         tittel: 'Min side',
         href: '/minside',
@@ -54,7 +54,7 @@ const allTabs : Array<PersonbrukerTab> = [
 ];
 
 // TODO: Fjerne stillingssokTabs når Cv skal lanseres
-const stillingssokTabs : Array<PersonbrukerTab> = [
+const stillingssokTabs: Array<PersonbrukerTab> = [
     {
         tittel: 'Stillingssøk',
         href: '/stillinger',
@@ -85,15 +85,15 @@ interface StateProps {
     showMobileMenu: boolean;
 }
 
-const stillingssokTabActive = (match : any, location : any) => {
+const stillingssokTabActive = (match: any, location: any) => {
     if (!match) {
         return false;
     }
-    return location.pathname === "/stillinger" || location.pathname.match(/\/stillinger\/stilling*/);
+    return location.pathname === '/stillinger' || location.pathname.match(/\/stillinger\/stilling*/);
 };
 
 export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProps> {
-    constructor(props : any) {
+    constructor(props: any) {
         super(props);
         this.state = {
             showMobileMenu: false
@@ -142,10 +142,10 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                             {personbruker && personbruker.navn && (
                                 <div>
                                     {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
-                                        // TODO: Endre NavLink to="/stillinger/innstillinger" til a href="/cv/innstillinger" når CV lanseres
+                                        // TODO: Endre NavLink to="/stillinger/innstillinger" til a href="/personinnstillinger" når CV lanseres
                                         <NavLink
                                             to="/stillinger/innstillinger"
-                                            onClick={this.onNavigationClick("/stillinger/innstillinger")}
+                                            onClick={this.onNavigationClick('/stillinger/innstillinger')}
                                             className="meny--navn lenke typo-normal"
                                             activeClassName="meny--navn-active"
                                         >
@@ -156,9 +156,10 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                         </NavLink>
                                     ) : (applikasjon === PersonbrukerApplikasjon.CV ? (
                                             <NavLink
-                                                to='/cv/innstillinger'
-                                                onClick={this.onNavigationClick('/cv/innstillinger')}
+                                                to='/personinnstillinger'
+                                                onClick={this.onNavigationClick('/personinnstillinger')}
                                                 className="meny--navn lenke typo-normal"
+                                                activeClassName="meny--navn-active"
                                             >
                                                 <div className="meny--navn-inner" tabIndex={-1}>
                                                     <span className="meny--navn__text">{personbruker.navn}</span>
@@ -167,8 +168,8 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                             </NavLink>
                                         ) : (
                                             <a
-                                                href="/cv/innstillinger"
-                                                onClick={this.onNavigationClick('/stillinger/innstillinger')}
+                                                href="/personinnstillinger"
+                                                onClick={this.onNavigationClick('/personinnstillinger')}
                                                 className="meny--navn lenke typo-normal"
                                             >
                                                 <div className="meny--navn-inner" tabIndex={-1}>
@@ -191,12 +192,12 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         {showMobileMenu ? (
                             <div role="button" onClick={this.onToggleMenu} id="logg-ut" className="mobilmeny--toggle">
                                 <span className="mobilmeny--toggle-text">Lukk</span>
-                                <div className="mobilmeny--lukk" />
+                                <div className="mobilmeny--lukk"/>
                             </div>
-                            ) : (
+                        ) : (
                             <div role="button" onClick={this.onToggleMenu} id="logg-ut" className="mobilmeny--toggle">
                                 <span className="mobilmeny--toggle-text">Meny</span>
-                                <div className="mobilmeny--apne" />
+                                <div className="mobilmeny--apne"/>
                             </div>
                         )}
                     </div>
@@ -213,7 +214,8 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                         activeClassName="meny--lenke-active"
                                         className="meny--lenke lenke"
                                     >
-                                        <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
+                                        <span className="meny--lenke-inner"
+                                              tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron"/></span>
                                     </NavLink>
                                 </div>
                             ) : (
@@ -221,11 +223,11 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                     <NavLink
                                         to={tab.href}
                                         onClick={this.onNavigationClick(tab.href)}
-                                        exact={tab.href === '/cv'}
                                         activeClassName="meny--lenke-active"
                                         className="meny--lenke lenke"
                                     >
-                                        <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
+                                        <span className="meny--lenke-inner"
+                                              tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron"/></span>
                                     </NavLink>
                                 </div>
                             )
@@ -236,7 +238,8 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                     onClick={this.onNavigationClick(tab.href)}
                                     className="meny--lenke lenke"
                                 >
-                                    <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron" /></span>
+                                    <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron
+                                        className="meny--chevron"/></span>
                                 </a>
                             </div>
                         )
@@ -244,7 +247,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                 </div>
                 {showMobileMenu && (
                     <div className="mobilmeny">
-                        <div className="mobilmeny--separator" />
+                        <div className="mobilmeny--separator"/>
                         {tabs.map((tab) => (
                             applikasjon === tab.app ? (
                                 tab.href === '/stillinger' ? (
@@ -256,7 +259,9 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                             activeClassName="mobilmeny--lenke-active"
                                             className="mobilmeny--lenke"
                                         >
-                                            <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
+                                            <Normaltekst
+                                                className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron
+                                                className="mobilmeny--chevron"/></Normaltekst>
                                         </NavLink>
                                     </div>
                                 ) : (
@@ -264,11 +269,12 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                         <NavLink
                                             onClick={this.onNavigationMobileClick(tab.href)}
                                             to={tab.href}
-                                            exact={tab.href === '/cv'}
                                             activeClassName="mobilmeny--lenke-active"
                                             className="mobilmeny--lenke"
                                         >
-                                            <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
+                                            <Normaltekst
+                                                className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron
+                                                className="mobilmeny--chevron"/></Normaltekst>
                                         </NavLink>
                                     </div>
                                 )
@@ -279,7 +285,8 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                         href={tab.href}
                                         className="mobilmeny--lenke"
                                     >
-                                        <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
+                                        <Normaltekst className="mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron
+                                            className="mobilmeny--chevron"/></Normaltekst>
                                     </a>
                                 </div>
                             )
@@ -287,22 +294,34 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         <div className="mobilmeny--lenke-wrapper">
                             {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
                                 <NavLink
-                                    onClick={this.onNavigationMobileClick("/stillinger/innstillinger")}
+                                    onClick={this.onNavigationMobileClick('/stillinger/innstillinger')}
                                     to="/stillinger/innstillinger"
                                     activeClassName="mobilmeny--lenke-active"
                                     className="mobilmeny--lenke"
                                 >
-                                    <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
+                                    <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron
+                                        className="mobilmeny--chevron"/></Normaltekst>
+                                </NavLink>
+                            ) : (applikasjon === PersonbrukerApplikasjon.CV ? (
+                                <NavLink
+                                    to='/personinnstillinger'
+                                    onClick={this.onNavigationMobileClick('/personinnstillinger')}
+                                    className="mobilmeny--lenke"
+                                    activeClassName="mobilmeny--lenke-active"
+                                >
+                                    <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron
+                                        className="mobilmeny--chevron"/></Normaltekst>
                                 </NavLink>
                             ) : (
                                 <a
-                                    onClick={this.onNavigationMobileClick("/stillinger/innstillinger")}
-                                    href="/stillinger/innstillinger"
+                                    onClick={this.onNavigationMobileClick('/personinnstillinger')}
+                                    href="/personinnstillinger"
                                     className="mobilmeny--lenke"
                                 >
-                                    <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron className="mobilmeny--chevron" /></Normaltekst>
+                                    <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron
+                                        className="mobilmeny--chevron"/></Normaltekst>
                                 </a>
-                            )}
+                            ))}
                         </div>
                         <div className="mobilmeny--loggut-wrapper">
                             <Knapp onClick={onLoggUt} id="logg-ut" className="knapp knapp--mini mobilmeny--loggut">
