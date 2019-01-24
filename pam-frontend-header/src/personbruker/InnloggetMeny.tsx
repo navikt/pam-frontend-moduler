@@ -20,7 +20,7 @@ export interface PersonbrukerTab {
 const allTabs : Array<PersonbrukerTab> = [
     {
         tittel: 'Min side',
-        href: '/cv',
+        href: '/minside',
         app: PersonbrukerApplikasjon.CV
     },
     // TODO: Kommentere inn igjen url'er til stillingssøket når Cv skal lanseres
@@ -42,7 +42,7 @@ const allTabs : Array<PersonbrukerTab> = [
     // },
     {
         tittel: 'CV',
-        href: '/cv/cv',
+        href: '/cv',
         app: PersonbrukerApplikasjon.CV
     },
     {
