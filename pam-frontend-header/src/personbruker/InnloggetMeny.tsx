@@ -177,8 +177,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                         activeClassName="meny--lenke-active"
                                         className="meny--lenke lenke"
                                     >
-                                        <span className="meny--lenke-inner"
-                                              tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron"/></span>
+                                        <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}</span>
                                     </NavLink>
                                 </div>
                             ) : (
@@ -189,8 +188,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                         activeClassName="meny--lenke-active"
                                         className="meny--lenke lenke"
                                     >
-                                        <span className="meny--lenke-inner"
-                                              tabIndex={-1}>{tab.tittel}<NavFrontendChevron className="meny--chevron"/></span>
+                                        <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}</span>
                                     </NavLink>
                                 </div>
                             )
@@ -201,8 +199,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                     onClick={this.onNavigationClick(tab.href)}
                                     className="meny--lenke lenke"
                                 >
-                                    <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}<NavFrontendChevron
-                                        className="meny--chevron"/></span>
+                                    <span className="meny--lenke-inner" tabIndex={-1}>{tab.tittel}</span>
                                 </a>
                             </div>
                         )
