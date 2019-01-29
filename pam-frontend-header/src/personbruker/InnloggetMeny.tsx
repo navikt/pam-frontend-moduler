@@ -17,44 +17,12 @@ export interface PersonbrukerTab {
     app: PersonbrukerApplikasjon;
 }
 
-const allTabs: Array<PersonbrukerTab> = [
+const tabs: Array<PersonbrukerTab> = [
     {
         tittel: 'Min side',
         href: '/minside',
         app: PersonbrukerApplikasjon.CV
     },
-    // TODO: Kommentere inn igjen url'er til stillingssøket når Cv skal lanseres
-    //
-    // {
-    //     tittel: 'Stillingssøk',
-    //     href: '/stillinger',
-    //     app: PersonbrukerApplikasjon.STILLINGSSOK
-    // },
-    // {
-    //     tittel: 'Favoritter',
-    //     href: '/stillinger/favoritter',
-    //     app: PersonbrukerApplikasjon.STILLINGSSOK
-    // },
-    // {
-    //     tittel: 'Lagrede søk',
-    //     href: '/stillinger/lagrede-sok',
-    //     app: PersonbrukerApplikasjon.STILLINGSSOK
-    // },
-    {
-        tittel: 'CV',
-        href: '/cv',
-        app: PersonbrukerApplikasjon.CV
-    },
-    {
-        tittel: 'Jobbprofil',
-        href: '/jobbprofil',
-        app: PersonbrukerApplikasjon.JOBBPROFIL
-    }
-
-];
-
-// TODO: Fjerne stillingssokTabs når Cv skal lanseres
-const stillingssokTabs: Array<PersonbrukerTab> = [
     {
         tittel: 'Stillingssøk',
         href: '/stillinger',
@@ -69,7 +37,18 @@ const stillingssokTabs: Array<PersonbrukerTab> = [
         tittel: 'Lagrede søk',
         href: '/stillinger/lagrede-sok',
         app: PersonbrukerApplikasjon.STILLINGSSOK
+    },
+    {
+        tittel: 'CV',
+        href: '/cv',
+        app: PersonbrukerApplikasjon.CV
+    },
+    {
+        tittel: 'Jobbprofil',
+        href: '/jobbprofil',
+        app: PersonbrukerApplikasjon.JOBBPROFIL
     }
+
 ];
 
 interface InnloggetToppProps {
@@ -77,8 +56,6 @@ interface InnloggetToppProps {
     validerNavigasjon?: ValiderNavigasjonProps;
     personbruker: { navn: string };
     applikasjon: PersonbrukerApplikasjon;
-    // TODO: Denne trenger ikke lengre når stillingssøket er flyttet til arbeidsplassen og CV skal lanseres
-    visAlleMenyPunkter: boolean;
 }
 
 interface StateProps {
@@ -128,9 +105,8 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
     }
 
     render() {
-        const { personbruker, onLoggUt, applikasjon, visAlleMenyPunkter } = this.props;
+        const { personbruker, onLoggUt, applikasjon } = this.props;
         const { showMobileMenu } = this.state;
-        const tabs = visAlleMenyPunkter ? allTabs : stillingssokTabs;
         return (
             <div className="Innloggetmeny">
                 <div className="topp">
@@ -141,20 +117,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                         <div>
                             {personbruker && personbruker.navn && (
                                 <div>
-                                    {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
-                                        // TODO: Endre NavLink to="/stillinger/innstillinger" til a href="/personinnstillinger" når CV lanseres
-                                        <NavLink
-                                            to="/stillinger/innstillinger"
-                                            onClick={this.onNavigationClick('/stillinger/innstillinger')}
-                                            className="meny--navn lenke typo-normal"
-                                            activeClassName="meny--navn-active"
-                                        >
-                                            <div className="meny--navn-inner" tabIndex={-1}>
-                                                <span className="meny--navn__text">{personbruker.navn}</span>
-                                                <span className="meny--tannhjul"/>
-                                            </div>
-                                        </NavLink>
-                                    ) : (applikasjon === PersonbrukerApplikasjon.CV ? (
+                                    {(applikasjon === PersonbrukerApplikasjon.CV ? (
                                             <NavLink
                                                 to='/personinnstillinger'
                                                 onClick={this.onNavigationClick('/personinnstillinger')}
@@ -292,17 +255,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                             )
                         ))}
                         <div className="mobilmeny--lenke-wrapper">
-                            {applikasjon === PersonbrukerApplikasjon.STILLINGSSOK ? (
-                                <NavLink
-                                    onClick={this.onNavigationMobileClick('/stillinger/innstillinger')}
-                                    to="/stillinger/innstillinger"
-                                    activeClassName="mobilmeny--lenke-active"
-                                    className="mobilmeny--lenke"
-                                >
-                                    <Normaltekst className="mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron
-                                        className="mobilmeny--chevron"/></Normaltekst>
-                                </NavLink>
-                            ) : (applikasjon === PersonbrukerApplikasjon.CV ? (
+                            {(applikasjon === PersonbrukerApplikasjon.CV ? (
                                 <NavLink
                                     to='/personinnstillinger'
                                     onClick={this.onNavigationMobileClick('/personinnstillinger')}
