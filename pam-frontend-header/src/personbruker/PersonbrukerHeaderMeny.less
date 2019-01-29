@@ -145,25 +145,30 @@
   .meny--lenke {
     font-size: 16px;
     padding: 8px 2px;
-    color: @navDypBla;
+    color: @navMorkGra;
   }
 
   .meny--lenke-inner {
     padding: 8px 2px 8px 2px;
     border-bottom: 2px solid transparent;
+    letter-spacing: 0.15px;
   }
 
   .meny--lenke:hover .meny--lenke-inner {
-    border-bottom: 2px solid @navDypBla;
+    border-bottom: 2px solid @navGra60;
   }
 
   .meny--lenke-active .meny--lenke-inner,
   .meny--lenke:active .meny--lenke-inner {
     border-bottom: 2px solid @navDypBla;
+    font-weight: bold;
+    color: @navDypBla;
+    letter-spacing: 0px;
   }
 
   .meny--lenke-active:hover .meny--lenke-inner {
     border-bottom: 2px solid @navDypBla;
+    color: @navDypBla;
   }
 
     .meny--lenke-innstillinger {
@@ -241,7 +246,7 @@
         .mobilmeny--lenke {
             font-size: 16px;
             padding: 8px 2px;
-            color: @navDypBla;
+            color: @navMorkGra;
         }
 
         .mobilinnlogging {

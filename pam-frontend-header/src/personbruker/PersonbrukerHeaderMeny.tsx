@@ -13,7 +13,6 @@ interface PersonbrukerHeaderMenyProps {
   personbruker: Personbruker;
   erInnlogget: boolean;
   applikasjon: PersonbrukerApplikasjon;
-  visAlleMenyPunkter?: boolean;
 }
 
 export interface ValiderNavigasjonProps {
@@ -28,8 +27,7 @@ export const PersonbrukerHeaderMeny = ({
     personbruker,
     onLoggInn,
     applikasjon,
-    validerNavigasjon,
-    visAlleMenyPunkter = false
+    validerNavigasjon
 } : PersonbrukerHeaderMenyProps) => (
     <div className="HeaderMeny">
         {erInnlogget ? (
@@ -38,7 +36,6 @@ export const PersonbrukerHeaderMeny = ({
                 personbruker={personbruker}
                 applikasjon={applikasjon}
                 validerNavigasjon={validerNavigasjon}
-                visAlleMenyPunkter={visAlleMenyPunkter}
             />
         ) : (
             <IkkeInnloggetMeny onLoggInn={onLoggInn} />
