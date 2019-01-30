@@ -111,7 +111,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
             <div className="Innloggetmeny">
                 <div className="topp">
                     <div className="logo">
-                        Arbeidsplassen
+                        <a className="lenke" href="/">Arbeidsplassen</a>
                     </div>
                     <div className="innlogging">
                         <div>
