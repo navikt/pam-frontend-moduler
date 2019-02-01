@@ -188,12 +188,19 @@
     }
 
     @media (max-width: @screen-sm-min) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
         .meny {
             display: none;
         }
 
         .innlogging {
             display: none;
+        }
+
+        .topp {
+            min-height: 4rem;
         }
 
         .mobilmeny--separator {
@@ -215,9 +222,11 @@
 
         .mobilmeny--toggle {
             display: flex;
-            padding: 2rem;
+            height: 4rem;;
+            padding: 0 1rem;
+            align-items: center;
             position: absolute;
-            top: 0.5rem;
+            top: 0;
             right: 0;
         }
 
