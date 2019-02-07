@@ -60,12 +60,25 @@ const tabErAktiv = (tab: Tab, activeTabId: VeilederTabId) => (
     || (tab.alternativId && tab.alternativId === activeTabId)
 );
 
+interface ValiderNavigasjonProps {
+    redirectTillates: () => boolean;
+    redirectForhindretCallback: (url: string) => void;
+}
+
 interface VeilederHeaderMenyProps {
     activeTabID: VeilederTabId;
     innloggetBruker: string;
+    validerNavigasjon?: ValiderNavigasjonProps;
 }
 
-export const VeilederHeaderMeny = ({ activeTabID, innloggetBruker }: VeilederHeaderMenyProps) => {
+const onNavigationClick = (url: string, validerNavigasjon?: ValiderNavigasjonProps) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (validerNavigasjon && !validerNavigasjon.redirectTillates()) {
+        e.preventDefault();
+        validerNavigasjon.redirectForhindretCallback(url);
+    }
+}
+
+export const VeilederHeaderMeny = ({ activeTabID, innloggetBruker, validerNavigasjon}: VeilederHeaderMenyProps) => {
     return (
         <div className="VeilederHeaderMeny">
             <div className="topp">
@@ -75,8 +88,8 @@ export const VeilederHeaderMeny = ({ activeTabID, innloggetBruker }: VeilederHea
                     </div>
                     <div className="logotekst">
                         {getApp(activeTabID) === App.REKRUTTERINGSBISTAND
-                            ? <Link to="/">Rekrutteringsbistand</Link>
-                            : <a href="/">Rekrutteringsbistand</a>
+                            ? <Link to="/" onClick={onNavigationClick('/', validerNavigasjon)}>Rekrutteringsbistand</Link>
+                            : <a href="/" onClick={onNavigationClick('/', validerNavigasjon)}>Rekrutteringsbistand</a>
                         }
                     </div>
                 </div>
@@ -88,12 +101,13 @@ export const VeilederHeaderMeny = ({ activeTabID, innloggetBruker }: VeilederHea
                 <ul>
                     {tabs.map((tab) => (
                         internLenkeSkalBrukes(tab, activeTabID)
-                            ? <Link to={tab.href}  key={tab.id}>
+                            ? <Link to={tab.href} key={tab.id} onClick={onNavigationClick(tab.href, validerNavigasjon)}
+                            >
                                 <li className={tabErAktiv(tab, activeTabID) ? 'active' : 'not-active'}>
                                     {tab.tittel}
                                 </li>
                             </Link>
-                            : <a href={tab.href} key={tab.id}>
+                            : <a href={tab.href} key={tab.id} onClick={onNavigationClick(tab.href, validerNavigasjon)}>
                                 <li className={tabErAktiv(tab, activeTabID) ? 'active' : 'not-active'}>
                                     {tab.tittel}
                                 </li>
