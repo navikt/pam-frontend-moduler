@@ -29,7 +29,7 @@ export const PersonbrukerHeaderMeny = ({
     applikasjon,
     validerNavigasjon
 } : PersonbrukerHeaderMenyProps) => (
-    <div className="HeaderMeny">
+    <div className="PersonbrukerHeaderMeny">
         {erInnlogget ? (
             <InnloggetMeny
                 onLoggUt={onLoggUt}

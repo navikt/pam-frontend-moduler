@@ -56,7 +56,7 @@ interface ArbeidsgiverHeaderMenyProps {
 
 export const ArbeidsgiverHeaderMeny = ({ onLoggUt, onArbeidsgiverSelect, arbeidsgivere, valgtArbeidsgiverId, activeTabID } : ArbeidsgiverHeaderMenyProps ) => {
     return (
-        <div className="HeaderMeny">
+        <div className="ArbeidsgiverHeaderMeny">
             <div className="topp">
                 <div className="logo">
                     <a href="/">Arbeidsplassen</a>
