@@ -101,13 +101,13 @@ export const VeilederHeaderMeny = ({ activeTabID, innloggetBruker, validerNaviga
                 <ul>
                     {tabs.map((tab) => (
                         internLenkeSkalBrukes(tab, activeTabID)
-                            ? <Link to={tab.href} key={tab.id} onClick={onNavigationClick(tab.href, validerNavigasjon)}
+                            ? <Link to={tab.href} className="meny--lenke" key={tab.id} onClick={onNavigationClick(tab.href, validerNavigasjon)}
                             >
                                 <li className={tabErAktiv(tab, activeTabID) ? 'active' : 'not-active'}>
                                     {tab.tittel}
                                 </li>
                             </Link>
-                            : <a href={tab.href} key={tab.id} onClick={onNavigationClick(tab.href, validerNavigasjon)}>
+                            : <a href={tab.href} className="meny--lenke" key={tab.id} onClick={onNavigationClick(tab.href, validerNavigasjon)}>
                                 <li className={tabErAktiv(tab, activeTabID) ? 'active' : 'not-active'}>
                                     {tab.tittel}
                                 </li>

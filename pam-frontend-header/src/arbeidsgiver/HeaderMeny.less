@@ -1,3 +1,5 @@
+@import "../../node_modules/nav-frontend-core/less/_variabler";
+
 .ArbeidsgiverHeaderMeny {
   background-color: white;
   color: #4a4a4a;
@@ -44,6 +46,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .meny--lenke:focus {
+      outline: none;
+      > li {
+        background-color: @orangeFocus;
+      }
+    }
 
     ul {
       display: flex;
