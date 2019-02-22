@@ -1,3 +1,5 @@
+@import "../../node_modules/nav-frontend-core/less/_variabler";
+
 .VeilederHeaderMeny {
     background-color: #3e3832;
     color: #ffffff;
@@ -44,6 +46,11 @@
                 a {
                     color: #ffffff;
                     text-decoration: none;
+                    &:focus {
+                        background-color: @orangeFocus;
+                        outline: none;
+                        color: @navMorkGra;
+                    }
                 }
             }
         }
@@ -55,6 +62,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        .meny--lenke:focus {
+            outline: none;
+            > li {
+                background-color: @orangeFocus;
+                color: @navMorkGra;
+            }
+        }
 
         ul {
             display: flex;
