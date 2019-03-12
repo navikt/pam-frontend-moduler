@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Personbruker } from './PropTypes';
 import './PersonbrukerHeaderMeny.less';
-import { IkkeInnloggetMeny } from "./IkkeInnloggetMeny";
+import { HeaderUtenMenypunkter } from "./HeaderUtenMenypunkter";
 import { InnloggetMeny } from "./InnloggetMeny";
 import { PersonbrukerApplikasjon } from '..';
 
 
 interface PersonbrukerHeaderMenyProps {
-  onLoggUt: () => void;
   onLoggInn: () => void;
+  loggUtUrl: string;
   validerNavigasjon?: ValiderNavigasjonProps;
   personbruker: Personbruker;
   erInnlogget: boolean;
@@ -22,7 +22,7 @@ export interface ValiderNavigasjonProps {
 
 
 export const PersonbrukerHeaderMeny = ({
-    onLoggUt,
+    loggUtUrl,
     erInnlogget,
     personbruker,
     onLoggInn,
@@ -32,13 +32,13 @@ export const PersonbrukerHeaderMeny = ({
     <div className="PersonbrukerHeaderMeny">
         {erInnlogget ? (
             <InnloggetMeny
-                onLoggUt={onLoggUt}
+                loggUtUrl={loggUtUrl}
                 personbruker={personbruker}
                 applikasjon={applikasjon}
                 validerNavigasjon={validerNavigasjon}
             />
         ) : (
-            <IkkeInnloggetMeny onLoggInn={onLoggInn} />
+            <HeaderUtenMenypunkter onLoggInn={onLoggInn} erLoggetInn={false} />
         )}
     </div>
 );

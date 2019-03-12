@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Normaltekst } from 'nav-frontend-typografi';
-import { Knapp } from 'nav-frontend-knapper';
 import ArbeidsgiverSelect from './ArbeidsgiverSelect';
 import { Arbeidsgiver } from './PropTypes';
 import './HeaderMeny.less';
@@ -56,47 +55,49 @@ interface ArbeidsgiverHeaderMenyProps {
 
 export const ArbeidsgiverHeaderMeny = ({ onLoggUt, onArbeidsgiverSelect, arbeidsgivere, valgtArbeidsgiverId, activeTabID } : ArbeidsgiverHeaderMenyProps ) => {
     return (
-        <div className="ArbeidsgiverHeaderMeny">
-            <div className="topp">
-                <div className="logo">
-                    <a href="/">Arbeidsplassen</a>
+        <div className="ArbeidsgiverHeaderMeny__wrapper">
+            <div className="ArbeidsgiverHeaderMeny">
+                <div className="topp">
+                    <div className="logo">
+                        <a href="/">Arbeidsplassen</a>
+                    </div>
+                    <div>
+                        {arbeidsgivere.length === 1 ? (
+                            <Normaltekst className="topmeny-navn">
+                                {arbeidsgivere[0].navn}
+                            </Normaltekst>
+                        ) :
+                            (arbeidsgivere.length > 1 && valgtArbeidsgiverId !== undefined && (
+                                <ArbeidsgiverSelect
+                                    arbeidsgivere={arbeidsgivere}
+                                    valgtArbeidsgiverId={valgtArbeidsgiverId}
+                                    onArbeidsgiverSelect={onArbeidsgiverSelect}
+                                />
+                            ))}
+                    </div>
+                    <div>
+                        <button onClick={onLoggUt} id="logg-ut" className="Button Button--mini knapp--loggut">
+                            Logg ut
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    {arbeidsgivere.length === 1 ? (
-                        <Normaltekst className="topmeny-navn">
-                            {arbeidsgivere[0].navn}
-                        </Normaltekst>
-                    ) :
-                        (arbeidsgivere.length > 1 && valgtArbeidsgiverId !== undefined && (
-                            <ArbeidsgiverSelect
-                                arbeidsgivere={arbeidsgivere}
-                                valgtArbeidsgiverId={valgtArbeidsgiverId}
-                                onArbeidsgiverSelect={onArbeidsgiverSelect}
-                            />
+                <div className="meny">
+                    <ul>
+                        {tabs.map((tab) => (
+                            tabErIPamKandidatsok(tab.id) && tabErIPamKandidatsok(activeTabID)
+                                ? <Link to={tab.href} className="meny--lenke" key={tab.id}>
+                                    <li className={tab.id === activeTabID ? 'active' : 'not-active'}>
+                                        <div>{tab.tittel}</div>
+                                    </li>
+                                </Link>
+                                : <a href={tab.href} className="meny--lenke" key={tab.id}>
+                                    <li className={tab.id === activeTabID ? 'active' : 'not-active'}>
+                                        <div>{tab.tittel}</div>
+                                    </li>
+                                </a>
                         ))}
+                    </ul>
                 </div>
-                <div>
-                    <Knapp onClick={onLoggUt} id="logg-ut" className="knapp knapp--mini knapp--loggut">
-                        Logg ut
-                    </Knapp>
-                </div>
-            </div>
-            <div className="meny">
-                <ul>
-                    {tabs.map((tab) => (
-                        tabErIPamKandidatsok(tab.id) && tabErIPamKandidatsok(activeTabID)
-                            ? <Link to={tab.href} className="meny--lenke" key={tab.id}>
-                                <li className={tab.id === activeTabID ? 'active' : 'not-active'}>
-                                    {tab.tittel}
-                                </li>
-                            </Link>
-                            : <a href={tab.href} className="meny--lenke" key={tab.id}>
-                                <li className={tab.id === activeTabID ? 'active' : 'not-active'}>
-                                    {tab.tittel}
-                                </li>
-                            </a>
-                    ))}
-                </ul>
             </div>
         </div>
     );
