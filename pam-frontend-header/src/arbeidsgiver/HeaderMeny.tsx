@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Normaltekst } from 'nav-frontend-typografi';
-import { Knapp } from 'nav-frontend-knapper';
 import ArbeidsgiverSelect from './ArbeidsgiverSelect';
 import { Arbeidsgiver } from './PropTypes';
 import './HeaderMeny.less';
@@ -76,9 +75,9 @@ export const ArbeidsgiverHeaderMeny = ({ onLoggUt, onArbeidsgiverSelect, arbeids
                         ))}
                 </div>
                 <div>
-                    <Knapp onClick={onLoggUt} id="logg-ut" className="knapp knapp--mini knapp--loggut">
+                    <button onClick={onLoggUt} id="logg-ut" className="Button Button--mini knapp--loggut">
                         Logg ut
-                    </Knapp>
+                    </button>
                 </div>
             </div>
             <div className="meny">
@@ -87,12 +86,12 @@ export const ArbeidsgiverHeaderMeny = ({ onLoggUt, onArbeidsgiverSelect, arbeids
                         tabErIPamKandidatsok(tab.id) && tabErIPamKandidatsok(activeTabID)
                             ? <Link to={tab.href} className="meny--lenke" key={tab.id}>
                                 <li className={tab.id === activeTabID ? 'active' : 'not-active'}>
-                                    {tab.tittel}
+                                    <div>{tab.tittel}</div>
                                 </li>
                             </Link>
                             : <a href={tab.href} className="meny--lenke" key={tab.id}>
                                 <li className={tab.id === activeTabID ? 'active' : 'not-active'}>
-                                    {tab.tittel}
+                                    <div>{tab.tittel}</div>
                                 </li>
                             </a>
                     ))}

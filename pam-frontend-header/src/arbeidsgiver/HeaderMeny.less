@@ -1,4 +1,5 @@
 @import "../../node_modules/nav-frontend-core/less/_variabler";
+@import "../styles.less";
 
 .ArbeidsgiverHeaderMeny {
   background-color: white;
@@ -8,9 +9,10 @@
   padding-right: 2rem;
   display: flex;
   flex-direction: column;
+  border-bottom: 2px solid @yellowLight;
 
   .topp {
-    min-height: 6.25rem;
+    padding: 2.5rem 0 2rem 0;
     display: flex;
     align-items: center;
 
@@ -41,16 +43,16 @@
   }
 
   .meny {
-    border-top: 1px solid #979797;
-    min-height: 4rem;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 
     .meny--lenke:focus {
       outline: none;
       > li {
-        background-color: @orangeFocus;
+        > div {
+          background-color: @orangeFocus;
+        }
       }
     }
 
@@ -61,13 +63,15 @@
 
     li {
       list-style: none;
-      margin-left: 26px;
-      margin-right: 26px;
+      margin: 0 2rem;
       font-size: 16px;
-      padding: 4px 2px;
+      padding: 4px 2px 22px 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: @darkBlue;
       &.active {
-        border-bottom: 2px solid #005b82;
-        color: #3e3832;
+        border-bottom: 8px solid @yellowLight;
+        color: @darkBlue;
         a {
           &:hover {
             text-decoration: none;
@@ -76,9 +80,8 @@
       }
       &.not-active {
         &:hover {
-          border-bottom: 2px solid rgba(120, 112, 106, 0.6);
+          border-bottom: 8px solid @yellowLight;
         }
-        color: #78706a;
       }
     }
 

@@ -1,0 +1,55 @@
+@import './variables.less';
+
+.Button {
+  background-color: #fff;
+  border: 2px solid @pinkDarken;
+  border-radius: 5rem;
+  color: @pinkDarken;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-size: 1em;
+  letter-spacing: 0.0625em;
+  line-height: 1;
+  padding: 0.575rem 2rem 0.676rem 2rem;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  white-space: nowrap;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px @orangeFocus;
+  }
+
+  &:hover {
+    background-color: @pink;
+    border-color: @pinkDarken;
+    color: #fff;
+    transform: none;
+  }
+
+  &:active {
+    background-color: @pinkDarken;
+    border-color: @pinkDarken;
+    color: @pinkLighten2;
+  }
+}
+
+.Button--mini {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.link {
+  color: @pinkDarken;
+
+  &:hover, &:active {
+    color: @pink;
+  }
+
+  &:focus {
+    background: @orangeFocus;
+  }
+}
