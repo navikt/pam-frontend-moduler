@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Personbruker } from './PropTypes';
 import './PersonbrukerHeaderMeny.less';
-import { IkkeInnloggetMeny } from "./IkkeInnloggetMeny";
+import { HeaderUtenMenypunkter } from "./HeaderUtenMenypunkter";
 import { InnloggetMeny } from "./InnloggetMeny";
 import { PersonbrukerApplikasjon } from '..';
 
@@ -38,7 +38,7 @@ export const PersonbrukerHeaderMeny = ({
                 validerNavigasjon={validerNavigasjon}
             />
         ) : (
-            <IkkeInnloggetMeny onLoggInn={onLoggInn} />
+            <HeaderUtenMenypunkter onLoggInn={onLoggInn} erLoggetInn={false} />
         )}
     </div>
 );

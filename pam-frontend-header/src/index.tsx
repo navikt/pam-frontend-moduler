@@ -5,6 +5,7 @@ import { VeilederHeaderMeny, VeilederTabId } from './veileder/HeaderMeny';
 import { PersonbrukerHeaderMeny } from "./personbruker/PersonbrukerHeaderMeny";
 import { PersonbrukerHeader } from './personbruker/PersonbrukerHeader';
 import { PersonbrukerApplikasjon } from './personbruker/InnloggetMeny';
+import { HeaderUtenMenypunkter } from './personbruker/HeaderUtenMenypunkter';
 
 export {
     ArbeidsgiverHeader,
@@ -15,6 +16,7 @@ export {
     VeilederTabId,
     PersonbrukerHeaderMeny,
     PersonbrukerHeader,
-    PersonbrukerApplikasjon
+    PersonbrukerApplikasjon,
+    HeaderUtenMenypunkter
 }
 
