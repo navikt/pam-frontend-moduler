@@ -218,9 +218,10 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                             activeClassName="Mobilmeny--lenke-active"
                                             className="Mobilmeny--lenke"
                                         >
-                                            <Normaltekst
-                                                className="Mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron
-                                                className="Mobilmeny--chevron"/></Normaltekst>
+                                            <Normaltekst className="Mobilmeny--lenke-inner">
+                                                <span>{tab.tittel}</span>
+                                                <NavFrontendChevron className="Mobilmeny--chevron"/>
+                                            </Normaltekst>
                                         </NavLink>
                                     </div>
                                 ) : (
@@ -231,9 +232,10 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                             activeClassName="Mobilmeny--lenke-active"
                                             className="Mobilmeny--lenke"
                                         >
-                                            <Normaltekst
-                                                className="Mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron
-                                                className="Mobilmeny--chevron"/></Normaltekst>
+                                            <Normaltekst className="Mobilmeny--lenke-inner">
+                                                <span>{tab.tittel}</span>
+                                                <NavFrontendChevron className="Mobilmeny--chevron"/>
+                                            </Normaltekst>
                                         </NavLink>
                                     </div>
                                 )
@@ -244,8 +246,10 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                         href={tab.href}
                                         className="Mobilmeny--lenke"
                                     >
-                                        <Normaltekst className="Mobilmeny--lenke-inner">{tab.tittel}<NavFrontendChevron
-                                            className="Mobilmeny--chevron"/></Normaltekst>
+                                        <Normaltekst className="Mobilmeny--lenke-inner">
+                                            <span>{tab.tittel}</span>
+                                            <NavFrontendChevron className="Mobilmeny--chevron"/>
+                                        </Normaltekst>
                                     </a>
                                 </div>
                             )
@@ -258,8 +262,10 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                     className="Mobilmeny--lenke"
                                     activeClassName="Mobilmeny--lenke-active"
                                 >
-                                    <Normaltekst className="Mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron
-                                        className="Mobilmeny--chevron"/></Normaltekst>
+                                    <Normaltekst className="Mobilmeny--lenke-inner">
+                                        <span>Innstillinger</span>
+                                        <NavFrontendChevron className="Mobilmeny--chevron"/>
+                                    </Normaltekst>
                                 </NavLink>
                             ) : (
                                 <a
@@ -267,8 +273,10 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                     href="/personinnstillinger"
                                     className="Mobilmeny--lenke"
                                 >
-                                    <Normaltekst className="Mobilmeny--lenke-inner">Innstillinger<NavFrontendChevron
-                                        className="Mobilmeny--chevron"/></Normaltekst>
+                                    <Normaltekst className="Mobilmeny--lenke-inner">
+                                        <span>Innstillinger</span>
+                                        <NavFrontendChevron className="Mobilmeny--chevron"/>
+                                    </Normaltekst>
                                 </a>
                             ))}
                         </div>

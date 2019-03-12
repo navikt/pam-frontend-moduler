@@ -97,9 +97,15 @@
   }
 
   .Mobilmeny--lenke {
-      font-size: 16px;
-      padding: 16px 2px;
-      display: block;
+    font-size: 16px;
+    padding: 16px 2px 8px 2px;
+    display: block;
+
+    .Mobilmeny--lenke-inner {
+      > span {
+        border-bottom: 8px solid transparent;
+      }
+    }
   }
 
   .Mobilmeny--lenke-inner {
@@ -111,7 +117,12 @@
   }
 
   .Mobilmeny--lenke-active {
-    background-color: @yellowLight;
+    background-color: transparent;
+    .Mobilmeny--lenke-inner {
+      > span {
+        border-bottom: 8px solid @yellowLight;
+      }
+    }
   }
 
   .Mobilmeny--lenke-wrapper {
@@ -122,7 +133,7 @@
 
   .Mobilmeny--chevron {
       display: block;
-      margin: auto 0 auto auto;
+      margin: auto 0 1rem auto;
   }
 
   .Mobilmeny--loggut-wrapper {
