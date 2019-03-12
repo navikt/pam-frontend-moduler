@@ -7,8 +7,8 @@ import { PersonbrukerApplikasjon } from '..';
 
 
 interface PersonbrukerHeaderMenyProps {
-  onLoggUt: () => void;
   onLoggInn: () => void;
+  loggUtUrl: string;
   validerNavigasjon?: ValiderNavigasjonProps;
   personbruker: Personbruker;
   erInnlogget: boolean;
@@ -22,7 +22,7 @@ export interface ValiderNavigasjonProps {
 
 
 export const PersonbrukerHeaderMeny = ({
-    onLoggUt,
+    loggUtUrl,
     erInnlogget,
     personbruker,
     onLoggInn,
@@ -32,7 +32,7 @@ export const PersonbrukerHeaderMeny = ({
     <div className="PersonbrukerHeaderMeny">
         {erInnlogget ? (
             <InnloggetMeny
-                onLoggUt={onLoggUt}
+                loggUtUrl={loggUtUrl}
                 personbruker={personbruker}
                 applikasjon={applikasjon}
                 validerNavigasjon={validerNavigasjon}
