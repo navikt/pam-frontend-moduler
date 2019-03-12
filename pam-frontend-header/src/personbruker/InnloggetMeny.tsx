@@ -6,8 +6,7 @@ import { ValiderNavigasjonProps } from './PersonbrukerHeaderMeny';
 
 export enum PersonbrukerApplikasjon {
     STILLINGSSOK = 'STILLINGSSOK',
-    CV = 'CV',
-    JOBBPROFIL = 'JOBBPROFIL'
+    CV = 'CV'
 }
 
 export interface PersonbrukerTab {
@@ -45,7 +44,7 @@ const tabs: Array<PersonbrukerTab> = [
     {
         tittel: 'Jobbprofil',
         href: '/jobbprofil',
-        app: PersonbrukerApplikasjon.JOBBPROFIL
+        app: PersonbrukerApplikasjon.CV
     }
 
 ];
