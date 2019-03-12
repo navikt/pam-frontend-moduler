@@ -1,15 +1,20 @@
 @import "../../node_modules/nav-frontend-core/less/_variabler";
 @import "../styles.less";
 
-.ArbeidsgiverHeaderMeny {
+.ArbeidsgiverHeaderMeny__wrapper {
   background-color: white;
-  color: #4a4a4a;
-  font-family: "Source Sans Pro", Arial, sans-serif;
   padding-left: 2rem;
   padding-right: 2rem;
+  border-bottom: 2px solid @yellowLight;
+}
+
+.ArbeidsgiverHeaderMeny {
+  color: #4a4a4a;
+  font-family: "Source Sans Pro", Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  border-bottom: 2px solid @yellowLight;
+  max-width: 1156px;
+  margin: auto;
 
   .topp {
     padding: 2.5rem 0 2rem 0;
