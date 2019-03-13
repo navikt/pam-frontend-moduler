@@ -76,7 +76,7 @@ export const ArbeidsgiverHeaderMeny = ({ onLoggUt, onArbeidsgiverSelect, arbeids
                             ))}
                     </div>
                     <div>
-                        <button onClick={onLoggUt} id="logg-ut" className="Button Button--mini knapp--loggut">
+                        <button onClick={onLoggUt} id="logg-ut" className="Header__Button Header__Button--mini knapp--loggut">
                             Logg ut
                         </button>
                     </div>
