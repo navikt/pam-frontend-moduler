@@ -1,26 +1,94 @@
 import * as React from 'react';
+import './PersonbrukerHeaderMeny.less';
+import { Normaltekst } from 'nav-frontend-typografi';
 
 interface HeaderUtenMenypunkterProps {
-    onLoggInn?: () => void;
-    onLoggUt?: () => void;
-    erLoggetInn: boolean;
+    loggInnUrl?: string;
+    loggInnUrlArbeidsgiver?: string;
+    loggUtUrl?: string;
+    erInnlogget: boolean;
 }
 
-export const HeaderUtenMenypunkter = ({ onLoggInn, onLoggUt, erLoggetInn } : HeaderUtenMenypunkterProps ) => (
-    <div className="HeaderUtenMenypunkter">
-        <div className="topp">
-            <div className="logo">
-                <a className="lenke" href="/">Arbeidsplassen</a>
-            </div>
-            {erLoggetInn ? (
-                <button onClick={onLoggUt} id="logg-inn" className="Header__Button Header__Button--mini typo-normal">
-                    Logg ut
-                </button>
-            ) : (
-                <button onClick={onLoggInn} id="logg-inn" className="Header__Button Header__Button--mini typo-normal">
-                    Logg inn
-                </button>
-            )}
-        </div>
-    </div>
+interface HeaderUtenMenypunkterState {
+    showMobileMenu: boolean;
+}
+
+interface AuthButtonsProps {
+    url?: string;
+    label: String
+}
+
+const AuthButton = ({ url, label } : AuthButtonsProps) => (
+    <a href={url} className="Header__Button Header__Button--mini typo-normal">
+        {label}
+    </a>
 );
+
+export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkterProps, HeaderUtenMenypunkterState> {
+    state = {
+        showMobileMenu: false
+    }
+
+    onToggleMenu = () => {
+        this.setState({
+            showMobileMenu: !this.state.showMobileMenu
+        });
+    };
+
+    render() {
+        const { erInnlogget, loggUtUrl, loggInnUrl, loggInnUrlArbeidsgiver } = this.props;
+        const { showMobileMenu } = this.state;
+
+        return (
+            <div className="PersonbrukerHeaderMeny">
+                <div className="HeaderUtenMenypunkter">
+                    <div className="topp">
+                        <div className="logo">
+                            <a className="lenke" href="/">Arbeidsplassen</a>
+                        </div>
+                        <div className="innlogging">
+                            {erInnlogget ? (
+                                <AuthButton label="Logg ut" url={loggUtUrl} />
+                            ) : (
+                                <AuthButton label="Logg inn" url={loggInnUrl} />
+                            )}
+                        </div>
+                        <div className="Mobilmeny--toggle">
+                            {showMobileMenu ? (
+                                <div role="button" onClick={this.onToggleMenu} id="logg-ut" className="Mobilmeny__Button--toggle">
+                                    <div className="Mobilmeny--lukk"/>
+                                    <span className="Mobilmeny__Text--toggle">Lukk</span>
+                                </div>
+                            ) : (
+                                <div role="button" onClick={this.onToggleMenu} id="logg-ut" className="Mobilmeny__Button--toggle">
+                                    <div className="Mobilmeny--apne"/>
+                                    <span className="Mobilmeny__Text--toggle">Meny</span>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    {showMobileMenu && (
+                        <div className="Mobilmeny">
+                            {erInnlogget ? (
+                                <div className="Mobilmeny--logout-wrapper">
+                                    <AuthButton label="Logg ut" url={loggUtUrl} />
+                                </div>
+                            ) : (
+                                <div className="Mobilmeny--login-wrapper">
+                                    <div className="Mobilmeny--login-personbruker">
+                                        <Normaltekst>For personbrukere:</Normaltekst>
+                                        <AuthButton label="Logg inn" url={loggInnUrl} />
+                                    </div>
+                                    <div className="Mobilmeny--login-arbeidsgiver">
+                                        <Normaltekst>For arbeidsgivere:</Normaltekst>
+                                        <AuthButton label="Logg inn" url={loggInnUrlArbeidsgiver} />
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </div>
+        );
+    }
+}
