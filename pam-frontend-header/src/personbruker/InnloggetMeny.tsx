@@ -145,7 +145,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                             )}
                         </div>
                         <div>
-                            <a href={loggUtUrl} id="logg-ut" className="Button Button--mini typo-normal">
+                            <a href={loggUtUrl} id="logg-ut" className="Header__Button Header__Button--mini typo-normal">
                                 Logg ut
                             </a>
                         </div>
@@ -281,7 +281,7 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                             ))}
                         </div>
                         <div className="Mobilmeny--loggut-wrapper">
-                            <a href={loggUtUrl} id="logg-ut" className="Button Button--mini Mobilmeny--loggut">
+                            <a href={loggUtUrl} id="logg-ut" className="Header__Button Header__Button--mini Mobilmeny--loggut">
                                 Logg ut
                             </a>
                         </div>

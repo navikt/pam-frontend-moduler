@@ -13,11 +13,11 @@ export const HeaderUtenMenypunkter = ({ onLoggInn, onLoggUt, erLoggetInn } : Hea
                 <a className="lenke" href="/">Arbeidsplassen</a>
             </div>
             {erLoggetInn ? (
-                <button onClick={onLoggUt} id="logg-inn" className="Button Button--mini typo-normal">
+                <button onClick={onLoggUt} id="logg-inn" className="Header__Button Header__Button--mini typo-normal">
                     Logg ut
                 </button>
             ) : (
-                <button onClick={onLoggInn} id="logg-inn" className="Button Button--mini typo-normal">
+                <button onClick={onLoggInn} id="logg-inn" className="Header__Button Header__Button--mini typo-normal">
                     Logg inn
                 </button>
             )}
