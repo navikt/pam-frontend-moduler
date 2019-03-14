@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './PersonbrukerHeaderMeny.less';
 import { Normaltekst } from 'nav-frontend-typografi';
+import Popover from './popover/Popover';
 
 interface HeaderUtenMenypunkterProps {
     loggInnUrl?: string;
@@ -11,14 +12,15 @@ interface HeaderUtenMenypunkterProps {
 
 interface HeaderUtenMenypunkterState {
     showMobileMenu: boolean;
+    showPopover: boolean;
 }
 
-interface AuthButtonsProps {
+interface AuthLinkProps {
     url?: string;
     label: String
 }
 
-const AuthButton = ({ url, label } : AuthButtonsProps) => (
+const AuthLink = ({ url, label } : AuthLinkProps) => (
     <a href={url} className="Header__Button Header__Button--mini typo-normal">
         {label}
     </a>
@@ -26,7 +28,8 @@ const AuthButton = ({ url, label } : AuthButtonsProps) => (
 
 export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkterProps, HeaderUtenMenypunkterState> {
     state = {
-        showMobileMenu: false
+        showMobileMenu: false,
+        showPopover: false
     }
 
     onToggleMenu = () => {
@@ -35,9 +38,21 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
         });
     };
 
+    onLoginClick = () => {
+        this.setState({
+            showPopover: true
+        });
+    }
+
+    onPopoverClose = () => {
+        this.setState({
+            showPopover: false
+        });
+    }
+
     render() {
         const { erInnlogget, loggUtUrl, loggInnUrl, loggInnUrlArbeidsgiver } = this.props;
-        const { showMobileMenu } = this.state;
+        const { showMobileMenu, showPopover } = this.state;
 
         return (
             <div className="PersonbrukerHeaderMeny">
@@ -48,9 +63,30 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
                         </div>
                         <div className="innlogging">
                             {erInnlogget ? (
-                                <AuthButton label="Logg ut" url={loggUtUrl} />
+                                <AuthLink label="Logg ut" url={loggUtUrl} />
                             ) : (
-                                <AuthButton label="Logg inn" url={loggInnUrl} />
+                                <div className="VelgRolle">
+                                    <button
+                                        onClick={this.onLoginClick}
+                                        className="Header__Button Header__Button--mini typo-normal"
+                                        aria-haspopup="true"
+                                        aria-expanded={showPopover}
+                                    >
+                                        Logg inn
+                                    </button>
+                                    {showPopover && (
+                                        <Popover onClose={this.onPopoverClose}>
+                                            <div className="VelgRolle__row">
+                                                <div>For personbrukere:</div>
+                                                <AuthLink label="Logg inn" url={loggInnUrl} />
+                                            </div>
+                                            <div className="VelgRolle__row">
+                                                <div>For arbeidsgivere:</div>
+                                                <AuthLink label="Logg inn" url={loggInnUrlArbeidsgiver} />
+                                            </div>
+                                        </Popover>
+                                    )}
+                                </div>
                             )}
                         </div>
                         <div className="Mobilmeny--toggle">
@@ -71,17 +107,17 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
                         <div className="Mobilmeny">
                             {erInnlogget ? (
                                 <div className="Mobilmeny--logout-wrapper">
-                                    <AuthButton label="Logg ut" url={loggUtUrl} />
+                                    <AuthLink label="Logg ut" url={loggUtUrl} />
                                 </div>
                             ) : (
                                 <div className="Mobilmeny--login-wrapper">
                                     <div className="Mobilmeny--login-personbruker">
                                         <Normaltekst>For personbrukere:</Normaltekst>
-                                        <AuthButton label="Logg inn" url={loggInnUrl} />
+                                        <AuthLink label="Logg inn" url={loggInnUrl} />
                                     </div>
                                     <div className="Mobilmeny--login-arbeidsgiver">
                                         <Normaltekst>For arbeidsgivere:</Normaltekst>
-                                        <AuthButton label="Logg inn" url={loggInnUrlArbeidsgiver} />
+                                        <AuthLink label="Logg inn" url={loggInnUrlArbeidsgiver} />
                                     </div>
                                 </div>
                             )}

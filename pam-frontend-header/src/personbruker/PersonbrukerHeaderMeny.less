@@ -64,7 +64,7 @@
   .Mobilmeny__Button--toggle {
       display: flex;
       flex-direction: column;
-      padding: 1rem;
+      padding: 1rem 1rem 1rem 2rem;
       margin: -1rem;
       align-items: center;
   }
@@ -156,6 +156,25 @@
 
     .HeaderUtenMenypunkter {
       padding: 0 8px;
+
+      .VelgRolle {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .VelgRolle__row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem;
+        align-items: center;
+        min-width: 25rem;
+      }
+
+      .VelgRolle__row {
+        border-bottom: 1px solid @greenDarken;
+      }
     }
 
     .Innloggetmeny {
