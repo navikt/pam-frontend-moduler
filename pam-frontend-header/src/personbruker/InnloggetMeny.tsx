@@ -75,10 +75,6 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
         localStorage.setItem('innloggetBrukerKontekst', 'personbruker');
     }
 
-    componentWillUnmount() {
-        localStorage.removeItem('innloggetBrukerKontekst');
-    }
-
     onToggleMenu = () => {
         this.setState({
             showMobileMenu: !this.state.showMobileMenu
@@ -106,8 +102,13 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
         this.hideMenu();
     }
 
+    onLogoutClick = () => {
+        localStorage.removeItem('innloggetBrukerKontekst');
+        window.location.href = this.props.loggUtUrl;
+    }
+
     render() {
-        const { personbruker, loggUtUrl, applikasjon } = this.props;
+        const { personbruker, applikasjon } = this.props;
         const { showMobileMenu } = this.state;
 
         return (
@@ -150,9 +151,9 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                 )}
                             </div>
                             <div>
-                                <a href={loggUtUrl} id="logg-ut" className="Header__Button Header__Button--mini typo-normal">
+                                <button onClick={this.onLogoutClick} id="logg-ut" className="Header__Button Header__Button--mini typo-normal">
                                     Logg ut
-                                </a>
+                                </button>
                             </div>
                         </div>
                         <div className="Mobilmeny--toggle">
@@ -282,9 +283,9 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
                                 ))}
                             </div>
                             <div className="Mobilmeny--logout-wrapper">
-                                <a href={loggUtUrl} id="logg-ut" className="Header__Button Header__Button--mini">
+                                <button onClick={this.onLogoutClick} id="logg-ut" className="Header__Button Header__Button--mini">
                                     Logg ut
-                                </a>
+                                </button>
                             </div>
                         </div>
                     )}

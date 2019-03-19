@@ -26,6 +26,17 @@ const AuthLink = ({ url, label } : AuthLinkProps) => (
     </a>
 );
 
+interface AuthButtonProps {
+    label: String
+    onClick: () => void;
+}
+
+const AuthButton = ({ label, onClick } : AuthButtonProps) => (
+    <button onClick={onClick} className="Header__Button Header__Button--mini typo-normal">
+        {label}
+    </button>
+);
+
 export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkterProps, HeaderUtenMenypunkterState> {
     state = {
         showMobileMenu: false,
@@ -50,8 +61,13 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
         });
     }
 
+    onLogoutClick = () => {
+        localStorage.removeItem('innloggetBrukerKontekst');
+        window.location.href = this.props.loggUtUrl || window.location.href;
+    }
+
     render() {
-        const { erInnlogget, loggUtUrl, loggInnUrl, loggInnUrlArbeidsgiver } = this.props;
+        const { erInnlogget, loggInnUrl, loggInnUrlArbeidsgiver } = this.props;
         const { showMobileMenu, showPopover } = this.state;
 
         return (
@@ -63,7 +79,7 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
                         </div>
                         <div className="innlogging">
                             {erInnlogget ? (
-                                <AuthLink label="Logg ut" url={loggUtUrl} />
+                                <AuthButton label="Logg ut" onClick={this.onLogoutClick} />
                             ) : (
                                 <div className="VelgRolle">
                                     <button
@@ -109,7 +125,7 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
                         <div className="Mobilmeny">
                             {erInnlogget ? (
                                 <div className="Mobilmeny--logout-wrapper">
-                                    <AuthLink label="Logg ut" url={loggUtUrl} />
+                                    <AuthButton label="Logg ut" onClick={this.onLogoutClick} />
                                 </div>
                             ) : (
                                 <div className="Mobilmeny--login-wrapper">

@@ -58,10 +58,6 @@ export class ArbeidsgiverHeaderMeny extends React.Component<ArbeidsgiverHeaderMe
         localStorage.setItem('innloggetBrukerKontekst', 'arbeidsgiver');
     }
 
-    componentWillUnmount() {
-        localStorage.removeItem('innloggetBrukerKontekst');
-    }
-
     render() {
         const { arbeidsgivere, valgtArbeidsgiverId, onArbeidsgiverSelect, onLoggUt, activeTabID } = this.props;
         return (
