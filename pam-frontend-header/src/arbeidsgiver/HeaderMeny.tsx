@@ -58,8 +58,13 @@ export class ArbeidsgiverHeaderMeny extends React.Component<ArbeidsgiverHeaderMe
         localStorage.setItem('innloggetBrukerKontekst', 'arbeidsgiver');
     }
 
+    onLoggutClick = () => {
+        localStorage.removeItem('innloggetBrukerKontekst');
+        this.props.onLoggUt();
+    }
+
     render() {
-        const { arbeidsgivere, valgtArbeidsgiverId, onArbeidsgiverSelect, onLoggUt, activeTabID } = this.props;
+        const { arbeidsgivere, valgtArbeidsgiverId, onArbeidsgiverSelect, activeTabID } = this.props;
         return (
             <div className="ArbeidsgiverHeaderMeny__wrapper">
                 <div className="ArbeidsgiverHeaderMeny">
@@ -82,7 +87,7 @@ export class ArbeidsgiverHeaderMeny extends React.Component<ArbeidsgiverHeaderMe
                                 ))}
                         </div>
                         <div>
-                            <button onClick={onLoggUt} id="logg-ut" className="Header__Button Header__Button--mini knapp--loggut">
+                            <button onClick={this.onLoggutClick} id="logg-ut" className="Header__Button Header__Button--mini knapp--loggut">
                                 Logg ut
                             </button>
                         </div>
