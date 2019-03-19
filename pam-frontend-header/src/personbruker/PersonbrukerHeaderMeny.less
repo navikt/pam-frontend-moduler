@@ -71,7 +71,8 @@
 
   .Mobilmeny__Text--toggle {
     margin-top: 2px;
-    font-size: 14px;
+    font-size: 12px;
+    text-transform: uppercase;
   }
 
   .Mobilmeny--apne {
@@ -173,7 +174,9 @@
       }
 
       .VelgRolle__row {
-        border-bottom: 1px solid @greenDarken;
+        &:not(:last-child) {
+          border-bottom: 1px solid @greenDarken;
+        }
       }
     }
 
