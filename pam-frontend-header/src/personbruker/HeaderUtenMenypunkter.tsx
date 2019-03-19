@@ -92,7 +92,9 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
                         <div className="Mobilmeny--toggle">
                             {showMobileMenu ? (
                                 <div role="button" onClick={this.onToggleMenu} id="logg-ut" className="Mobilmeny__Button--toggle">
-                                    <div className="Mobilmeny--lukk"/>
+                                    <div className="Mobilmeny--lukk-wrapper">
+                                        <div className="Mobilmeny--lukk"/>
+                                    </div>
                                     <span className="Mobilmeny__Text--toggle">Lukk</span>
                                 </div>
                             ) : (
