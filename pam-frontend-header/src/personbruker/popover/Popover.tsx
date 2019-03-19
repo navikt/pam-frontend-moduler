@@ -30,24 +30,14 @@ class Popover extends React.Component<PopoverProps> {
 
     onClickOutside = (e: any) => {
         if (this.el !== e.target && !isDescendant(this.el, e.target)) {
-            this.close();
+            this.props.onClose();
         }
-    };
-
-    close = () => {
-        this.props.onClose();
     };
 
     render() {
         const { children } = this.props;
         return (
             <div ref={(el) => { this.el = el; }} className="Popover">
-                <button
-                    className="Popover__close"
-                    onClick={this.close}
-                >
-                    Lukk
-                </button>
                 {children}
             </div>
         );
