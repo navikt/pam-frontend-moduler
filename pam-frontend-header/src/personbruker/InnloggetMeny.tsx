@@ -5,7 +5,8 @@ import { ValiderNavigasjonProps } from './PersonbrukerHeaderMeny';
 
 export enum PersonbrukerApplikasjon {
     STILLINGSSOK = 'STILLINGSSOK',
-    CV = 'CV'
+    CV = 'CV',
+    PORTAL = 'PORTAL'
 }
 
 export interface PersonbrukerTab {
