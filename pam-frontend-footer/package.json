@@ -16,8 +16,9 @@
     "test": "cross-env CI=1 react-scripts-ts test --env=jsdom",
     "test:watch": "react-scripts-ts test --env=jsdom",
     "build": "rollup -c",
+    "clean-build": "rimraf ./dist && mkdir dist && rollup -c",
     "start": "rollup -c -w",
-    "prepare": "npm run build",
+    "prepare": "npm run clean-build",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build"
   },
@@ -26,7 +27,8 @@
     "ajv": "^6.5.4",
     "classnames": "^2.2.6",
     "nav-frontend-core": "^4.0.5",
-    "react-dom": "^16.4.1",
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
@@ -41,7 +43,7 @@
     "cross-env": "^5.1.4",
     "gh-pages": "^1.2.0",
     "nav-frontend-core": "^4.0.5",
-    "react": "^16.8.4",
+    "react": "^16.6.3",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "^2.16.0",
@@ -58,8 +60,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "prop-types": "^15.6.2"
-  }
+  ]
 }
