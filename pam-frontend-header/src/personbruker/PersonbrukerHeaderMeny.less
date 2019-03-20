@@ -5,9 +5,7 @@
   background-color: white;
   color: #4a4a4a;
   font-family: "Source Sans Pro", Arial, sans-serif;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-bottom: 2px solid @yellowLight;
+  border-bottom: 1px solid @grey;
 
   .Meny {
       display: none;
@@ -27,6 +25,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      padding: 1rem;
     }
 
     .logo {
@@ -35,7 +34,10 @@
   }
 
   .topp {
-    padding: 1rem 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     .logo {
       font-size: 24px;
@@ -48,17 +50,11 @@
     }
   }
 
-  .Mobilmeny--separator {
-      border-top: 1px solid #979797;
-      margin-left: -1rem;
-      margin-right: -1rem;
-  }
-
   .Mobilmeny {
-      min-height: 4rem;
       display: block;
       align-items: center;
       justify-content: center;
+      border-top: 1px solid @grey;
 
       a {
           text-decoration: none;
@@ -67,49 +63,46 @@
 
   .Mobilmeny__Button--toggle {
       display: flex;
-      padding: 1.2rem;
+      flex-direction: column;
+      padding: 1rem 1rem 1rem 2rem;
+      margin: -1rem;
       align-items: center;
-      position: absolute;
-      top: 0;
-      right: 0;
   }
 
   .Mobilmeny__Text--toggle {
-      margin: auto;
+    margin-top: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
   }
 
   .Mobilmeny--apne {
-      background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='24px' height='22px' viewBox='0 0 24 22' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3Ctitle%3EHamburgermeny%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3E %3Cg id='Global-mobilmeny' transform='translate(-282.000000, -18.000000)' stroke='%233E3832'%3E %3Cg id='Hamburgermeny' transform='translate(284.000000, 19.000000)'%3E %3Cg id='Group'%3E %3Cpath d='M0,10 L20,10' id='Line' stroke-width='3' fill-rule='nonzero'%3E%3C/path%3E %3Cpath d='M0,19.3333333 L20,19.3333333' id='Line' stroke-width='3' fill-rule='nonzero'%3E%3C/path%3E %3Cpath d='M0,0.666666667 L20,0.666666667' id='Line' stroke-width='3' fill-rule='nonzero'%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
-      width: 22px;
-      height: 22px;
-      display: inline-flex;
-      vertical-align: bottom;
-      margin-left: 0.5rem;
-  }
-
-  .Mobilmeny--lukk {
-      background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='23px' height='25px' viewBox='0 0 23 25' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3Ctitle%3EKnapp / Exit%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3E %3Cg id='Global-mobilmeny---åpnet-personbruker' transform='translate(-283.000000, -16.000000)' stroke='%233E3832'%3E %3Cg id='Knapp-/-Exit' transform='translate(285.000000, 19.000000)'%3E %3Cg id='Group'%3E %3Cpath d='M1.25,3.55271368e-15 L18.6355357,19.1627238' id='Line-3' stroke-width='3' fill-rule='nonzero'%3E%3C/path%3E %3Cpath d='M0.670482144,0.598835118 L19.2150535,18.5638887' id='Line-3' stroke-width='3' fill-rule='nonzero' transform='translate(9.942768, 9.581362) rotate(90.000000) translate(-9.942768, -9.581362) '%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cstyle%3E.st0%7Bfill:none;stroke:%23434448;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10%7D%3C/style%3E%3Cpath class='st0' d='M1 1h22M1 9h22M1 17h22'/%3E%3C/svg%3E");
       width: 24px;
       height: 24px;
       display: inline-flex;
       vertical-align: bottom;
-      margin-left: 0.5rem;
+  }
+
+  .Mobilmeny--lukk-wrapper {
+    height: 24px;
+    .Mobilmeny--lukk {
+        background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cstyle%3E.st0%7Bfill:none;stroke:%23434448;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10%7D%3C/style%3E%3Cpath class='st0' d='M1 1l20 20M21 1L1 21'/%3E%3C/svg%3E");
+        width: 22px;
+        height: 22px;
+        display: inline-flex;
+        vertical-align: bottom;
+    }
   }
 
   .Mobilmeny--lenke {
-    font-size: 16px;
-    padding: 16px 2px 8px 2px;
+    padding: 1rem;
     display: block;
-
-    .Mobilmeny--lenke-inner {
-      > span {
-        border-bottom: 8px solid transparent;
-      }
-    }
+    background-color: transparent;
   }
 
   .Mobilmeny--lenke-inner {
       display: flex;
+      justify-content: space-between;
       padding-bottom: 0;
       text-transform: uppercase;
       font-weight: bold;
@@ -117,31 +110,35 @@
   }
 
   .Mobilmeny--lenke-active {
-    background-color: transparent;
-    .Mobilmeny--lenke-inner {
-      > span {
-        border-bottom: 8px solid @yellowLight;
-      }
-    }
+    background-color: @yellowLight2;
   }
 
   .Mobilmeny--lenke-wrapper {
-      margin-left: 0;
-      margin-right: 0;
-      border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #dbdbdb;
   }
 
-  .Mobilmeny--chevron {
-      display: block;
-      margin: auto 0 1rem auto;
-  }
-
-  .Mobilmeny--loggut-wrapper {
+  .Mobilmeny--logout-wrapper {
       display: flex;
+      justify-content: flex-end;
+      button {
+        margin: 1rem;
+      }
   }
 
-  .Mobilmeny--loggut {
-      margin: 1.25rem auto;
+  .Mobilmeny--login-wrapper {
+    .Mobilmeny--login-arbeidsgiver, .Mobilmeny--login-personbruker {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 1rem;
+      > a {
+        margin-left: 1rem;
+      }
+    }
+    .Mobilmeny--login-personbruker {
+      border-bottom: 1px solid #dbdbdb;
+    }
   }
 }
 
@@ -162,11 +159,41 @@
         display: none;
     }
 
+    .HeaderUtenMenypunkter {
+      padding: 0 8px;
+
+      .topp {
+        padding: 1rem 0;
+      }
+
+      .VelgRolle {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .VelgRolle__row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem;
+        align-items: center;
+        min-width: 25rem;
+      }
+
+      .VelgRolle__row {
+        &:not(:last-child) {
+          border-bottom: 1px solid @pinkDarken;
+        }
+      }
+    }
+
     .Innloggetmeny {
       display: flex;
       flex-direction: column;
       max-width: 1156px;
       margin: auto;
+      padding: 0 8px;
     }
 
     .innlogging {
@@ -180,9 +207,7 @@
 
     .topp {
       padding: 2.5rem 0 2rem 0;
-      display: flex;
       flex-wrap: wrap;
-      align-items: center;
 
       > :first-child {
         flex: 1;
@@ -272,14 +297,34 @@
     }
 
     .Meny--lenke-wrapper {
-      margin-left: 36px;
-      margin-right: 36px;
+      margin-left: 32px;
+      margin-right: 32px;
     }
 
-    @media (max-width: 1010px) {
+    .Meny--lenke-wrapper-CV {
+      margin-left: 16px;
+      margin-right: 16px;
+
+      .Meny--lenke-inner {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+    @media (max-width: 980px) {
       .Meny--lenke-wrapper {
-        margin-left: 16px;
-        margin-right: 16px;
+        margin-left: 14px;
+        margin-right: 14px;
+      }
+
+      .Meny--lenke-wrapper-CV {
+        margin-left: 4px;
+        margin-right: 4px;
+
+        .Meny--lenke-inner {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
       }
     }
 

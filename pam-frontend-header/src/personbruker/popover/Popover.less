@@ -1,0 +1,27 @@
+@import '../../variables.less';
+
+.Popover {
+  position: absolute;
+  top: 3.25rem;
+  right: -1rem;
+  z-index: 999;
+
+  background: #fff;
+  border: 1px solid @pinkDarken;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    transform: rotate(-45deg);
+    transform-origin: 0 0;
+    border-right: 1px solid @pinkDarken;
+    border-top: 1px solid @pinkDarken;
+    right: 4rem;
+    top: -1px;
+    z-index: 998;
+  }
+}

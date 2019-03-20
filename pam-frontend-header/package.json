@@ -1,6 +1,6 @@
 {
   "name": "pam-frontend-header",
-  "version": "4.0.0",
+  "version": "4.1.2",
   "description": "Header for PAMs frontend-applikasjoner",
   "author": "akselw",
   "license": "MIT",
@@ -16,8 +16,9 @@
     "test": "cross-env CI=1 react-scripts-ts test --env=jsdom",
     "test:watch": "react-scripts-ts test --env=jsdom",
     "build": "rollup -c",
+    "clean-build": "rimraf ./dist && mkdir dist && rollup -c",
     "start": "rollup -c -w",
-    "prepare": "npm run build",
+    "prepare": "npm run clean-build",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build"
   },

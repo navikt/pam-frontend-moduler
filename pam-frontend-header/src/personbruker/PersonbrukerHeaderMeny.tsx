@@ -7,7 +7,7 @@ import { PersonbrukerApplikasjon } from '..';
 
 
 interface PersonbrukerHeaderMenyProps {
-  onLoggInn: () => void;
+  loggInnUrl: string;
   loggUtUrl: string;
   validerNavigasjon?: ValiderNavigasjonProps;
   personbruker: Personbruker;
@@ -25,11 +25,11 @@ export const PersonbrukerHeaderMeny = ({
     loggUtUrl,
     erInnlogget,
     personbruker,
-    onLoggInn,
+    loggInnUrl,
     applikasjon,
     validerNavigasjon
 } : PersonbrukerHeaderMenyProps) => (
-    <div className="PersonbrukerHeaderMeny">
+    <div>
         {erInnlogget ? (
             <InnloggetMeny
                 loggUtUrl={loggUtUrl}
@@ -38,7 +38,7 @@ export const PersonbrukerHeaderMeny = ({
                 validerNavigasjon={validerNavigasjon}
             />
         ) : (
-            <HeaderUtenMenypunkter onLoggInn={onLoggInn} erLoggetInn={false} />
+            <HeaderUtenMenypunkter loggInnUrl={loggInnUrl} erInnlogget={false} />
         )}
     </div>
 );
