@@ -72,7 +72,9 @@ export class InnloggetMeny extends React.Component<InnloggetToppProps, StateProp
     }
 
     componentDidMount() {
-        localStorage.setItem('innloggetBrukerKontekst', 'personbruker');
+        if (this.props.applikasjon === PersonbrukerApplikasjon.CV) {
+            localStorage.setItem('innloggetBrukerKontekst', 'personbruker');
+        }
     }
 
     onToggleMenu = () => {

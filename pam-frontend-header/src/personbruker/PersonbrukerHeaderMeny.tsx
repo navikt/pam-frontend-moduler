@@ -8,6 +8,7 @@ import { PersonbrukerApplikasjon } from '..';
 
 interface PersonbrukerHeaderMenyProps {
   loggInnUrl: string;
+  loggInnUrlArbeidsgiver?: string;
   loggUtUrl: string;
   validerNavigasjon?: ValiderNavigasjonProps;
   personbruker: Personbruker;
@@ -26,6 +27,7 @@ export const PersonbrukerHeaderMeny = ({
     erInnlogget,
     personbruker,
     loggInnUrl,
+    loggInnUrlArbeidsgiver,
     applikasjon,
     validerNavigasjon
 } : PersonbrukerHeaderMenyProps) => (
@@ -38,7 +40,12 @@ export const PersonbrukerHeaderMeny = ({
                 validerNavigasjon={validerNavigasjon}
             />
         ) : (
-            <HeaderUtenMenypunkter loggInnUrl={loggInnUrl} erInnlogget={false} />
+            <HeaderUtenMenypunkter
+                loggInnUrl={loggInnUrl}
+                loggInnUrlArbeidsgiver={loggInnUrlArbeidsgiver}
+                loggUtUrl={loggUtUrl}
+                erInnlogget={false}
+            />
         )}
     </div>
 );

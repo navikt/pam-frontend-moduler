@@ -4,9 +4,9 @@ import { Normaltekst } from 'nav-frontend-typografi';
 import Popover from './popover/Popover';
 
 interface HeaderUtenMenypunkterProps {
-    loggInnUrl?: string;
+    loggInnUrl: string;
     loggInnUrlArbeidsgiver?: string;
-    loggUtUrl?: string;
+    loggUtUrl: string;
     erInnlogget: boolean;
 }
 
@@ -14,17 +14,6 @@ interface HeaderUtenMenypunkterState {
     showMobileMenu: boolean;
     showPopover: boolean;
 }
-
-interface AuthLinkProps {
-    url?: string;
-    label: String
-}
-
-const AuthLink = ({ url, label } : AuthLinkProps) => (
-    <a href={url} className="Header__Button Header__Button--mini typo-normal">
-        {label}
-    </a>
-);
 
 interface AuthButtonProps {
     label: String
@@ -63,11 +52,21 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
 
     onLogoutClick = () => {
         localStorage.removeItem('innloggetBrukerKontekst');
-        window.location.href = this.props.loggUtUrl || window.location.href;
+        window.location.href = this.props.loggUtUrl;
+    }
+
+    onLoginArbeidsgiverClick = () => {
+        localStorage.setItem('innloggetBrukerKontekst', 'arbeidsgiver');
+        window.location.href = this.props.loggInnUrlArbeidsgiver || window.location.href;
+    }
+
+    onLoginPersonbrukerClick = () => {
+        localStorage.setItem('innloggetBrukerKontekst', 'personbruker');
+        window.location.href = this.props.loggInnUrl;
     }
 
     render() {
-        const { erInnlogget, loggInnUrl, loggInnUrlArbeidsgiver } = this.props;
+        const { erInnlogget } = this.props;
         const { showMobileMenu, showPopover } = this.state;
 
         return (
@@ -94,11 +93,11 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
                                         <Popover onClose={this.onPopoverClose}>
                                             <div className="VelgRolle__row">
                                                 <div>For personbrukere:</div>
-                                                <AuthLink label="Logg inn" url={loggInnUrl} />
+                                                <AuthButton label="Logg inn" onClick={this.onLoginPersonbrukerClick} />
                                             </div>
                                             <div className="VelgRolle__row">
                                                 <div>For arbeidsgivere:</div>
-                                                <AuthLink label="Logg inn" url={loggInnUrlArbeidsgiver} />
+                                                <AuthButton label="Logg inn" onClick={this.onLoginArbeidsgiverClick} />
                                             </div>
                                         </Popover>
                                     )}
@@ -145,11 +144,11 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
                                 <div className="Mobilmeny--login-wrapper">
                                     <div className="Mobilmeny--login-personbruker">
                                         <Normaltekst>For personbrukere:</Normaltekst>
-                                        <AuthLink label="Logg inn" url={loggInnUrl} />
+                                        <AuthButton label="Logg inn" onClick={this.onLoginPersonbrukerClick} />
                                     </div>
                                     <div className="Mobilmeny--login-arbeidsgiver">
                                         <Normaltekst>For arbeidsgivere:</Normaltekst>
-                                        <AuthLink label="Logg inn" url={loggInnUrlArbeidsgiver} />
+                                        <AuthButton label="Logg inn" onClick={this.onLoginArbeidsgiverClick} />
                                     </div>
                                 </div>
                             )}
