@@ -107,14 +107,28 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
                         </div>
                         <div className="Mobilmeny--toggle">
                             {showMobileMenu ? (
-                                <div role="button" onClick={this.onToggleMenu} id="logg-ut" className="Mobilmeny__Button--toggle">
+                                <div
+                                    role="button"
+                                    onClick={this.onToggleMenu}
+                                    id="Mobilmeny__Button--toggle"
+                                    className="Mobilmeny__Button--toggle"
+                                    aria-expanded={true}
+                                    aria-controls="Mobilmeny"
+                                >
                                     <div className="Mobilmeny--lukk-wrapper">
                                         <div className="Mobilmeny--lukk"/>
                                     </div>
                                     <span className="Mobilmeny__Text--toggle">Lukk</span>
                                 </div>
                             ) : (
-                                <div role="button" onClick={this.onToggleMenu} id="logg-ut" className="Mobilmeny__Button--toggle">
+                                <div
+                                    role="button"
+                                    onClick={this.onToggleMenu}
+                                    id="Mobilmeny__Button--toggle"
+                                    className="Mobilmeny__Button--toggle"
+                                    aria-expanded={false}
+                                    aria-controls="Mobilmeny"
+                                >
                                     <div className="Mobilmeny--apne"/>
                                     <span className="Mobilmeny__Text--toggle">Meny</span>
                                 </div>
@@ -122,7 +136,7 @@ export class HeaderUtenMenypunkter extends React.Component<HeaderUtenMenypunkter
                         </div>
                     </div>
                     {showMobileMenu && (
-                        <div className="Mobilmeny">
+                        <div className="Mobilmeny" id="Mobilmeny">
                             {erInnlogget ? (
                                 <div className="Mobilmeny--logout-wrapper">
                                     <AuthButton label="Logg ut" onClick={this.onLogoutClick} />
