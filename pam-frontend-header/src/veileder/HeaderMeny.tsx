@@ -12,7 +12,6 @@ export enum VeilederTabId {
 
 interface Tab {
     id: VeilederTabId;
-    alternativId?: VeilederTabId.KANDIDATLISTER,
     tittel: string;
     href: string;
 }
@@ -40,7 +39,6 @@ const tabs: Array<Tab> = [
     },
     {
         id: VeilederTabId.MINE_STILLINGER,
-        alternativId: VeilederTabId.KANDIDATLISTER,
         tittel: 'Mine stillinger',
         href: '/minestillinger'
     },
@@ -48,6 +46,11 @@ const tabs: Array<Tab> = [
         id: VeilederTabId.KANDIDATSOK,
         tittel: 'Kandidatsøk',
         href: '/kandidater'
+    },
+    {
+        id: VeilederTabId.KANDIDATLISTER,
+        tittel: 'Kandidatlister',
+        href: '/kandidater/lister'
     }
 ];
 
@@ -57,7 +60,6 @@ const internLenkeSkalBrukes = (tab: Tab, activeTabId: VeilederTabId) => (
 
 const tabErAktiv = (tab: Tab, activeTabId: VeilederTabId) => (
     tab.id === activeTabId
-    || (tab.alternativId && tab.alternativId === activeTabId)
 );
 
 interface ValiderNavigasjonProps {
@@ -76,7 +78,7 @@ const onNavigationClick = (url: string, validerNavigasjon?: ValiderNavigasjonPro
         e.preventDefault();
         validerNavigasjon.redirectForhindretCallback(url);
     }
-}
+};
 
 export const VeilederHeaderMeny = ({ activeTabID, innloggetBruker, validerNavigasjon}: VeilederHeaderMenyProps) => {
     return (
