@@ -17,16 +17,18 @@
 }
 
 .Personbrukermeny--lenke-inner {
-  display: flex;
-  justify-content: space-between;
   padding-bottom: 0;
   text-transform: uppercase;
   font-weight: bold;
   color: @darkBlue;
+  border-bottom: 2px solid transparent;
 }
 
 .Personbrukermeny--lenke-active {
   background-color: @yellowLight2;
+  .Personbrukermeny--lenke-inner {
+    border-bottom: 2px solid @yellowLight;
+  }
 }
 
 .Personbrukermeny--lenke-wrapper, .Personbrukermeny--lenke-wrapper-CV {
@@ -63,6 +65,8 @@
   }
 
   .Personbrukermeny--lenke-inner {
+    display: flex;
+    justify-content: space-between;
     padding: 8px 2px 22px 2px;
     border-bottom: 8px solid transparent;
     font-weight: bold;
