@@ -1,8 +1,8 @@
 import { VelgArbeidsgiver } from './arbeidsgiver/VelgArbeidsgiver';
 import { VeilederHeaderMeny, VeilederTabId } from './veileder/HeaderMeny';
 import { Header, AuthStatus } from './felles/Header';
-import { Personbrukermeny, PersonbrukerApplikasjon } from './personbruker/Personbrukermeny';
-import { Arbeidsgivermeny, ArbeidsgiverTabId } from './arbeidsgiver/Arbeidsgivermeny';
+import { PersonbrukerApplikasjon } from './personbruker/Personbrukermeny';
+import { ArbeidsgiverTabId } from './arbeidsgiver/Arbeidsgivermeny';
 import ArbeidsgiverSelect from './arbeidsgiver/ArbeidsgiverSelect';
 
 export {
@@ -13,8 +13,6 @@ export {
     VeilederTabId,
     PersonbrukerApplikasjon,
     Header,
-    AuthStatus,
-    Personbrukermeny,
-    Arbeidsgivermeny
+    AuthStatus
 }
 
