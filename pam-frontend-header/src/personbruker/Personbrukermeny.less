@@ -51,10 +51,12 @@
     }
   }
 
-  .Personbrukermeny--lenke:focus .Personbrukermeny--lenke,
-  .Personbrukermeny--navn:focus .Personbrukermeny--navn {
-    background-color: @orangeFocus; /* keyboard-only focus styles */
-    outline: none;
+  .Personbrukermeny--lenke,
+  .Personbrukermeny--navn {
+    &:focus {
+      background-color: @orangeFocus; /* keyboard-only focus styles */
+      outline: none;
+    }
   }
 
   .Personbrukermeny--lenke {
@@ -82,6 +84,9 @@
     border-bottom: 8px solid @yellowLight;
     font-weight: bold;
     color: @darkBlue;
+  }
+
+  .Personbrukermeny--lenke-active {
     background-color: #fff;
   }
 
