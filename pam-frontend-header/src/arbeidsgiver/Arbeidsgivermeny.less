@@ -1,0 +1,77 @@
+@import "../../node_modules/nav-frontend-core/less/_variabler";
+@import "../styles.less";
+
+.Arbeidsgivermeny {
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
+		font-size: 16px;
+		padding: 1rem;
+		border-bottom: 1px solid #dbdbdb;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: @darkBlue;
+		&.active {
+			background-color: @yellowLight2;
+			color: @darkBlue;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+@media(min-width: @screen-sm-min) {
+	.Arbeidsgivermeny {
+		max-width: 700px;
+		margin: auto;
+
+    .Arbeidsgivermeny--lenke:focus {
+      outline: none;
+      > li {
+        > div {
+          background-color: @orangeFocus;
+        }
+      }
+    }
+
+    ul {
+			display: flex;
+			justify-content: space-between;
+    }
+
+    li {
+      list-style: none;
+      font-size: 16px;
+			padding: 4px 2px 22px 2px;
+			border-bottom: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: @darkBlue;
+      &.active {
+        border-bottom: 8px solid @yellowLight;
+				color: @darkBlue;
+				background-color: #fff;
+        a {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      &.not-active {
+        &:hover {
+          border-bottom: 8px solid @yellowLight;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}

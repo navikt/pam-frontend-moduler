@@ -4,10 +4,10 @@ import { Panel } from 'nav-frontend-paneler';
 import { Innholdstittel, Normaltekst, Element } from 'nav-frontend-typografi';
 import Ikon from 'nav-frontend-ikoner-assets';
 import ArbeidsgiverSelect from './ArbeidsgiverSelect';
-import { ArbeidsgiverHeader } from './Header';
 import { Arbeidsgiver } from './PropTypes';
 
 import './VelgArbeidsgiver.less';
+import { Header, AuthStatus } from '../felles/Header';
 
 const LENKE_RETTIGHETER = 'https://www.altinn.no/hjelp/profil/roller-og-rettigheter/';
 
@@ -20,7 +20,12 @@ interface VelgArbeidsgiverProps {
 
 export const VelgArbeidsgiver = ({ arbeidsgivere, valgtArbeidsgiverId, onArbeidsgiverSelect, onLoggUt } : VelgArbeidsgiverProps) => (
     <div>
-        <ArbeidsgiverHeader onLoggUt={onLoggUt} />
+        <Header
+            onLogoutClick={onLoggUt}
+            onLoginClick={() => {}}
+            authenticationStatus={AuthStatus.IS_AUTHENTICATED}
+            useMenu="none"
+        />
         <Container className="container-arbeidsgiver">
             <Panel className="panel--arbeidsgiver">
                 <Row className="text-center blokk-xxs">
