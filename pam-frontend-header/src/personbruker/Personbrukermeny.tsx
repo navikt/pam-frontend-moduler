@@ -57,7 +57,7 @@ const stillingssokTabActive = (match: any, location: any) => {
     if (!match) {
         return false;
     }
-    return location.pathname === '/stillinger' || '/stillinger/' || location.pathname.match(/\/stillinger\/stilling*/);
+    return location.pathname === '/stillinger' || location.pathname.match(/\/stillinger\/stilling*/);
 };
 
 export const Personbrukermeny = ({ applikasjon, onNavigationClick }: PersonbrukermenyProps) => (
