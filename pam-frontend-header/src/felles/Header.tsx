@@ -26,6 +26,7 @@ interface HeaderProps {
     visInnstillinger?: boolean;
     arbeidsgiverSelect?: any;
     validerNavigasjon?: ValiderNavigasjonProps;
+    useSelectRole?: boolean;
 }
 
 interface HeaderStateProps {
@@ -74,6 +75,10 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
         this.props.onLoginClick(role);
     }
 
+    onLogin = () => {
+        this.props.onLoginClick();
+    }
+
     onToggleMenu = () => {
         this.setState({
             showMobileMenu: !this.state.showMobileMenu
@@ -95,7 +100,8 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
             useMenu,
             validerNavigasjon,
             arbeidsgiverSelect,
-            visInnstillinger
+            visInnstillinger,
+            useSelectRole
         } = this.props;
         const {
             showPopover,
@@ -153,10 +159,10 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                         <div>
                                             <div className="Header__VelgRolle">
                                                 <button
-                                                    onClick={this.onPopoverOpen}
+                                                    onClick={useSelectRole === false ? this.onLogin : this.onPopoverOpen}
                                                     className="Header__Button Header__Button--mini typo-normal"
-                                                    aria-haspopup="true"
-                                                    aria-expanded={showPopover}
+                                                    aria-haspopup={useSelectRole !== false}
+                                                    aria-expanded={useSelectRole !== false && showPopover}
                                                 >
                                                     Logg inn
                                                 </button>
