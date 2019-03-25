@@ -18,6 +18,9 @@
     &.active {
       background-color: @yellowLight2;
       color: @darkBlue;
+      > span {
+        border-bottom: 2px solid @yellowLight;
+      }
     }
   }
 
@@ -61,6 +64,9 @@
           &:hover {
             text-decoration: none;
           }
+        }
+        > span {
+          border-bottom: none;
         }
       }
       &.not-active {
