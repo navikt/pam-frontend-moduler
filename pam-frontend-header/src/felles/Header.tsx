@@ -26,7 +26,7 @@ interface HeaderProps {
     visInnstillinger?: boolean;
     arbeidsgiverSelect?: any;
     validerNavigasjon?: ValiderNavigasjonProps;
-    useSelectRole?: boolean;
+    role?: 'arbeidsgiver' | 'personbruker';
 }
 
 interface HeaderStateProps {
@@ -51,6 +51,13 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
         showMobileMenu: false
     };
 
+    componentDidMount() {
+        const { role } = this.props;
+        if (role) {
+            localStorage.setItem('innloggetBrukerKontekst', role);
+        }
+    }
+
     componentDidUpdate(prevProps: HeaderProps, prevState: HeaderStateProps) {
         if (prevProps.arbeidsgiverSelect === this.props.arbeidsgiverSelect && prevState.showMobileMenu) {
             this.setState({
@@ -72,11 +79,13 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
     }
 
     onLoginClick = (role: string) => () => {
+        localStorage.setItem('innloggetBrukerKontekst', role);
         this.props.onLoginClick(role);
     }
 
-    onLogin = () => {
-        this.props.onLoginClick();
+    onLogoutClick = () => {
+        localStorage.removeItem('innloggetBrukerKontekst');
+        this.props.onLogoutClick();
     }
 
     onToggleMenu = () => {
@@ -100,8 +109,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
             useMenu,
             validerNavigasjon,
             arbeidsgiverSelect,
-            visInnstillinger,
-            useSelectRole
+            visInnstillinger
         } = this.props;
         const {
             showPopover,
@@ -159,10 +167,10 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                         <div>
                                             <div className="Header__VelgRolle">
                                                 <button
-                                                    onClick={useSelectRole === false ? this.onLogin : this.onPopoverOpen}
+                                                    onClick={this.onPopoverOpen}
                                                     className="Header__Button Header__Button--mini typo-normal"
-                                                    aria-haspopup={useSelectRole !== false}
-                                                    aria-expanded={useSelectRole !== false && showPopover}
+                                                    aria-haspopup="true"
+                                                    aria-expanded={showPopover}
                                                 >
                                                     Logg inn
                                                 </button>
