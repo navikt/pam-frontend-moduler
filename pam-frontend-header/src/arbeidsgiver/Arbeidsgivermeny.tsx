@@ -53,12 +53,12 @@ export const Arbeidsgivermeny = ({ activeTabID }: ArbeidsgiverHeaderMenyProps) =
                 tabErIPamKandidatsok(tab.id) && tabErIPamKandidatsok(activeTabID)
                     ? <Link to={tab.href} className="Arbeidsgivermeny--lenke" key={tab.id}>
                         <li className={tab.id === activeTabID ? 'active' : 'not-active'}>
-                            <span>{tab.tittel}</span>
+                            <div><span>{tab.tittel}</span></div>
                         </li>
                     </Link>
                     : <a href={tab.href} className="Arbeidsgivermeny--lenke" key={tab.id}>
                         <li className={tab.id === activeTabID ? 'active' : 'not-active'}>
-                            <span>{tab.tittel}</span>
+                            <div><span>{tab.tittel}</span></div>
                         </li>
                     </a>
             ))}
