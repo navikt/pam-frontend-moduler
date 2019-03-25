@@ -129,7 +129,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                         <NavLink
                                                             to='/personinnstillinger'
                                                             onClick={this.onNavigationClick('/personinnstillinger')}
-                                                            className="Header__Innstillinger lenke typo-normal"
+                                                            className="Header__Innstillinger typo-normal"
                                                             activeClassName="Header__Innstillinger-active"
                                                         >
                                                             <div className="Header__Innstillinger-inner" tabIndex={-1}>
@@ -141,7 +141,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                         <a
                                                             href="/personinnstillinger"
                                                             onClick={this.onNavigationClick('/personinnstillinger')}
-                                                            className="Header__Innstillinger lenke typo-normal"
+                                                            className="Header__Innstillinger typo-normal"
                                                         >
                                                             <div className="Header__Innstillinger-inner" tabIndex={-1}>
                                                                 <span className="Header__Innstillinger__text">Innstillinger</span>
