@@ -3,7 +3,7 @@ import { Normaltekst } from 'nav-frontend-typografi';
 import Popover from './popover/Popover';
 import './Header.less';
 import { NavLink } from 'react-router-dom';
-import { PersonbrukerApplikasjon, Personbrukermeny } from '../personbruker/Personbrukermeny';
+import { PersonbrukerApplikasjon, Personbrukermeny, InnstillingerLenkeMobil } from '../personbruker/Personbrukermeny';
 import { Arbeidsgivermeny, ArbeidsgiverTabId } from '../arbeidsgiver/Arbeidsgivermeny';
 
 export enum AuthStatus {
@@ -232,9 +232,11 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                         <div className="Menu__wrapper__mobile">
                                             {useMenu === 'arbeidsgiver' ? (
                                                 <div>
-                                                    <div className="ArbeidsgiverSelect__mobile__wrapper">
-                                                        {arbeidsgiverSelect && arbeidsgiverSelect}
-                                                    </div>
+                                                    {arbeidsgiverSelect && (
+                                                        <div className="ArbeidsgiverSelect__mobile__wrapper">
+                                                            {arbeidsgiverSelect}
+                                                        </div>
+                                                    )}
                                                     <Arbeidsgivermeny activeTabID={applikasjon as ArbeidsgiverTabId} />
                                                 </div>
                                             ) : (
@@ -245,6 +247,12 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                 />
                                             )}
                                         </div>
+                                    )}
+                                    {useMenu === 'none' && visInnstillinger && (
+                                        <InnstillingerLenkeMobil
+                                            applikasjon={applikasjon as PersonbrukerApplikasjon}
+                                            onNavigationClick={this.onNavigationClick}
+                                        />
                                     )}
                                     <div className="Header__Authentication__logout">
                                         <AuthButton label="Logg ut" onClick={onLogoutClick} />

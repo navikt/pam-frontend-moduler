@@ -60,6 +60,32 @@ const stillingssokTabActive = (match: any, location: any) => {
     return location.pathname === '/stillinger' || location.pathname.match(/\/stillinger\/stilling*/);
 };
 
+export const InnstillingerLenkeMobil = ({
+    applikasjon,
+    onNavigationClick
+}: any) => (
+    <div role="list" className="Personbrukermeny--lenke-wrapper Personbrukermeny__Innstillinger--mobile">
+        {applikasjon === PersonbrukerApplikasjon.CV ? (
+            <NavLink
+                to="/personinnstillinger"
+                onClick={onNavigationClick("/personinnstillinger")}
+                activeClassName="Personbrukermeny--lenke-active"
+                className="Personbrukermeny--lenke"
+            >
+                <span className="Personbrukermeny--lenke-inner" tabIndex={-1}>Innstillinger</span>
+            </NavLink>
+        ) : (
+            <a
+                href="/personinnstillinger"
+                onClick={onNavigationClick("/personinnstillinger")}
+                className="Personbrukermeny--lenke"
+            >
+                <span className="Personbrukermeny--lenke-inner" tabIndex={-1}>Innstillinger</span>
+            </a>
+        )}
+    </div>
+);
+
 export const Personbrukermeny = ({ applikasjon, onNavigationClick }: PersonbrukermenyProps) => (
     <nav className="Personbrukermeny">
         {tabs.map((tab) => (
@@ -100,25 +126,6 @@ export const Personbrukermeny = ({ applikasjon, onNavigationClick }: Personbruke
                 </div>
             )
         ))}
-        <div role="list" className="Personbrukermeny--lenke-wrapper Personbrukermeny__Innstillinger--mobile">
-            {applikasjon === PersonbrukerApplikasjon.CV ? (
-                <NavLink
-                    to="/personinnstillinger"
-                    onClick={onNavigationClick("/personinnstillinger")}
-                    activeClassName="Personbrukermeny--lenke-active"
-                    className="Personbrukermeny--lenke"
-                >
-                    <span className="Personbrukermeny--lenke-inner" tabIndex={-1}>Innstillinger</span>
-                </NavLink>
-            ) : (
-                <a
-                    href="/personinnstillinger"
-                    onClick={onNavigationClick("/personinnstillinger")}
-                    className="Personbrukermeny--lenke"
-                >
-                    <span className="Personbrukermeny--lenke-inner" tabIndex={-1}>Innstillinger</span>
-                </a>
-            )}
-        </div>
+        <InnstillingerLenkeMobil applikasjon={applikasjon} onNavigationClick={onNavigationClick} />
     </nav>
 );
