@@ -2,7 +2,7 @@
   "name": "pam-frontend-footer",
   "version": "1.0.0",
   "description": "Footer for PAMs frontend-applikasjoner",
-  "author": "tonygj",
+  "author": "Team-PAM",
   "license": "MIT",
   "repository": "navikt/pam-frontend-footer",
   "main": "dist/index.js",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.1.5",
-    "@types/react": "^16.8.8",
+    "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
     "@types/react-router-dom": "^4.3.1",
     "ajv": "^6.5.4",
