@@ -1,0 +1,24 @@
+@import "../../variabler";
+
+.link() {
+  color: @pinkDarken;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  text-decoration: underline;
+
+  &:hover, &:active {
+    color: @pink;
+  }
+
+  &:focus {
+    outline: none;
+    background: @orangeFocus;
+  }
+
+  &--dark{
+    color: @gray5;
+
+    &:hover, &:active {
+      color: @gray5;
+    }
+  }
+}

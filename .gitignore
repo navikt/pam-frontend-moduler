@@ -17,9 +17,10 @@ target
 *.log
 *.DS_Store
 reports/
-node_modules/
 repo_test_dir
 **/webapp/static/bundle.js
-dist/
+**/node_modules/
+**/dist/
+**/.rpt2_cache/
 
 screenshots
