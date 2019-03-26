@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Select } from 'nav-frontend-skjema';
 import { Arbeidsgiver } from './PropTypes';
-import {ChangeEvent} from "react";
+import { ChangeEvent } from "react";
+import { Normaltekst } from 'nav-frontend-typografi';
+import './ArbeidsgiverSelect.less'
 
 interface ArbeidsgiverSelectProps {
   onArbeidsgiverSelect: (orgNummer?: string) => void
@@ -21,22 +23,30 @@ class ArbeidsgiverSelect extends React.Component<ArbeidsgiverSelectProps> {
     render() {
         const { arbeidsgivere, valgtArbeidsgiverId } = this.props;
         return (
-            <Select
-                className="topmeny-select topmeny-mr"
-                label=""
-                id="arbeidsgiver-select"
-                onChange={this.onArbeidsgiverChange}
-                value={valgtArbeidsgiverId}
-                bredde="m"
-                aria-label="Velg arbeidsgiver"
-            >
-                <option value="0">Velg arbeidsgiver</option>
-                {arbeidsgivere && arbeidsgivere.map((arbeidsgiver) => (
-                    <option key={arbeidsgiver.orgNummer} value={arbeidsgiver.orgNummer}>
-                        {arbeidsgiver.navn}
-                    </option>))
-                };
-            </Select>
+            <div>
+                {arbeidsgivere.length === 1 ? (
+                    <Normaltekst className="ArbeidsgiverSelect__navn">
+                        {arbeidsgivere[0].navn}
+                    </Normaltekst>
+                ) : (arbeidsgivere.length > 1 && (
+                    <Select
+                        className="ArbeidsgiverSelect"
+                        label=""
+                        id="arbeidsgiver-select"
+                        onChange={this.onArbeidsgiverChange}
+                        value={valgtArbeidsgiverId}
+                        aria-label="Velg arbeidsgiver"
+                    >
+                        <option value="0">Velg arbeidsgiver</option>
+                        {arbeidsgivere && arbeidsgivere.map((arbeidsgiver) => (
+                            <option key={arbeidsgiver.orgNummer} value={arbeidsgiver.orgNummer}>
+                                {arbeidsgiver.navn}
+                            </option>))
+                        };
+                    </Select>
+                ))}
+
+            </div>
         );
     }
 }
