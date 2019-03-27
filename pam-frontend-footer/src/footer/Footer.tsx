@@ -1,34 +1,8 @@
 /* eslint-disable jsx-a11y/href-no-hash */
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import './Footer.less';
 
-interface InternalOrExternalLinkProps {
-    href: string;
-    isInternalLink: boolean;
-    children: string;
-};
-
-const InternalOrExternalLink = ({ href, isInternalLink, children }: InternalOrExternalLinkProps) => {
-    if (isInternalLink) {
-        return (
-            <Link to={href} className="Footer__links__ul__li__link">
-                {children}
-            </Link>
-        );
-    }
-    return (
-        <a href={href} className="Footer__links__ul__li__link">
-            {children}
-        </a>
-    );
-};
-
-interface FooterProps {
-  useInternalLinks?: boolean;
-}
-
-export const Footer = ({ useInternalLinks = false }: FooterProps) => (
+export const Footer = () => (
     <div className="Footer">
         <div className="Footer__inner">
             <p className="Footer__slogan">Arbeidsmarkedet på ett sted</p>
@@ -38,24 +12,24 @@ export const Footer = ({ useInternalLinks = false }: FooterProps) => (
                 </a>
                  <ul className="Footer__links__ul">
                     <li className="Footer__links__ul__li">
-                      <InternalOrExternalLink isInternalLink={useInternalLinks} href="/om-arbeidsplassen">
-                        Om arbeidsplassen
-                      </InternalOrExternalLink>
+                      <a href="/om-arbeidsplassen" className="Footer__links__ul__li__link">
+                        Om Arbeidsplassen
+                      </a>
                     </li>
                     <li className="Footer__links__ul__li">
-                      <InternalOrExternalLink isInternalLink={useInternalLinks} href="/kontaktinfo">
-                        Kontaktinfo
-                      </InternalOrExternalLink>
+                      <a href="/kontakt" className="Footer__links__ul__li__link">
+                        Kontakt oss
+                      </a>
                     </li>
                     <li className="Footer__links__ul__li">
-                      <InternalOrExternalLink isInternalLink={useInternalLinks} href="/tilgjengelighet">
+                      <a href="/tilgjengelighet" className="Footer__links__ul__li__link">
                         Tilgjengelighet
-                      </InternalOrExternalLink>
+                      </a>
                     </li>
                     <li className="Footer__links__ul__li">
-                      <InternalOrExternalLink isInternalLink={useInternalLinks} href="/personvern">
+                      <a href="/personvern" className="Footer__links__ul__li__link">
                         Personvern
-                      </InternalOrExternalLink>
+                      </a>
                     </li>
                 </ul>
             </nav>
