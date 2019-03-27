@@ -2,7 +2,7 @@
   "name": "pam-frontend-footer",
   "version": "1.0.0",
   "description": "Footer for PAMs frontend-applikasjoner",
-  "author": "Team-PAM",
+  "author": "teampam",
   "license": "MIT",
   "repository": "navikt/pam-frontend-footer",
   "main": "dist/index.js",
