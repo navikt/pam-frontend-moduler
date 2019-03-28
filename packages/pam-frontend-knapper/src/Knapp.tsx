@@ -26,8 +26,7 @@ const Knapp = ({
         'Knapp--link': type === 'link',
         'Knapp--flat': type === 'flat',
         'Knapp--mini': mini,
-        'Knapp--disabled': disabled,
-        'Knapp--spinner': spinner
+        'Knapp--disabled': disabled
     });
 
     const spinnerNode = spinner ? <span className="Knapp__spinner" /> : null;
