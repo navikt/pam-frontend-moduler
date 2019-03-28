@@ -8,7 +8,9 @@ export const Footer = () => (
             <p className="Footer__slogan">Arbeidsmarkedet på ett sted</p>
             <nav className="Footer__links">
                 <a className="Footer__logo link" href="https://www.nav.no/Forsiden" title="Gå til nav.no">
-                    <i className="Footer__logo__nav-icon" aria-label="NAV logo" />
+                  <i className="Footer__logo__nav-icon">
+                    <span className="Footer__logo__nav-icon__sr-only">NAV logo</span>
+                  </i>
                 </a>
                  <ul className="Footer__links__ul">
                     <li className="Footer__links__ul__li">
