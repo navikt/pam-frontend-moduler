@@ -1,0 +1,12 @@
+{
+  "name": "pam-frontend-core",
+  "version": "1.0.0",
+  "description": "Styling og fellesvariabler for PAMs frontend-applikasjoner",
+  "author": "teampam",
+  "license": "MIT",
+  "repository": "navikt/pam-frontend-moduler",
+  "main": "less/core.less",
+  "files": [
+    "/less"
+  ]
+}
