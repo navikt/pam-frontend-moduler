@@ -1,8 +1,8 @@
-# pam-frontend-merkelapper
+# pam-frontend-typografi
 
-> Merkelapper for PAMs frontend-applikasjoner
+> Typografi for PAMs frontend-applikasjoner
 
-[![NPM](https://img.shields.io/npm/v/pam-frontend-merkelapper.svg)](https://www.npmjs.com/package/pam-frontend-merkelapper)
+[![NPM](https://img.shields.io/npm/v/pam-frontend-typografi.svg)](https://www.npmjs.com/package/pam-frontend-typografi)
 
 ## Start
 For å starte applikasjonen første gang må du legge til en mappe /dist.
@@ -18,7 +18,7 @@ npm start
 ## Install
 
 ```bash
-npm install --save pam-frontend-merkelapper
+npm install --save pam-frontend-typografi
 ```
 
 ## License
