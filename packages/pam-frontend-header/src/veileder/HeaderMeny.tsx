@@ -88,7 +88,7 @@ export const VeilederHeaderMeny = ({ activeTabID, innloggetBruker, validerNaviga
                     <div className="logo">
                         <i className="logo_icon"/>
                     </div>
-                    <div className="logotekst">
+                    <div className="logotekst logotekst-lenke">
                         {getApp(activeTabID) === App.REKRUTTERINGSBISTAND
                             ? <Link to="/" onClick={onNavigationClick('/', validerNavigasjon)}>Rekrutteringsbistand</Link>
                             : <a href="/" onClick={onNavigationClick('/', validerNavigasjon)}>Rekrutteringsbistand</a>
