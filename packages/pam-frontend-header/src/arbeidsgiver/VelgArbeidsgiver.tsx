@@ -29,7 +29,7 @@ export const VelgArbeidsgiver = ({ arbeidsgivere, valgtArbeidsgiverId, onArbeids
         <Container className="container-arbeidsgiver">
             <Panel className="panel--arbeidsgiver">
                 <Row className="text-center blokk-xxs">
-                    <Ikon kind="info-sirkel-orange" />
+                    <Ikon kind="info-sirkel-fyll" />
                 </Row>
                 <Row className="text-center blokk-xxs">
                     <Innholdstittel>Velg aktuell arbeidsgiver </Innholdstittel>
