@@ -34,7 +34,7 @@ const tabs : Array<Tab> = [
     {
         id: ArbeidsgiverTabId.STILLINGSANNONSER,
         tittel: 'Stillingsannonser',
-        href: '/stillingsregistrering/vilkaar'
+        href: '/stillingsregistrering/stillingsannonser'
     }
 ];
 
