@@ -1,0 +1,28 @@
+@import '../variables';
+
+.checkbox() {
+  .checkboks:hover,
+  .radioknapp:hover {
+    + .skjemaelement__label {
+      color: @green;
+    }
+  }
+
+  .checkboks:hover,
+  .radioknapp:hover {
+    + .skjemaelement__label:before {
+      background-color: #e5fff7;
+      border-color: @green;
+    }
+  }
+
+  .checkboks:checked + .skjemaelement__label:before {
+    background-color: @green;
+    border-color: @green;
+  }
+
+  .radioknapp:checked + .skjemaelement__label:before {
+    border: 2px solid @green;
+    box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 12px @green;
+  }
+}
