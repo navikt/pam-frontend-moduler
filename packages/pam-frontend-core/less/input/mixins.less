@@ -33,4 +33,8 @@
   select option[selected="true"] {
     background-color: @green;
   }
+
+  .radioknapp:checked:focus + .skjemaelement__label:before {
+    box-shadow: 0 0 0 2px @orangeFocus, inset 0 0 0 3px #fff, inset 0 0 0 12px @green;
+  }
 }
