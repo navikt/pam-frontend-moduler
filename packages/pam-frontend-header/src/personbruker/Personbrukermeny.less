@@ -26,7 +26,7 @@
 
 .Personbrukermeny--lenke-active {
   background-color: @turquoise2;
-  .Personbrukermeny--lenke-inner {
+  .Personbrukermeny--lenke-inner > span {
     border-bottom: 2px solid @turquoise;
   }
 }
@@ -51,8 +51,9 @@
     }
   }
 
-  .Personbrukermeny--lenke {
-    &:focus {
+  .Personbrukermeny--lenke:focus {
+    outline: none;
+    .Personbrukermeny--lenke-inner > span {
       background-color: @orangeFocus; /* keyboard-only focus styles */
       outline: none;
     }
@@ -83,6 +84,9 @@
     border-bottom: 8px solid @turquoise;
     font-weight: bold;
     color: @darkBlue;
+    > span {
+      border-bottom: none;
+    }
   }
 
   .Personbrukermeny--lenke-active {
