@@ -1,14 +1,18 @@
-@import "../../variabler";
+@import '../../pam-frontend-core/less/variables.less';
 
 .Merkelapp {
   background: #fff;
   display: inline-block;
-  padding: 0.315rem 2.5rem 0.315rem 0.5rem;
+  padding: 0.315rem 3rem 0.315rem 0.5rem;
   margin: 0.125rem 0.5rem 0.5rem 0;
   position: relative;
-  border-radius: 0.225rem;
   border: 2px solid @greenLighten;
-  color: @greenDarken;
+  color: @blueDarken;
+  cursor: pointer;
+}
+
+.Merkelapp__text {
+  text-align: left;
 }
 
 .Merkelapp__slett {
@@ -18,24 +22,10 @@
   position: absolute;
   top: 0;
   right: 0;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 3px @navOransjeLighten40;
-  }
-
-  &:hover {
-    background: @greenLighten;
-  }
-
-  &:active {
-    background: @green;
-  }
 }
 
 .Merkelapp__slett__inner {
@@ -43,19 +33,19 @@
   box-sizing: border-box;
   display: inline-block;
   border: none;
-  height: 14px;
-  width: 14px;
+  height: 21px;
+  width: 21px;
 
   &:before, &:after {
-    height: 14px;
-    width: 1px;
+    height: 20px;
+    width: 2px;
     transform: rotate(-45deg);
     content: '';
     display: block;
     position: absolute;
     top: 0;
-    right: 7px;
-    background-color: @greenDarken;
+    right: 10px;
+    background-color: @blueDarken;
   }
 
   &:after {
@@ -63,14 +53,14 @@
   }
 }
 
-.Merkelapp__slett:hover .Merkelapp__slett__inner {
-  &:before, &:after {
-    background-color: @gray5;
-  }
-}
-
-.Merkelapp__slett:active .Merkelapp__slett__inner {
-  &:before, &:after {
-    background-color: #fff;
+.Merkelapp:hover, .Merkelapp:active {
+  border-color: @blueDarken;
+  .Merkelapp__slett {
+    background-color: @blueDarken;
+    .Merkelapp__slett__inner {
+      &:before, &:after {
+        background-color: #fff;
+      }
+    }
   }
 }

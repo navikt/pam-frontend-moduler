@@ -21,21 +21,29 @@ const Merkelapp = ({
     };
 
     return (
-        <div className="Merkelapp">
-            <span className="typo-normal">
-                {children}
-            </span>
-            {(canRemove || canRemove === undefined) && (
-                <button
-                    aria-label="Slett"
-                    className="Merkelapp__slett"
-                    onClick={onRemoveClick}
-                    type="button"
-                >
+        (canRemove || canRemove === undefined) ? (
+            <button
+                className="Merkelapp typo-element"
+                aria-label="Slett"
+                onClick={onRemoveClick}
+                type="button"
+            >
+                <div className="Merkelapp__text">
+                        {children}
+                </div>
+                <div className="Merkelapp__slett">
                     <span className="Merkelapp__slett__inner" />
-                </button>
-            )}
-        </div>
+                </div>
+            </button>
+        ) : (
+            <div
+                className="Merkelapp typo-element"
+            >
+                <div className="Merkelapp__text">
+                        {children}
+                </div>
+            </div>
+        )
     );
 };
 
