@@ -1,7 +1,7 @@
 @import '../variables';
 
 .ekspanderbartPanel--green() {
-  .ekspanderbartPanel {
+  &.ekspanderbartPanel {
     border-top: 2px solid @blueDarken !important;
     border-radius: 0;
     &:hover {
@@ -19,12 +19,12 @@
     }
   }
 
-  .ekspanderbartPanel--lukket .ekspanderbartPanel__hode:hover {
+  &.ekspanderbartPanel--lukket .ekspanderbartPanel__hode:hover {
     box-shadow: none;
     background: @greenLighten;
   }
 
-  .ekspanderbartPanel .ekspanderbartPanel__hode:hover {
+  &.ekspanderbartPanel .ekspanderbartPanel__hode:hover {
     background: @greenLighten;
     .ekspanderbartPanel__heading {
         color: @blueDarken;
