@@ -1,0 +1,42 @@
+@import '../variables';
+
+.ekspanderbartPanel--green() {
+  &.ekspanderbartPanel {
+    border-top: 2px solid @blueDarken !important;
+    border-radius: 0;
+    &:hover {
+        box-shadow: none;
+    }
+  }
+
+  .ekspanderbartPanel__hode {
+    border-radius: 0!important;
+    padding-top: 0.5rem;
+    position: relative;
+
+    .ekspanderbartPanel__heading {
+        color: @blueDarken;
+    }
+  }
+
+  &.ekspanderbartPanel--lukket .ekspanderbartPanel__hode:hover {
+    box-shadow: none;
+    background: @greenLighten;
+  }
+
+  &.ekspanderbartPanel .ekspanderbartPanel__hode:hover {
+    background: @greenLighten;
+    .ekspanderbartPanel__heading {
+        color: @blueDarken;
+    }
+  }
+
+  .ekspanderbartPanel__innhold {
+    padding: 0.25rem 1rem 0;
+
+    @media (min-width: @screen-md-min) {
+        padding: 1rem 1rem 0.5rem;
+        background: @gray2;
+    }
+  }
+}
