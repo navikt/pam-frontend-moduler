@@ -177,7 +177,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                 {showPopover && (
                                                     <Popover onClose={this.onPopoverClose}>
                                                         <div className="Header__VelgRolle__row">
-                                                            <div>For personbrukere:</div>
+                                                            <div>For jobbsøkere:</div>
                                                             <AuthButton label="Logg inn" onClick={this.onLoginClick('personbruker')} />
                                                         </div>
                                                         <div className="Header__VelgRolle__row">
@@ -261,7 +261,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                             ) : (
                                 <div>
                                     <div className="Header__Authentication--personbruker">
-                                        <Normaltekst>For personbrukere:</Normaltekst>
+                                        <Normaltekst>For jobbsøkere:</Normaltekst>
                                         <AuthButton label="Logg inn" onClick={this.onLoginClick('personbruker')} />
                                     </div>
                                     <div className="Header__Authentication--arbeidsgiver">
