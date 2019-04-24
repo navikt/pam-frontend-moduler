@@ -27,6 +27,7 @@ interface HeaderProps {
     arbeidsgiverSelect?: any;
     validerNavigasjon?: ValiderNavigasjonProps;
     role?: 'arbeidsgiver' | 'personbruker';
+    visAktivitetsplanLenke?: boolean;
 }
 
 interface HeaderStateProps {
@@ -43,6 +44,21 @@ const AuthButton = ({ label, onClick } : AuthButtonProps) => (
     <button onClick={onClick} className="Header__Button Header__Button--mini typo-normal">
         {label}
     </button>
+);
+
+export const AktivitetsplanLenkeMobil =({ onNavigationClick }: any) => (
+    <div>
+        <a
+            href="https://aktivitetsplan.nav.no"
+            className="Header__AktivitetsplanLenke"
+            onClick={onNavigationClick('https://aktivitetsplan.nav.no')}
+        >
+            <div className="Header__AktivitetsplanLenke-inner" tabIndex={-1}>
+                <span className="Header__AktivitetsplanLenke__text">Aktivitetsplan</span>
+                <span className="Header__Lenkeikon"/>
+            </div>
+        </a>
+    </div>
 );
 
 export class Header extends React.Component<HeaderProps, HeaderStateProps> {
@@ -131,6 +147,17 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                     {authenticationStatus === AuthStatus.IS_AUTHENTICATED ? (
                                         <div className="Header__Innstillinger__wrapper">
                                             {arbeidsgiverSelect && arbeidsgiverSelect}
+                                            {this.props.visAktivitetsplanLenke &&
+                                                <a
+                                                    href="https://aktivitetsplan.nav.no"
+                                                    className="Header__AktivitetsplanLenke"
+                                                >
+                                                    <div className="Header__AktivitetsplanLenke-inner" tabIndex={-1}>
+                                                        <span className="Header__AktivitetsplanLenke__text">Aktivitetsplan</span>
+                                                        <span className="Header__Lenkeikon"/>
+                                                    </div>
+                                                </a>
+                                            }
                                             {visInnstillinger && (
                                                 <div>
                                                     {(applikasjon === PersonbrukerApplikasjon.CV ? (
@@ -242,7 +269,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                             ) : (
                                                 <Personbrukermeny
                                                     applikasjon={applikasjon as PersonbrukerApplikasjon}
-                                                    validerNavigasjon={validerNavigasjon} 
+                                                    validerNavigasjon={validerNavigasjon}
                                                     onNavigationClick={this.onNavigationClick}
                                                 />
                                             )}
@@ -255,6 +282,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                         />
                                     )}
                                     <div className="Header__Authentication__logout">
+                                        <AktivitetsplanLenkeMobil onNavigationClick={this.onNavigationClick} />
                                         <AuthButton label="Logg ut" onClick={onLogoutClick} />
                                     </div>
                                 </div>
