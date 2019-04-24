@@ -47,18 +47,16 @@ const AuthButton = ({ label, onClick } : AuthButtonProps) => (
 );
 
 export const AktivitetsplanLenkeMobil =({ onNavigationClick }: any) => (
-    <div>
-        <a
-            href="https://aktivitetsplan.nav.no"
-            className="Header__AktivitetsplanLenke"
-            onClick={onNavigationClick('https://aktivitetsplan.nav.no')}
-        >
-            <div className="Header__AktivitetsplanLenke-inner" tabIndex={-1}>
-                <span className="Header__AktivitetsplanLenke__text">Aktivitetsplan</span>
-                <span className="Header__Lenkeikon"/>
-            </div>
-        </a>
-    </div>
+    <a
+        href="https://aktivitetsplan.nav.no"
+        className="Header__AktivitetsplanLenke"
+        onClick={onNavigationClick('https://aktivitetsplan.nav.no')}
+    >
+        <div className="Header__AktivitetsplanLenke-inner" tabIndex={-1}>
+            <span className="Header__AktivitetsplanLenke__text">Aktivitetsplan</span>
+            <span className="Header__Lenkeikon"/>
+        </div>
+    </a>
 );
 
 export class Header extends React.Component<HeaderProps, HeaderStateProps> {
@@ -282,7 +280,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                         />
                                     )}
                                     <div className="Header__Authentication__logout">
-                                        <AktivitetsplanLenkeMobil onNavigationClick={this.onNavigationClick} />
+                                        {this.props.visAktivitetsplanLenke && <AktivitetsplanLenkeMobil onNavigationClick={this.onNavigationClick} />}
                                         <AuthButton label="Logg ut" onClick={onLogoutClick} />
                                     </div>
                                 </div>
