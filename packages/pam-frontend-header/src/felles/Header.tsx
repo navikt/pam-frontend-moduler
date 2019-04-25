@@ -46,7 +46,7 @@ const AuthButton = ({ label, onClick } : AuthButtonProps) => (
     </button>
 );
 
-export const AktivitetsplanLenkeMobil =({ onNavigationClick }: any) => (
+const AktivitetsplanLenkeMobil =({ onNavigationClick }: any) => (
     <a
         href="https://aktivitetsplan.nav.no"
         className="Header__AktivitetsplanLenke"
