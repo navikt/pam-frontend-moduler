@@ -122,7 +122,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                     <div className="Header__topp">
                         <div className="Header__logo">
                             <a href="/">
-                                <img src="/images/arbeidsplassen-logo.svg" alt="Logo Arbeidsplassen" height="40" width="190" />
+                                <img src="https://arbeidsplassen.nav.no/images/arbeidsplassen-logo.svg" alt="Logo Arbeidsplassen" height="40" width="190" />
                             </a>
                         </div>
                         <div className="Header__Authentication">
