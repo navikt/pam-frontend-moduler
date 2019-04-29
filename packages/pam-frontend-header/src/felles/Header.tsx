@@ -121,7 +121,9 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                 <div className="Header">
                     <div className="Header__topp">
                         <div className="Header__logo">
-                            <a className="lenke" href="/">Arbeidsplassen</a>
+                            <a href="/">
+                                <img src="/images/arbeidsplassen-logo.svg" alt="Logo Arbeidsplassen" height="40" width="190" />
+                            </a>
                         </div>
                         <div className="Header__Authentication">
                             {authenticationStatus === AuthStatus.UNKNOWN ? (
