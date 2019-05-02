@@ -21,7 +21,7 @@ const tabs: Array<PersonbrukerTab> = [
         app: PersonbrukerApplikasjon.CV
     },
     {
-        tittel: 'Stillingssøk',
+        tittel: 'Ledige stillinger',
         href: '/stillinger',
         app: PersonbrukerApplikasjon.STILLINGSSOK
     },
