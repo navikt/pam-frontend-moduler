@@ -5,7 +5,7 @@ import './Footer.less';
 export const Footer = () => (
     <div className="Footer">
         <div className="Footer__inner">
-            <p className="Footer__slogan">Arbeidsmarkedet på ett sted</p>
+            <p className="Footer__slogan">Alt av arbeid på én plass</p>
             <nav className="Footer__links">
                 <a className="Footer__logo link" href="https://www.nav.no/Forsiden" title="Gå til nav.no">
                   <i className="Footer__logo__nav-icon">
