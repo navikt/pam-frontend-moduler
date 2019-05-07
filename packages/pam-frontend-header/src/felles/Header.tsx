@@ -52,7 +52,7 @@ const AktivitetsplanLenkeMobil =({ onNavigationClick }: any) => (
         className="Header__AktivitetsplanLenke"
         onClick={onNavigationClick('https://aktivitetsplan.nav.no')}
     >
-        <div className="Header__AktivitetsplanLenke-inner" tabIndex={-1}>
+        <div className="Header__AktivitetsplanLenke-inner">
             <span className="Header__AktivitetsplanLenke__text">Aktivitetsplan</span>
             <span className="Header__Lenkeikon"/>
         </div>
@@ -152,7 +152,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                     href="https://aktivitetsplan.nav.no"
                                                     className="Header__AktivitetsplanLenke"
                                                 >
-                                                    <div className="Header__AktivitetsplanLenke-inner" tabIndex={-1}>
+                                                    <div className="Header__AktivitetsplanLenke-inner">
                                                         <span className="Header__AktivitetsplanLenke__text">Aktivitetsplan</span>
                                                         <span className="Header__Lenkeikon"/>
                                                     </div>
@@ -167,7 +167,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                             className="Header__Innstillinger typo-normal"
                                                             activeClassName="Header__Innstillinger-active"
                                                         >
-                                                            <div className="Header__Innstillinger-inner" tabIndex={-1}>
+                                                            <div className="Header__Innstillinger-inner">
                                                                 <span className="Header__Innstillinger__text">Innstillinger</span>
                                                                 <span className="Header__Tannhjul"/>
                                                             </div>
@@ -178,7 +178,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                             onClick={this.onNavigationClick('/personinnstillinger')}
                                                             className="Header__Innstillinger typo-normal"
                                                         >
-                                                            <div className="Header__Innstillinger-inner" tabIndex={-1}>
+                                                            <div className="Header__Innstillinger-inner">
                                                                 <span className="Header__Innstillinger__text">Innstillinger</span>
                                                                 <span className="Header__Tannhjul"/>
                                                             </div>
