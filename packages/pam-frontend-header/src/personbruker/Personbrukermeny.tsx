@@ -21,7 +21,7 @@ const tabs: Array<PersonbrukerTab> = [
         app: PersonbrukerApplikasjon.CV
     },
     {
-        tittel: 'Stillingssøk',
+        tittel: 'Ledige stillinger',
         href: '/stillinger',
         app: PersonbrukerApplikasjon.STILLINGSSOK
     },
@@ -72,7 +72,7 @@ export const InnstillingerLenkeMobil = ({
                 activeClassName="Personbrukermeny--lenke-active"
                 className="Personbrukermeny--lenke"
             >
-                <div className="Personbrukermeny--lenke-inner" tabIndex={-1}><span>Innstillinger</span></div>
+                <div className="Personbrukermeny--lenke-inner"><span>Innstillinger</span></div>
             </NavLink>
         ) : (
             <a
@@ -80,7 +80,7 @@ export const InnstillingerLenkeMobil = ({
                 onClick={onNavigationClick("/personinnstillinger")}
                 className="Personbrukermeny--lenke"
             >
-                <div className="Personbrukermeny--lenke-inner" tabIndex={-1}><span>Innstillinger</span></div>
+                <div className="Personbrukermeny--lenke-inner"><span>Innstillinger</span></div>
             </a>
         )}
     </div>
@@ -99,7 +99,7 @@ export const Personbrukermeny = ({ applikasjon, onNavigationClick }: Personbruke
                             activeClassName="Personbrukermeny--lenke-active"
                             className="Personbrukermeny--lenke"
                         >
-                            <div className="Personbrukermeny--lenke-inner" tabIndex={-1}><span>{tab.tittel}</span></div>
+                            <div className="Personbrukermeny--lenke-inner"><span>{tab.tittel}</span></div>
                         </NavLink>
                     </div>
                 ) : (
@@ -110,7 +110,7 @@ export const Personbrukermeny = ({ applikasjon, onNavigationClick }: Personbruke
                             activeClassName="Personbrukermeny--lenke-active"
                             className="Personbrukermeny--lenke"
                         >
-                            <div className="Personbrukermeny--lenke-inner" tabIndex={-1}><span>{tab.tittel}</span></div>
+                            <div className="Personbrukermeny--lenke-inner"><span>{tab.tittel}</span></div>
                         </NavLink>
                     </div>
                 )
@@ -121,7 +121,7 @@ export const Personbrukermeny = ({ applikasjon, onNavigationClick }: Personbruke
                         onClick={onNavigationClick(tab.href)}
                         className="Personbrukermeny--lenke"
                     >
-                        <div className="Personbrukermeny--lenke-inner" tabIndex={-1}><span>{tab.tittel}</span></div>
+                        <div className="Personbrukermeny--lenke-inner"><span>{tab.tittel}</span></div>
                     </a>
                 </div>
             )

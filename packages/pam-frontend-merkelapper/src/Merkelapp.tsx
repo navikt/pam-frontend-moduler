@@ -31,9 +31,7 @@ const Merkelapp = ({
                 <div className="Merkelapp__text">
                         {children}
                 </div>
-                <div className="Merkelapp__slett">
-                    <span className="Merkelapp__slett__inner" />
-                </div>
+                <i className="Merkelapp__slett__icon" />
             </button>
         ) : (
             <div
