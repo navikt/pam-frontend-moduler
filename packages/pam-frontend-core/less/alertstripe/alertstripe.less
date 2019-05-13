@@ -1,0 +1,22 @@
+@import "../variables";
+@import "mixins";
+
+.alertstripe {
+  .alertstripe();
+
+  &.alertstripe--info {
+    .alertstripe--info();
+  }
+
+  &.alertstripe--advarsel {
+    .alertstripe--advarsel();
+  }
+
+  &.alertstripe--feil {
+    .alertstripe--feil();
+  }
+
+  &.alertstripe--suksess {
+    .alertstripe--suksess();
+  }
+}

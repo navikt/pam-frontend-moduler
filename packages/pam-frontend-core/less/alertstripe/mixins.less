@@ -1,0 +1,68 @@
+.alertstripe() {
+  border-radius: 0.25rem;
+  display: flex;
+  padding: 1.25rem 1rem;
+
+  .alertstripe__divider {
+    margin: 0 1rem;
+    align-self: stretch;
+    width: 1px;
+    background: #b7b1a9;
+  }
+
+  &.alertstripe--solid {
+    border: none;
+  }
+}
+
+.alertstripe--info() {
+  .coloredAlertStripe(#1282ff);
+
+  .alertstripe__ikon {
+    svg path:last-child {
+      fill: #fff;
+    }
+  }
+
+  &.alertstripe--solid {
+    background: #a7e9ff;
+    border: none;
+  }
+}
+
+.alertstripe--advarsel() {
+  .coloredAlertStripe(#ffa733);
+
+  &.alertstripe--solid {
+    background: #ffecaf;
+    border: none;
+  }
+}
+
+.alertstripe--feil() {
+  .coloredAlertStripe(#e02c2c);
+
+  &.alertstripe--solid {
+    background: #f7b4b4;
+    border: none;
+  }
+}
+
+.alertstripe--suksess() {
+  .coloredAlertStripe(#0d9b3f);
+
+  &.alertstripe--solid {
+    background: #bff199;
+    border: none;
+  }
+}
+
+.coloredAlertStripe(@color) {
+  border: 1px solid @color;
+
+  .alertstripe__ikon {
+    path:first-child {
+      fill: @color;
+    }
+  }
+}
