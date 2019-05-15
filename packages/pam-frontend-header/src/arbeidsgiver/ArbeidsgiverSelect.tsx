@@ -11,44 +11,40 @@ interface ArbeidsgiverSelectProps {
   valgtArbeidsgiverId?: string;
 }
 
-class ArbeidsgiverSelect extends React.Component<ArbeidsgiverSelectProps> {
-    onArbeidsgiverChange = (e: ChangeEvent<HTMLSelectElement>) => {
+const ArbeidsgiverSelect = ({ arbeidsgivere, onArbeidsgiverSelect, valgtArbeidsgiverId }: ArbeidsgiverSelectProps) => {
+    const onArbeidsgiverChange = (e: ChangeEvent<HTMLSelectElement>) => {
         if (e.target.value !== '0') {
-            this.props.onArbeidsgiverSelect(e.target.value);
+            onArbeidsgiverSelect(e.target.value);
         } else {
-            this.props.onArbeidsgiverSelect();
+            onArbeidsgiverSelect();
         }
     };
 
-    render() {
-        const { arbeidsgivere, valgtArbeidsgiverId } = this.props;
-        return (
-            <div>
-                {arbeidsgivere.length === 1 ? (
-                    <Normaltekst className="ArbeidsgiverSelect__navn">
-                        {arbeidsgivere[0].navn}
-                    </Normaltekst>
-                ) : (arbeidsgivere.length > 1 && (
-                    <Select
-                        className="ArbeidsgiverSelect"
-                        label=""
-                        id="arbeidsgiver-select"
-                        onChange={this.onArbeidsgiverChange}
-                        value={valgtArbeidsgiverId}
-                        aria-label="Velg arbeidsgiver"
-                    >
-                        <option value="0">Velg arbeidsgiver</option>
-                        {arbeidsgivere && arbeidsgivere.map((arbeidsgiver) => (
-                            <option key={arbeidsgiver.orgNummer} value={arbeidsgiver.orgNummer}>
-                                {arbeidsgiver.navn}
-                            </option>))
-                        };
-                    </Select>
-                ))}
-
-            </div>
-        );
-    }
-}
+    return (
+        <React.Fragment>
+            {arbeidsgivere.length === 1 ? (
+                <Normaltekst className="ArbeidsgiverSelect__navn">
+                    {arbeidsgivere[0].navn}
+                </Normaltekst>
+            ) : (arbeidsgivere.length > 1 && (
+                <Select
+                    className="ArbeidsgiverSelect"
+                    label=""
+                    id="arbeidsgiver-select"
+                    onChange={onArbeidsgiverChange}
+                    value={valgtArbeidsgiverId}
+                    aria-label="Velg arbeidsgiver"
+                >
+                    <option value="0">Velg arbeidsgiver</option>
+                    {arbeidsgivere && arbeidsgivere.map((arbeidsgiver) => (
+                        <option key={arbeidsgiver.orgNummer} value={arbeidsgiver.orgNummer}>
+                            {arbeidsgiver.navn}
+                        </option>))
+                    };
+                </Select>
+            ))}
+        </React.Fragment>
+    );
+};
 
 export default ArbeidsgiverSelect;
