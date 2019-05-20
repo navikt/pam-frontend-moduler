@@ -63,9 +63,11 @@ export const VelgArbeidsgiver = ({ arbeidsgivere, valgtArbeidsgiverId, onArbeids
                             Alternativt kan du få tilgang til enkelttjenesten Rekruttering.
                         </Normaltekst>
                         <Normaltekst className="blokk-s">
-                            Mer informasjon om tildeling av roller og rettigheter finnes på:{' '}
+                            {'Mer informasjon om tildeling av roller og rettigheter finnes på '}
                             <a
-                                className="lenke"
+                                className="lenke ekstern-lenke"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 href={LENKE_RETTIGHETER}
                             >
                                 Altinn
