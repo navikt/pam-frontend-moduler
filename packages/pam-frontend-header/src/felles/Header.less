@@ -54,12 +54,11 @@
 }
 
 .Header__Authentication__logout {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1rem;
-    align-items: center;
+    text-align: right;
     .Header__AktivitetsplanLenke {
         margin-right: auto;
+        display: inline-block;
+        padding: 1rem;
     }
 }
 
@@ -116,6 +115,25 @@
 
 .Header__Innstillinger__wrapper {
     display: none;
+}
+
+.Header__name__wrapper {
+    display: inline-flex;
+    padding: 1rem 1rem 1rem 0;
+}
+
+.Header__name {
+    padding: 0.688rem 3rem 0.688rem 1rem;
+    border-radius: 20px;
+    background-color: @gray2;
+    max-width: 14.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Header__logout-name {
+    margin-left: -2rem !important;
 }
 
 @media (min-width: @screen-sm-min) {
@@ -206,8 +224,12 @@
         align-items: center;
 
         > :not(:first-child) {
-            margin-left: 2rem;
+            margin-left: 1rem;
         }
+    }
+
+    .Header__name {
+        max-width: 12.5rem;
     }
 
     .Header__Innstillinger {
@@ -323,5 +345,15 @@
         .Header__AktivitetsplanLenke__text {
             background-color: @orangeFocus; /* keyboard-only focus styles */
         }
+    }
+}
+
+@media (min-width: @screen-md-min) {
+    .Header__Innstillinger__wrapper > :not(:first-child) {
+        margin-left: 2rem;
+    }
+
+    .Header__name {
+        max-width: 15rem;
     }
 }
