@@ -1,6 +1,6 @@
 {
   "name": "pam-frontend-header",
-  "version": "4.5.2",
+  "version": "4.5.5",
   "description": "Header for PAMs frontend-applikasjoner",
   "author": "akselw",
   "license": "MIT",
@@ -48,6 +48,7 @@
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
+    "@babel/code-frame": "^7.0.0",
     "@types/jest": "^23.1.5",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
