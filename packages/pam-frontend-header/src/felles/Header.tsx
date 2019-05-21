@@ -28,11 +28,14 @@ interface HeaderProps {
     validerNavigasjon?: ValiderNavigasjonProps;
     role?: 'arbeidsgiver' | 'personbruker';
     visAktivitetsplanLenke?: boolean;
+    showName?: boolean;
 }
 
 interface HeaderStateProps {
     showPopover: boolean;
     showMobileMenu: boolean;
+    underOppfolging?: boolean;
+    name?: string;
 }
 
 interface AuthButtonProps {
@@ -62,13 +65,37 @@ const AktivitetsplanLenkeMobil =({ onNavigationClick }: any) => (
 export class Header extends React.Component<HeaderProps, HeaderStateProps> {
     state = {
         showPopover: false,
-        showMobileMenu: false
+        showMobileMenu: false,
+        underOppfolging: undefined,
+        name: undefined
     };
 
     componentDidMount() {
-        const { role } = this.props;
+        const { role, showName, visAktivitetsplanLenke } = this.props;
+        const { name, underOppfolging } = this.state;
+
         if (role) {
             localStorage.setItem('innloggetBrukerKontekst', role);
+        }
+
+        if ((showName && name === undefined) || (visAktivitetsplanLenke && underOppfolging === undefined)) {
+            fetch('/cv/api/rest/person/headerinfo', {
+                method: 'GET',
+                credentials: 'include'
+            })
+            .then(response => response.json())
+            .then(result => {
+                this.setState({
+                    underOppfolging: visAktivitetsplanLenke ? result.underOppfolging : false,
+                    name: showName ? `${result.fornavn} ${result.etternavn}` : undefined
+                });
+            }).catch((e) => {
+                this.setState({
+                    underOppfolging: false,
+                    name: undefined
+                });
+                throw e;
+            });
         }
     }
 
@@ -127,7 +154,9 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
         } = this.props;
         const {
             showPopover,
-            showMobileMenu
+            showMobileMenu,
+            underOppfolging,
+            name
         } = this.state;
 
         return(
@@ -147,7 +176,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                     {authenticationStatus === AuthStatus.IS_AUTHENTICATED ? (
                                         <div className="Header__Innstillinger__wrapper">
                                             {arbeidsgiverSelect && arbeidsgiverSelect}
-                                            {this.props.visAktivitetsplanLenke &&
+                                            {!underOppfolging &&
                                                 <a
                                                     href="https://aktivitetsplan.nav.no"
                                                     className="Header__AktivitetsplanLenke"
@@ -186,7 +215,12 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                     ))}
                                                 </div>
                                             )}
-                                            <div>
+                                            {name && (
+                                                <div className="Header__name">
+                                                    {name}
+                                                </div>
+                                            )}
+                                            <div className={name ? 'Header__logout-name' : ''}>
                                                 <AuthButton label="Logg ut" onClick={onLogoutClick} />
                                             </div>
                                         </div>
@@ -291,8 +325,17 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                         />
                                     )}
                                     <div className="Header__Authentication__logout">
-                                        {this.props.visAktivitetsplanLenke && <AktivitetsplanLenkeMobil onNavigationClick={this.onNavigationClick} />}
-                                        <AuthButton label="Logg ut" onClick={onLogoutClick} />
+                                        {!underOppfolging && <AktivitetsplanLenkeMobil onNavigationClick={this.onNavigationClick} />}
+                                        <div className="Header__name__wrapper">
+                                            {name && (
+                                                <div className="Header__name">
+                                                    {name}
+                                                </div>
+                                            )}
+                                            <div className={name ? 'Header__logout-name' : ''}>
+                                                <AuthButton label="Logg ut" onClick={onLogoutClick} />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             ) : (
