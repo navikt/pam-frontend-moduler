@@ -27,7 +27,6 @@ interface HeaderProps {
     arbeidsgiverSelect?: any;
     validerNavigasjon?: ValiderNavigasjonProps;
     role?: 'arbeidsgiver' | 'personbruker';
-    visAktivitetsplanLenke?: boolean;
     showName?: boolean;
 }
 
@@ -71,14 +70,14 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
     };
 
     componentDidMount() {
-        const { role, showName, visAktivitetsplanLenke } = this.props;
+        const { role, showName, useMenu } = this.props;
         const { name, underOppfolging } = this.state;
 
         if (role) {
             localStorage.setItem('innloggetBrukerKontekst', role);
         }
 
-        if ((showName && name === undefined) || (visAktivitetsplanLenke && underOppfolging === undefined)) {
+        if ((showName && name === undefined) || (useMenu === 'personbruker' && underOppfolging === undefined)) {
             const { NODE_ENV } = process.env;
             if (NODE_ENV === 'development') {
                 this.setState({
@@ -93,7 +92,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                 .then(response => response.json())
                 .then(result => {
                     this.setState({
-                        underOppfolging: visAktivitetsplanLenke ? result.underOppfolging : false,
+                        underOppfolging: useMenu === 'personbruker' ? result.underoppfolging : false,
                         name: showName ? `${result.fornavn} ${result.etternavn}` : undefined
                     });
                 }).catch((e) => {
@@ -184,7 +183,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                     {authenticationStatus === AuthStatus.IS_AUTHENTICATED ? (
                                         <div className="Header__Innstillinger__wrapper">
                                             {arbeidsgiverSelect && arbeidsgiverSelect}
-                                            {!underOppfolging &&
+                                            {underOppfolging &&
                                                 <a
                                                     href="https://aktivitetsplan.nav.no"
                                                     className="Header__AktivitetsplanLenke"
@@ -333,7 +332,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                         />
                                     )}
                                     <div className="Header__Authentication__logout">
-                                        {!underOppfolging && <AktivitetsplanLenkeMobil onNavigationClick={this.onNavigationClick} />}
+                                        {underOppfolging && <AktivitetsplanLenkeMobil onNavigationClick={this.onNavigationClick} />}
                                         <div className="Header__name__wrapper">
                                             {name && (
                                                 <div className="Header__name">
