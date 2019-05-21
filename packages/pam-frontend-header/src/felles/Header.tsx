@@ -79,23 +79,31 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
         }
 
         if ((showName && name === undefined) || (visAktivitetsplanLenke && underOppfolging === undefined)) {
-            fetch('/cv/api/rest/person/headerinfo', {
-                method: 'GET',
-                credentials: 'include'
-            })
-            .then(response => response.json())
-            .then(result => {
+            const { NODE_ENV } = process.env;
+            if (NODE_ENV === 'development') {
                 this.setState({
-                    underOppfolging: visAktivitetsplanLenke ? result.underOppfolging : false,
-                    name: showName ? `${result.fornavn} ${result.etternavn}` : undefined
+                    underOppfolging: true,
+                    name: "Navn Navnesen"
+                })
+            } else {
+                fetch('/cv/api/rest/person/headerinfo', {
+                    method: 'GET',
+                    credentials: 'include'
+                })
+                .then(response => response.json())
+                .then(result => {
+                    this.setState({
+                        underOppfolging: visAktivitetsplanLenke ? result.underOppfolging : false,
+                        name: showName ? `${result.fornavn} ${result.etternavn}` : undefined
+                    });
+                }).catch((e) => {
+                    this.setState({
+                        underOppfolging: false,
+                        name: undefined
+                    });
+                    throw e;
                 });
-            }).catch((e) => {
-                this.setState({
-                    underOppfolging: false,
-                    name: undefined
-                });
-                throw e;
-            });
+            }
         }
     }
 
