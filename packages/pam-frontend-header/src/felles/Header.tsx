@@ -92,7 +92,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                 .then(response => response.json())
                 .then(result => {
                     this.setState({
-                        underOppfolging: useMenu === 'personbruker' ? result.underoppfolging : false,
+                        underOppfolging: useMenu === 'personbruker' ? result.underOppfolging : false,
                         name: showName ? `${result.fornavn} ${result.etternavn}` : undefined
                     });
                 }).catch((e) => {
