@@ -81,8 +81,8 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
             const { NODE_ENV } = process.env;
             if (NODE_ENV === 'development') {
                 this.setState({
-                    underOppfolging: true,
-                    name: "Navn Navnesen"
+                    underOppfolging: useMenu === 'personbruker',
+                    name: showName ? "Navn Navnesen" : undefined
                 })
             } else {
                 fetch('/cv/api/rest/person/headerinfo', {
