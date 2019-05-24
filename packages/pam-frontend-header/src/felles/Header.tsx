@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Normaltekst } from 'nav-frontend-typografi';
 import Popover from './popover/Popover';
 import './Header.less';
 import { NavLink } from 'react-router-dom';
@@ -271,32 +270,41 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                         </div>
                         {authenticationStatus !== AuthStatus.UNKNOWN && (
                             <div className="Header__Authentication--mobile">
-                                {showMobileMenu ? (
-                                    <div
-                                        role="button"
-                                        onClick={this.onToggleMenu}
-                                        id="Mobilmeny__Button--toggle"
-                                        className="Mobilmeny__Button--toggle"
-                                        aria-expanded={true}
-                                        aria-controls="Mobilmeny"
-                                    >
-                                        <div className="Mobilmeny--lukk-wrapper">
-                                            <div className="Mobilmeny--lukk"/>
+                                {authenticationStatus === AuthStatus.IS_AUTHENTICATED ? (
+                                    showMobileMenu ? (
+                                        <div
+                                            role="button"
+                                            onClick={this.onToggleMenu}
+                                            id="Mobilmeny__Button--toggle"
+                                            className="Mobilmeny__Button--toggle"
+                                            aria-expanded={true}
+                                            aria-controls="Mobilmeny"
+                                        >
+                                            <div className="Mobilmeny--lukk-wrapper">
+                                                <div className="Mobilmeny--lukk"/>
+                                            </div>
+                                            <span className="Mobilmeny__Text--toggle">Lukk</span>
                                         </div>
-                                        <span className="Mobilmeny__Text--toggle">Lukk</span>
-                                    </div>
+                                    ) : (
+                                        <div
+                                            role="button"
+                                            onClick={this.onToggleMenu}
+                                            id="Mobilmeny__Button--toggle"
+                                            className="Mobilmeny__Button--toggle"
+                                            aria-expanded={false}
+                                            aria-controls="Mobilmeny"
+                                        >
+                                            <div className="Mobilmeny--apne"/>
+                                            <span className="Mobilmeny__Text--toggle">Meny</span>
+                                        </div>
+                                    )
                                 ) : (
-                                    <div
-                                        role="button"
+                                    <button
                                         onClick={this.onToggleMenu}
-                                        id="Mobilmeny__Button--toggle"
-                                        className="Mobilmeny__Button--toggle"
-                                        aria-expanded={false}
-                                        aria-controls="Mobilmeny"
+                                        className="Header__login--mobile Header__Button Header__Button--mini Header__Button--flat"
                                     >
-                                        <div className="Mobilmeny--apne"/>
-                                        <span className="Mobilmeny__Text--toggle">Meny</span>
-                                    </div>
+                                        Logg inn
+                                    </button>
                                 )}
                             </div>
                         )}
@@ -346,15 +354,24 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                     </div>
                                 </div>
                             ) : (
-                                <div>
-                                    <div className="Header__Authentication--personbruker">
-                                        <Normaltekst>For jobbsøkere:</Normaltekst>
-                                        <AuthButton label="Logg inn" onClick={this.onLoginClick('personbruker')} />
-                                    </div>
-                                    <div className="Header__Authentication--arbeidsgiver">
-                                        <Normaltekst>For arbeidsgivere:</Normaltekst>
-                                        <AuthButton label="Logg inn" onClick={this.onLoginClick('arbeidsgiver')} />
-                                    </div>
+                                <div className="Header__VelgRolle">
+                                    <button
+                                        onClick={this.onLoginClick('personbruker')}
+                                        className="Header__VelgRolle__row"
+                                        aria-label="Logg inn som jobbsøker"
+                                    >
+                                        <div>For jobbsøkere</div>
+                                        <div className="Login__Icon" />
+                                    </button>
+                                    <div className="border--solid" />
+                                    <button
+                                        onClick={this.onLoginClick('arbeidsgiver')}
+                                        className="Header__VelgRolle__row"
+                                        aria-label="Logg inn som arbeidsgiver"
+                                    >
+                                        <div>For arbeidsgivere</div>
+                                        <div className="Login__Icon" />
+                                    </button>
                                 </div>
                             )}
                         </div>
