@@ -19,6 +19,11 @@ export const Footer = () => (
                       </a>
                     </li>
                     <li className="Footer__links__ul__li">
+                      <a href="/sporsmal-og-svar" className="Footer__links__ul__li__link">
+                        Spørsmål og svar
+                      </a>
+                    </li>
+                    <li className="Footer__links__ul__li">
                       <a href="/kontakt" className="Footer__links__ul__li__link">
                         Kontakt oss
                       </a>
