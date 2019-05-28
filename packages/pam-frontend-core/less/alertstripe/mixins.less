@@ -11,11 +11,21 @@
     background: #b7b1a9;
   }
 
-  >.alertstripe__ikon {
-    margin-right: 0;
-    border-right: none !important;
-    width: auto;
-    padding-right: 0.5rem;
+  &:not(.alertstripe--solid) {
+    >.alertstripe__ikon {
+      margin-right: 0;
+      border-right: none !important;
+      width: auto;
+      padding-right: 0.5rem;
+    }
+  }
+
+  &.alertstripe--solid {
+    >.alertstripe__ikon {
+      margin-right: 0;
+      width: auto;
+      padding-right: 1rem;
+    }
   }
 
   &.alertstripe--solid {
