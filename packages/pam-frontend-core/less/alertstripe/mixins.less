@@ -1,7 +1,8 @@
 .alertstripe() {
+  color: @blueDarken;
   border-radius: 0.25rem;
   display: flex;
-  padding: 1.25rem 1rem;
+  border: none;
 
   .alertstripe__divider {
     margin: 0 1rem;
@@ -11,7 +12,7 @@
   }
 
   &.alertstripe--solid {
-    border: none;
+    padding: 1.25rem 1rem;
   }
 }
 
@@ -26,7 +27,6 @@
 
   &.alertstripe--solid {
     background: #a7e9ff;
-    border: none;
   }
 }
 
@@ -35,7 +35,6 @@
 
   &.alertstripe--solid {
     background: #ffecaf;
-    border: none;
   }
 }
 
@@ -44,7 +43,6 @@
 
   &.alertstripe--solid {
     background: #f7b4b4;
-    border: none;
   }
 }
 
@@ -53,13 +51,10 @@
 
   &.alertstripe--solid {
     background: #bff199;
-    border: none;
   }
 }
 
 .coloredAlertStripe(@color) {
-  border: 1px solid @color;
-
   .alertstripe__ikon {
     path:first-child {
       fill: @color;
