@@ -62,7 +62,7 @@ export const VelgArbeidsgiver = ({ arbeidsgivere, valgtArbeidsgiverId, onArbeids
                         <Normaltekst className="blokk-s">
                             {'Mer informasjon om tildeling av roller og rettigheter finnes på '}
                             <a
-                                className="lenke ekstern-lenke"
+                                className="link ekstern-lenke"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href={LENKE_RETTIGHETER}
