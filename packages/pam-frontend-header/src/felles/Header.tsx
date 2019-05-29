@@ -42,7 +42,7 @@ interface AuthButtonProps {
 }
 
 const AuthButton = ({ label, onClick } : AuthButtonProps) => (
-    <button onClick={onClick} className="Header__Button Header__Button--mini typo-normal">
+    <button onClick={onClick} className="Header__Button Header__Button--mini">
         {label}
     </button>
 );
@@ -235,7 +235,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                             <div className="Header__VelgRolle">
                                                 <button
                                                     onClick={this.onPopoverOpen}
-                                                    className="Header__Button Header__Button--mini typo-normal"
+                                                    className="Header__Button Header__Button--mini"
                                                     aria-haspopup="true"
                                                     aria-expanded={showPopover}
                                                 >
