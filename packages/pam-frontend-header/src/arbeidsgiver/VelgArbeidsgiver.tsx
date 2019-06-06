@@ -36,14 +36,12 @@ export const VelgArbeidsgiver = ({ arbeidsgivere, valgtArbeidsgiverId, onArbeids
                         <Element className="element--underscore blokk-s">
                             Du representerer flere arbeidsgivere
                         </Element>
-                        <Normaltekst className="blokk-s">
-                            Velg aktuell arbeidsgiver fra listen under.
-                        </Normaltekst>
                         <div className="blokk-m">
                             <ArbeidsgiverSelect
                                 arbeidsgivere={arbeidsgivere}
                                 valgtArbeidsgiverId={valgtArbeidsgiverId}
                                 onArbeidsgiverSelect={onArbeidsgiverSelect}
+                                label="Velg aktuell arbeidsgiver fra listen under."
                             />
                         </div>
                         <Element>Finner du ikke den aktuelle arbeidsgiveren i listen?</Element>

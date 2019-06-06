@@ -9,9 +9,17 @@ interface ArbeidsgiverSelectProps {
   onArbeidsgiverSelect: (orgNummer?: string) => void
   arbeidsgivere: Array<Arbeidsgiver>;
   valgtArbeidsgiverId?: string;
+  label?: string;
+  showLabelInline?: boolean;
 }
 
-const ArbeidsgiverSelect = ({ arbeidsgivere, onArbeidsgiverSelect, valgtArbeidsgiverId }: ArbeidsgiverSelectProps) => {
+const ArbeidsgiverSelect = ({
+    arbeidsgivere,
+    onArbeidsgiverSelect,
+    valgtArbeidsgiverId,
+    label,
+    showLabelInline
+}: ArbeidsgiverSelectProps) => {
     const onArbeidsgiverChange = (e: ChangeEvent<HTMLSelectElement>) => {
         if (e.target.value !== '0') {
             onArbeidsgiverSelect(e.target.value);
@@ -28,8 +36,8 @@ const ArbeidsgiverSelect = ({ arbeidsgivere, onArbeidsgiverSelect, valgtArbeidsg
                 </Normaltekst>
             ) : (arbeidsgivere.length > 1 && (
                 <Select
-                    className="ArbeidsgiverSelect"
-                    label=""
+                    className={`ArbeidsgiverSelect${showLabelInline ? ' ArbeidsgiverSelect__inline' : ''}`}
+                    label={label}
                     id="arbeidsgiver-select"
                     onChange={onArbeidsgiverChange}
                     value={valgtArbeidsgiverId}
