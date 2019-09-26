@@ -248,7 +248,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                             className="Header__VelgRolle__row"
                                                             aria-label="Logg inn som privatperson"
                                                         >
-                                                            <div>For privatpersoner</div>
+                                                            <div>For privatperson</div>
                                                             <div className="Login__Icon" />
                                                         </button>
                                                         <div className="border--solid" />
@@ -360,7 +360,7 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                         className="Header__VelgRolle__row"
                                         aria-label="Logg inn som privatperson"
                                     >
-                                        <div>For privatpersoner</div>
+                                        <div>For privatperson</div>
                                         <div className="Login__Icon" />
                                     </button>
                                     <div className="border--solid" />
