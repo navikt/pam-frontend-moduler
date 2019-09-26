@@ -246,9 +246,9 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                                         <button
                                                             onClick={this.onLoginClick('personbruker')}
                                                             className="Header__VelgRolle__row"
-                                                            aria-label="Logg inn som jobbsøker"
+                                                            aria-label="Logg inn som privatperson"
                                                         >
-                                                            <div>For jobbsøkere</div>
+                                                            <div>For privatpersoner</div>
                                                             <div className="Login__Icon" />
                                                         </button>
                                                         <div className="border--solid" />
@@ -358,9 +358,9 @@ export class Header extends React.Component<HeaderProps, HeaderStateProps> {
                                     <button
                                         onClick={this.onLoginClick('personbruker')}
                                         className="Header__VelgRolle__row"
-                                        aria-label="Logg inn som jobbsøker"
+                                        aria-label="Logg inn som privatperson"
                                     >
-                                        <div>For jobbsøkere</div>
+                                        <div>For privatpersoner</div>
                                         <div className="Login__Icon" />
                                     </button>
                                     <div className="border--solid" />
