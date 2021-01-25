@@ -38,6 +38,11 @@ export const Footer = () => (
                         Personvern
                       </a>
                     </li>
+                    <li className="Footer__links__ul__li">
+                      <a href="/vilkar-og-retningslinjer" className="Footer__links__ul__li__link">
+                        Vilkår for arbeidsgiver
+                      </a>
+                    </li>
                 </ul>
             </nav>
         </div>
