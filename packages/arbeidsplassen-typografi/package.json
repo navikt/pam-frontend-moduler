@@ -1,0 +1,15 @@
+{
+  "name": "@navikt/arbeidsplassen-typografi",
+  "version": "2.0.2",
+  "description": "Typografi for Arbeidsplassen.no frontend-applikasjoner",
+  "author": "arbeidsplassen",
+  "license": "MIT",
+  "repository": "navikt/pam-frontend-moduler",
+  "main": "less/typografi.less",
+  "files": [
+    "/less"
+  ],
+  "devDependencies": {
+    "@navikt/arbeidsplassen-core": "^1.0.1"
+  }
+}

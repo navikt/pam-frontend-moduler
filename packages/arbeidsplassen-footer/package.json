@@ -1,8 +1,8 @@
 {
-  "name": "pam-frontend-footer",
+  "name": "@navikt/arbeidsplassen-footer",
   "version": "1.0.8",
-  "description": "Footer for PAMs frontend-applikasjoner",
-  "author": "teampam",
+  "description": "Footer for Arbeidsplassen.no frontend-applikasjoner",
+  "author": "arbeidsplassen",
   "license": "MIT",
   "repository": "navikt/pam-frontend-footer",
   "main": "dist/index.js",
