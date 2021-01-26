@@ -1,5 +1,4 @@
-@import "../variables";
-
+@import "../../variabler.less";
 
 .Footer {
   background-color: #f3eaf3;
@@ -28,7 +27,7 @@
   font-size: 1.25rem;
   margin: 0 0 2rem;
   line-height: 1.3;
-  color: @blueDarken;
+  color: @primaryDarkBlue;
 }
 
 .Footer__logo {
@@ -38,7 +37,7 @@
 
   &:focus {
     outline: none;
-    background: @orangeFocus;
+    background: @infoYellow;
   }
 
   @media (min-width: @screen-md-min) {
@@ -91,7 +90,7 @@
 
   @media (min-width: @screen-md-min) {
     &:not(:last-child) {
-      padding: 0 1.5rem;
+      padding: 0 1rem;
     }
     &:last-child {
       padding-top: 0;
@@ -101,7 +100,7 @@
 
   @media (min-width: @screen-lg-min) {
     &:not(:last-child) {
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
     &:last-child {
       padding-top: 0;
@@ -111,10 +110,14 @@
 }
 
 .Footer__links__ul__li__link {
-  color: @pinkDarken;
+  color: @primaryPurple;
 
   &:focus {
     outline: none;
-    background: @orangeFocus;
+    background: @infoYellow;
+  }
+
+  &:hover {
+    text-decoration-line: none;
   }
 }

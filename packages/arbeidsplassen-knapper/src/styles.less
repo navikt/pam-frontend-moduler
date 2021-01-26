@@ -1,130 +1,117 @@
 @import "../../variabler.less";
-@import "./mixins";
 
 .Knapp {
-  background: #fff;
-  border: 2px solid @pinkDarken;
-  border-radius: 5rem;
-  color: @pinkDarken;
+  background: white;
+  border: 3px solid @primaryPurple;
+  border-radius: 20px;
+  color: @primaryPurple;
   cursor: pointer;
   display: inline-block;
-  font-weight: 600;
+  font-weight: 700;
   font-family: 'Source Sans Pro', Arial, sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.0625em;
-  line-height: 1;
-  padding: 0.375rem 1rem 0.5rem 1rem;
+  font-size: 16px;
+  font-style: normal;
+  letter-spacing: 1px;
+  line-height: 20px;
   text-decoration: none;
   text-transform: none;
   user-select: none;
   white-space: nowrap;
-
-  @media (min-width: @screen-sm-min) {
-    padding: 0.575rem 2rem 0.676rem 2rem;
-    font-size: 1rem;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px @orangeFocus;
-  }
+  padding: 7px 17px;
 
   &:hover {
-    background-color: @pink;
-    border-color: @pinkDarken;
-    color: #fff;
+    background-color: @primaryPurple;
+    border-color: @primaryPurple;
+    color: white;
+  }
+
+  &:focus, &:active {
+    outline: none;
+    box-shadow: 0 0 0 3px @primaryDarkBlue;
+    background-color: @secondaryPurple;
+    border-color: @primaryPurple;
+    color: @primaryPurple;
     transform: none;
   }
 
-  &:active {
-    background-color: @pinkDarken;
-    border-color: @pinkDarken;
-    color: @pinkLighten;
-  }
 }
 
 .Knapp--hoved {
-  background-color: @pinkDarken;
-  border-color: @pinkDarken;
-  color: #fff;
-
-  &:focus {
-    background-color: @pink;
-    border-color: @pinkDarken;
-    color: #fff;
-  }
+  background-color: @primaryPurple;
+  border-color: @primaryPurple;
+  color: white;
 
   &:hover {
-    background-color: @pink;
-    border-color: @pinkDarken;
-    color: #fff;
-  }
-
-  &:active, &:active:hover, &:active:focus {
-    background-color: @pinkDarken;
-    border-color: @pinkDarken;
-    color: @pinkLighten;
+    background-color: @secondaryPurple;
+    border-color: @primaryPurple;
+    color: @primaryPurple;
   }
 }
 
 .Knapp--flat {
   background-color: transparent;
   border-color: transparent;
-  color: @pinkDarken;
+  color: @primaryPurple;
 
-  &:focus, &:hover {
-    background-color: transparent;
-    border-color: @pinkDarken;
-    color: @pinkDarken;
+  &:hover {
+    background-color: white;
+    border-color: @primaryPurple;
+    color: @primaryPurple;
   }
 
-  &:active {
-    background-color: @pinkDarken;
-    border-color: @pinkDarken;
-    color: @pinkLighten;
+  .Knapp--disabled {
+    border-color: transparent;
   }
+
 }
 
 .Knapp--link {
   border: 0;
-  margin: 0;
+  margin: 4px 0;
   padding: 0;
-  background: none;
-  color: @pinkDarken;
-  cursor: pointer;
-  line-height: inherit;
-  font-weight: normal;
-  letter-spacing: normal;
   border-radius: 0;
+  background: transparent;
+  color: @primaryPurple;
+  cursor: pointer;
+  line-height: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  text-decoration-line: underline;
 
   &:hover {
-    background: none;
-    color: @pinkDarken;
+    background: transparent;
+    color: @primaryPurple;
+    text-decoration-line: none;
   }
 
-  &:focus {
-    background: none;
-    box-shadow: 0 0 0 2px @orangeFocus;
-    color: @pinkDarken;
+  &:focus, &:active {
+    box-shadow: none;
+    background: @infoYellow;
   }
 
-  &:active {
-    background: none;
-    color: @pinkDarken;
+  &--dark{
+    color: @gray5;
+
+    &:hover, &:active {
+      color: @gray5;
+    }
   }
+
 }
 
-
 .Knapp--disabled {
-  background-color: #ffffff;
-  border-color: @gray4;
-  color: @gray4;
+  background-color: white;
+  border-color: @inactiveGrey;
+  color: @inactiveGrey;
+  cursor: unset;
 
-  &:focus, &:hover, &:active {
-    background-color: #ffffff;
-    border-color: @gray4;
-    color: @gray4;
+  &:hover {
+    background-color: white;
+    border-color: @inactiveGrey;
+    color: @inactiveGrey;
   }
+
 }
 
 .Knapp--mini {
@@ -133,9 +120,9 @@
 }
 
 .Knapp__spinner {
-  border: 2px solid #9a9a9a;
-  border-left-color: rgba(180, 180, 180, 0.5);
-  border-bottom-color: rgba(180, 180, 180, 0.5);
+  border: 2px solid @secondaryLightGrey;
+  border-left-color: rgba(219, 219, 219, 0.5);
+  border-bottom-color: rgba(219, 219, 219, 0.5);
   width: 0.8em;
   height: 0.8em;
   display: inline-block;
@@ -157,6 +144,3 @@
 }
 
 
-.Tilbakeknapp {
-  .link();
-}

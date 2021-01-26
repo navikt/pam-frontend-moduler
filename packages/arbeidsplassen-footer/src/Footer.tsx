@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/href-no-hash */
 import * as React from 'react';
-import './Footer.less';
+import './style.less';
 
 export const Footer = () => (
     <div className="Footer">
