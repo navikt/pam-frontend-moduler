@@ -1,8 +1,8 @@
 {
-  "name": "pam-frontend-core",
+  "name": "@navikt/arbeidsplassen-core",
   "version": "1.3.4",
   "description": "Styling og fellesvariabler for PAMs frontend-applikasjoner",
-  "author": "teampam",
+  "author": "arbeidsplassen",
   "license": "MIT",
   "repository": "navikt/pam-frontend-moduler",
   "main": "less/core.less",
