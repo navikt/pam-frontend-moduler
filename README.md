@@ -1,3 +1,3 @@
-# PAM Frontend moduler
+# Arbeidsplassen Frontend moduler
 
-Pakker som brukes på tvers av PAMs frontend-applikasjoner
+Pakker som brukes på tvers av Arbeidsplassen.no sine frontend-applikasjoner
