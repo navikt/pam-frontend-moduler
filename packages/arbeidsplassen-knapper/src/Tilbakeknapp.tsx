@@ -16,7 +16,7 @@ const Tilbakeknapp = ({ onClick, redirect, ...rest }: TilbakeknappProps) => {
             onClick={onClick}
         >
             <Chevron type="venstre" className="Tilbakeknapp__chevron"/>
-            <Lenkeknapp className="Tilbakeknapp" {...rest} />
+            <Lenkeknapp className="Knapp--link" {...rest} />
         </a>
     );
 };

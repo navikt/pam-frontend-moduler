@@ -1,52 +1,46 @@
 @import './variables.less';
 
 .Header__Button {
-  background-color: #fff;
-  border: 2px solid @pinkDarken;
-  border-radius: 5rem;
-  color: @pinkDarken;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 600;
-  font-family: 'Source Sans Pro', Arial, sans-serif;
-  font-size: 14px;
-  padding: 0.375rem 1rem 0.5rem 1rem;
-  letter-spacing: 0.0625em;
-  line-height: 1;
-  text-decoration: none;
-  text-transform: none;
-  user-select: none;
-  white-space: nowrap;
+    background-color: white;
+    border: 3px solid @primaryPurple;
+    border-radius: 20px;
+    color: @primaryPurple;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    letter-spacing: 1px;
+    line-height: 20px;
+    text-decoration: none;
+    text-transform: none;
+    user-select: none;
+    white-space: nowrap;
+    padding: 7px 17px;
 
-  @media (min-width: @screen-sm-min) {
-    padding: 0.575rem 2rem 0.676rem 2rem;
-    font-size: 1rem;
-  }
+    &:hover {
+        background-color: @primaryPurple;
+        border-color: @primaryPurple;
+        color: white;
+    }
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px @orangeFocus;
-  }
+    &:focus, &:active {
+        outline: none;
+        box-shadow: 0 0 0 3px @primaryDarkBlue;
+        background-color: @secondaryPurple;
+        border-color: @primaryPurple;
+        color: @primaryPurple;
+        transform: none;
+    }
 
-  &:hover {
-    background-color: @pink;
-    border-color: @pinkDarken;
-    color: #fff;
-    transform: none;
-  }
-
-  &:active {
-    background-color: @pinkDarken;
-    border-color: @pinkDarken;
-    color: @pinkLighten;
-  }
 }
 
 .Header__Button--mini {
-  padding-left: 1rem;
-  padding-right: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .Header__Button--flat {
-  border: none;
+    border: none;
 }
