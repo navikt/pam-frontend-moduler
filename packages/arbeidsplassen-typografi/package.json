@@ -1,6 +1,6 @@
 {
   "name": "@navikt/arbeidsplassen-typografi",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Typografi for Arbeidsplassen.no frontend-applikasjoner",
   "author": "arbeidsplassen",
   "license": "MIT",
