@@ -1,0 +1,12 @@
+{
+  "name": "@navikt/arbeidsplassen-buttons-poc",
+  "version": "0.0.1",
+  "description": "Styling of buttons for Arbeidsplassen",
+  "author": "arbeidsplassen",
+  "license": "MIT",
+  "repository": "navikt/pam-frontend-moduler",
+  "main": "less/index.less",
+  "files": [
+    "/less"
+  ]
+}

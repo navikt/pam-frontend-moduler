@@ -1,0 +1,116 @@
+@import './variables.less';
+
+.Button() {
+  border: 3px solid @primaryPurple;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  letter-spacing: 1px;
+  line-height: 20px;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  white-space: nowrap;
+  padding: 7px 17px;
+
+  &:hover {
+    background-color: @primaryPurple;
+    border-color: @primaryPurple;
+    color: white;
+  }
+
+  &:focus, &:active {
+    outline: none;
+    box-shadow: 0 0 0 3px @primaryDarkBlue;
+    background-color: @secondaryPurple;
+    border-color: @primaryPurple;
+    color: @primaryPurple;
+    transform: none;
+  }
+
+}
+
+.Button--primary {
+  .Button();
+  background-color: @primaryPurple;
+  border-color: @primaryPurple;
+  color: white;
+
+  &:hover {
+    background-color: @secondaryPurple;
+    border-color: @primaryPurple;
+    color: @primaryPurple;
+  }
+}
+
+.Button--secondary {
+  .Button();
+  background-color: white;
+  border-color: @primaryPurple;
+  color: @primaryPurple;
+}
+
+.Button--tertiary {
+  .Button();
+  background-color: transparent;
+  border-color: transparent;
+  color: @primaryPurple;
+
+  &:hover {
+    background-color: white;
+    border-color: @primaryPurple;
+    color: @primaryPurple;
+  }
+
+  .Knapp--disabled {
+    border-color: transparent;
+  }
+
+}
+
+.Button--link {
+  border: 0;
+  margin: 4px 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: @primaryPurple;
+  cursor: pointer;
+  line-height: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  text-decoration-line: underline;
+
+  &:hover {
+    background: transparent;
+    color: @primaryPurple;
+    text-decoration-line: none;
+  }
+
+  &:focus, &:active {
+    box-shadow: none;
+    background: @infoYellow;
+  }
+
+}
+
+.Button--disabled {
+  .Button();
+  background-color: white;
+  border-color: @inactiveGrey;
+  color: @inactiveGrey;
+  cursor: unset;
+
+  &:hover {
+    background-color: white;
+    border-color: @inactiveGrey;
+    color: @inactiveGrey;
+  }
+
+}
+
