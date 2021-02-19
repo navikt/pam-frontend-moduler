@@ -3,6 +3,7 @@ import {storiesOf} from '@storybook/react'
 import {optionsKnob} from '@storybook/addon-knobs';
 import {Arbeidsgivermeny, ArbeidsgiverTabId} from "../arbeidsgiver/Arbeidsgivermeny";
 import {PersonbrukerApplikasjon, Personbrukermeny} from "../personbruker/Personbrukermeny";
+import {AuthStatus, Header} from "../felles/Header";
 
 const arbeidsgiverTabs = {
     VAAR_SIDE: ArbeidsgiverTabId.VAAR_SIDE,
@@ -46,5 +47,37 @@ storiesOf('Arbeidsplassen header', module)
                 )
             }
             onNavigationClick={(_url) => () => null}
+        />
+    ))
+    .add('Felles', () => (
+        <Header
+            authenticationStatus={
+                optionsKnob(
+                    'Authentication status',
+                    AuthStatus,
+                    AuthStatus.NOT_AUTHENTICATED,
+                    {
+                        display: 'inline-radio'
+                    },
+                    'AUTHENTICATION_STATUS'
+                )
+            }
+            onLoginClick={() => null}
+            onLogoutClick={() => null}
+            useMenu={
+                optionsKnob(
+                    'Modus',
+                    {
+                        ARBEIDSGIVER: 'arbeidsgiver',
+                        PERSONBRUKER: 'personbruker',
+                        NOT_APPLICABLE: 'none'
+                    },
+                    'arbeidsgiver',
+                    {
+                        display: 'inline-radio'
+                    },
+                    'HEADER_MODUS'
+                )
+            }
         />
     ))
