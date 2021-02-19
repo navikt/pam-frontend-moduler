@@ -6,7 +6,8 @@ export enum ArbeidsgiverTabId {
   VAAR_SIDE = 'VAAR_SIDE',
   KANDIDATSOK = 'KANDIDATSOK',
   KANDIDATLISTER = 'KANDIDATLISTER',
-  STILLINGSANNONSER = 'STILLINGSANNONSER'
+  STILLINGSANNONSER = 'STILLINGSANNONSER',
+  ARRANGEMENT = 'ARRANGEMENT'
 }
 
 interface Tab {
@@ -35,6 +36,11 @@ const tabs : Array<Tab> = [
         id: ArbeidsgiverTabId.STILLINGSANNONSER,
         tittel: 'Stillingsannonser',
         href: '/stillingsregistrering/stillingsannonser'
+    },
+    {
+        id: ArbeidsgiverTabId.ARRANGEMENT,
+        tittel: 'Arrangement',
+        href: '/moteplass/bedrift/arrangement'
     }
 ];
 

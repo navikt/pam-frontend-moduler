@@ -5,23 +5,14 @@ import {Arbeidsgivermeny, ArbeidsgiverTabId} from "../arbeidsgiver/Arbeidsgiverm
 import {PersonbrukerApplikasjon, Personbrukermeny} from "../personbruker/Personbrukermeny";
 import {AuthStatus, Header} from "../felles/Header";
 
-const arbeidsgiverTabs = {
-    VAAR_SIDE: ArbeidsgiverTabId.VAAR_SIDE,
-    KANDIDATSOK: ArbeidsgiverTabId.KANDIDATSOK,
-    KANDIDATLISTER: ArbeidsgiverTabId.KANDIDATLISTER,
-    STILLINGSANNONSER: ArbeidsgiverTabId.STILLINGSANNONSER
-}
-
-const defaultActiveArbeidsgiverTab = ArbeidsgiverTabId.VAAR_SIDE
-
 storiesOf('Arbeidsplassen header', module)
     .add('Arbeidsgivermeny', () => (
         <Arbeidsgivermeny
             activeTabID={
                 optionsKnob(
                     'Aktiv fane',
-                    arbeidsgiverTabs,
-                    defaultActiveArbeidsgiverTab,
+                    ArbeidsgiverTabId,
+                    ArbeidsgiverTabId.VAAR_SIDE,
                     {
                         display: 'inline-radio'
                     },
