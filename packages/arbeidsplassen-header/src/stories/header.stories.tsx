@@ -4,6 +4,7 @@ import {optionsKnob} from '@storybook/addon-knobs';
 import {Arbeidsgivermeny, ArbeidsgiverTabId} from "../arbeidsgiver/Arbeidsgivermeny";
 import {PersonbrukerApplikasjon, Personbrukermeny} from "../personbruker/Personbrukermeny";
 import {AuthStatus, Header} from "../felles/Header";
+import {VelgArbeidsgiver} from "../arbeidsgiver/VelgArbeidsgiver";
 
 storiesOf('Arbeidsplassen header', module)
     .add('Arbeidsgivermeny', () => (
@@ -70,5 +71,38 @@ storiesOf('Arbeidsplassen header', module)
                     'HEADER_MODUS'
                 )
             }
+        />
+    ))
+    .add('Velg arbeidsgiver', () => (
+        <VelgArbeidsgiver
+            arbeidsgivere={
+                [
+                    {
+                        orgNummer: '111111111',
+                        navn: 'Bed Rift AS'
+                    },
+                    {
+                        orgNummer: '222222222',
+                        navn: 'Evil Corp'
+                    }
+                ]
+            }
+            valgtArbeidsgiverId={
+                optionsKnob(
+                    'Valgt arbeidsgiver',
+                    {
+                        NONE: '',
+                        BED_RIFT_AS: '111111111',
+                        EVIL_CORP: '222222222'
+                    },
+                    '',
+                    {
+                        display: 'inline-radio'
+                    },
+                    'SELECTED_ORGANIZATION'
+                )
+            }
+            onLoggUt={() => null}
+            onArbeidsgiverSelect={console.log}
         />
     ))
