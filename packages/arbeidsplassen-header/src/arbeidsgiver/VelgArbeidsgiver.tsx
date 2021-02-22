@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Container, Row, Column } from 'nav-frontend-grid';
-import { Panel } from 'nav-frontend-paneler';
+import Panel from 'nav-frontend-paneler';
 import { Normaltekst, Element } from 'nav-frontend-typografi';
 import ArbeidsgiverSelect from './ArbeidsgiverSelect';
 import { Arbeidsgiver } from './PropTypes';
